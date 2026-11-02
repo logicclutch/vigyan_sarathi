@@ -65,6 +65,15 @@ Copy `.env.example` to `.env`:
 
 ## Deployment
 
+### Hostinger (shared / cloud hosting)
+
+`npm run deploy:hostinger` builds the site and force-pushes the contents of `dist/` to the `hostinger` branch of the
+GitHub repository (set `VITE_SITE_URL=https://your-domain` so the sitemap and canonical links use the live domain).
+In hPanel → Websites → Manage → Advanced → **Git**, connect the repository with branch `hostinger` and install path
+`public_html`; enable auto-deployment with the webhook so every publish goes live. `public/.htaccess` provides the
+single-page-app rewrite, compression and caching rules; `public/assets/.htaccess` caches the hashed assets for a year.
+
+
 The build is a static single-page app in `dist/`. SPA fallbacks are included for Netlify (`public/_redirects`) and
 Vercel (`vercel.json`). For Cloudflare Pages add a `_redirects` equivalent (already copied into `dist/`); for GitHub Pages
 copy `dist/index.html` to `dist/404.html` after building.

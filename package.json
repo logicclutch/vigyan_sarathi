@@ -15,7 +15,8 @@
     "og:image": "node scripts/make-og.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "test:e2e": "playwright test",
-    "logo": "node scripts/trace-logo.mjs"
+    "logo": "node scripts/trace-logo.mjs",
+    "deploy:hostinger": "bash scripts/publish-hostinger.sh"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

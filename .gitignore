@@ -34,3 +34,6 @@ dist-ssr
 .env
 .env.local
 /.screenshots/
+
+# Temporary deploy checkout
+/.deploy/
