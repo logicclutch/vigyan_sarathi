@@ -1,0 +1,1 @@
+import{_ as e,l as t}from"./index-B4U7dfda.js";e();function n({review:e,className:n}){let{t:r}=t();return null}export{n as t};

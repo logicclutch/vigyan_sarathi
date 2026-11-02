@@ -1,0 +1,1 @@
+import{x as e}from"./index-B4U7dfda.js";function t(){let{hash:t}=e();return t.startsWith(`#`)?decodeURIComponent(t.slice(1)):``}export{t};

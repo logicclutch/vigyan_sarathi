@@ -1,0 +1,1 @@
+import{C as e,w as t}from"./index-B4U7dfda.js";import{t as n}from"./useHashId-BvX2ze2X.js";var r=t(e(),1);function i(e){let t=n(),[i,a]=(0,r.useState)(null),o=t&&e(t)?t:null;return[i&&i.forHash===t?i.id:o,e=>a({id:e,forHash:t})]}export{i as t};

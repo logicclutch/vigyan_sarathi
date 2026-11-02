@@ -1,0 +1,1 @@
+import{_ as e,c as t}from"./index-B4U7dfda.js";var n=e();function r({value:e,className:r,lang:i=`en`}){return(0,n.jsx)(`span`,{"aria-hidden":`true`,lang:i,"data-n":e,className:t(`numeral select-none before:content-[attr(data-n)]`,r)})}export{r as t};

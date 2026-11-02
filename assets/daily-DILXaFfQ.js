@@ -1,0 +1,1 @@
+var e=new Date,t=new Date(e.getFullYear(),0,0),n=Math.floor((e.getTime()-t.getTime())/864e5);function r(e,t=0){return e<=0?0:(n+t)%e}export{r as t};

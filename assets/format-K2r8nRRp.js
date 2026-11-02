@@ -1,0 +1,1 @@
+function e(e,t){return e.replace(/\{(\w+)\}/g,(e,n)=>String(t[n]??`{${n}}`))}export{e as t};
