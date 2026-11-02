@@ -1,0 +1,1353 @@
+import type { L, Resource } from '../types'
+
+const l = (hi: string, en: string): L => ({ hi, en })
+
+/**
+ * Teachers Corner resource library.
+ * - kind 'written'  → authored here, opens on the site.
+ * - kind 'link'     → pre-verified external resource (checked 2026-11-02).
+ * - status 'coming-soon' → the organisation will upload this; no file is linked yet.
+ */
+export const resources: Resource[] = [
+  /* ------------------------------------------------------------------ */
+  /* TEACHING                                                            */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'questioning-culture',
+    title: l('विज्ञान कक्षा में प्रश्न पूछने की संस्कृति', 'A culture of questioning in the science classroom'),
+    summary: l(
+      'विद्यार्थी तभी प्रश्न पूछते हैं जब उन्हें लगे कि प्रश्न का स्वागत होगा। यह मार्गदर्शिका बताती है कि ऐसी कक्षा कैसे बनाएँ।',
+      'Students ask questions only when they feel questions are welcome. This guide shows how to build such a classroom.',
+    ),
+    category: 'teaching',
+    type: 'guide',
+    grade: 'all',
+    status: 'available',
+    kind: 'written',
+    sections: [
+      {
+        heading: l('यह क्यों ज़रूरी है', 'Why it matters'),
+        text: l(
+          'वैज्ञानिक सोच की शुरुआत उत्तर से नहीं, प्रश्न से होती है। जो कक्षा केवल सही उत्तर को पुरस्कृत करती है, वह धीरे-धीरे प्रश्नों को चुप करा देती है। प्रश्नों को स्थान देने से विद्यार्थी अपने अधूरे विचार भी साझा करने लगते हैं, और यहीं से असली सीख शुरू होती है।',
+          'Scientific thinking begins with a question, not an answer. A classroom that rewards only correct answers slowly silences questions. Making room for questions lets students share even half-formed ideas, and that is where real learning starts.',
+        ),
+      },
+      {
+        heading: l('तीन सरल आदतें', 'Three simple habits'),
+        items: [
+          l('हर पाठ की शुरुआत एक ऐसे प्रश्न से करें, जिसका उत्तर आप भी तुरंत न दें।', 'Open every lesson with a question you do not answer immediately.'),
+          l('प्रश्न पूछने के बाद कम से कम पाँच सेकंड प्रतीक्षा करें; चुप्पी सोचने का समय है।', 'After asking a question, wait at least five seconds; silence is thinking time.'),
+          l('"अच्छा प्रश्न है" कहने के बजाय पूछें: "आपको यह प्रश्न क्यों सूझा?"', 'Instead of saying "good question", ask: "What made you think of that?"'),
+          l('गलत उत्तर को तुरंत सुधारने के बजाय पूछें कि वह उत्तर कहाँ से आया।', 'Before correcting a wrong answer, ask where that answer came from.'),
+        ],
+      },
+      {
+        heading: l('प्रश्न-दीवार', 'The question wall'),
+        text: l(
+          'कक्षा में एक दीवार या चार्ट "हमारे प्रश्न" के लिए रखें। विद्यार्थी चिट पर अपने प्रश्न लिखकर लगाते हैं। सप्ताह में एक बार कक्षा मिलकर तय करती है कि किन प्रश्नों की जाँच की जा सकती है, किनके लिए पढ़ना होगा और कौन से अभी अनुत्तरित रहेंगे। अनुत्तरित प्रश्न भी दीवार पर रहते हैं; यही विज्ञान की ईमानदारी है।',
+          'Keep a wall or chart in the classroom for "Our questions". Students write questions on slips and pin them up. Once a week the class decides together which questions can be investigated, which need reading, and which stay open for now. Open questions stay on the wall too; that is the honesty of science.',
+        ),
+      },
+      {
+        heading: l('सावधानियाँ', 'Things to watch'),
+        items: [
+          l('किसी प्रश्न पर हँसी न हो, यह नियम पहले दिन तय करें।', 'Agree on day one that no question is laughed at.'),
+          l('हर प्रश्न का उत्तर देना आपकी ज़िम्मेदारी नहीं; "मुझे नहीं पता, पता करते हैं" कहना भी सिखाता है।', 'You do not have to answer every question; saying "I do not know, let us find out" teaches too.'),
+          l('शांत विद्यार्थियों के लिए लिखित प्रश्नों का विकल्प रखें।', 'Offer written questions as an option for quieter students.'),
+        ],
+      },
+    ],
+    tags: ['questioning', 'classroom culture', 'inquiry'],
+  },
+  {
+    id: 'five-e-lesson-structure',
+    title: l('5E पाठ संरचना: संलग्न, खोज, व्याख्या, विस्तार, मूल्यांकन', 'The 5E lesson structure: Engage, Explore, Explain, Elaborate, Evaluate'),
+    summary: l(
+      'एक सिद्ध पाठ-ढाँचा, जिसमें व्याख्या से पहले खोज आती है। उदाहरण पाठ के साथ।',
+      'A proven lesson framework in which exploration comes before explanation. With a sample lesson.',
+    ),
+    category: 'teaching',
+    type: 'guide',
+    grade: 'all',
+    status: 'available',
+    kind: 'written',
+    sections: [
+      {
+        heading: l('5E क्या है', 'What 5E is'),
+        text: l(
+          '5E मॉडल पाठ को पाँच चरणों में बाँटता है। इसकी खास बात क्रम है: विद्यार्थी पहले किसी घटना से जूझते हैं, फिर उसकी व्याख्या सुनते हैं। इससे नई जानकारी किसी अनुभव से जुड़ती है और लंबे समय तक याद रहती है।',
+          'The 5E model divides a lesson into five phases. Its key feature is the order: students first grapple with a phenomenon and only then hear the explanation. New information attaches to an experience and stays longer.',
+        ),
+      },
+      {
+        heading: l('पाँच चरण', 'The five phases'),
+        items: [
+          l('संलग्न (Engage): एक आश्चर्यजनक घटना, प्रश्न या छोटा प्रदर्शन, जो जिज्ञासा जगाए।', 'Engage: a surprising phenomenon, question or short demonstration that sparks curiosity.'),
+          l('खोज (Explore): विद्यार्थी समूह में सामग्री के साथ काम करते हैं और अवलोकन दर्ज करते हैं।', 'Explore: students work with materials in groups and record observations.'),
+          l('व्याख्या (Explain): पहले विद्यार्थी अपनी समझ बताते हैं, फिर शिक्षक वैज्ञानिक शब्दावली और अवधारणा जोड़ते हैं।', 'Explain: students share their understanding first; the teacher then adds the scientific vocabulary and concept.'),
+          l('विस्तार (Elaborate): उसी अवधारणा को नई स्थिति में लागू करना।', 'Elaborate: apply the same concept in a new situation.'),
+          l('मूल्यांकन (Evaluate): विद्यार्थी और शिक्षक दोनों जाँचते हैं कि समझ कितनी बनी।', 'Evaluate: both students and teacher check how far understanding has developed.'),
+        ],
+      },
+      {
+        heading: l('उदाहरण पाठ: वाष्पीकरण', 'Sample lesson: evaporation'),
+        items: [
+          l('संलग्न: दो तश्तरियों में बराबर पानी, एक पंखे के नीचे। "कल कौन सी पहले सूखेगी, और क्यों?"', 'Engage: equal water in two saucers, one under a fan. "Which will dry first tomorrow, and why?"'),
+          l('खोज: समूह अलग-अलग परिस्थितियाँ चुनते हैं: धूप, छाया, ढका हुआ, फैला हुआ।', 'Explore: groups choose different conditions: sun, shade, covered, spread out.'),
+          l('व्याख्या: अवलोकनों से "सतह क्षेत्र", "तापमान", "हवा" जैसे कारकों की ओर बढ़ें।', 'Explain: move from the observations to factors such as surface area, temperature and air flow.'),
+          l('विस्तार: कपड़े जल्दी सुखाने के तीन उपाय सुझाएँ और उन्हें कारकों से जोड़ें।', 'Elaborate: suggest three ways to dry clothes faster and link each to a factor.'),
+          l('मूल्यांकन: एक वाक्य में बताएँ कि मिट्टी के घड़े का पानी ठंडा क्यों रहता है।', 'Evaluate: explain in one sentence why water in a clay pot stays cool.'),
+        ],
+      },
+      {
+        heading: l('समय का बँटवारा', 'Dividing the time'),
+        text: l(
+          'चालीस मिनट की कक्षा में संलग्न के लिए 5 मिनट, खोज के लिए 12, व्याख्या के लिए 10, विस्तार के लिए 8 और मूल्यांकन के लिए 5 मिनट एक अच्छी शुरुआत है। याद रखें, खोज को काटकर व्याख्या बढ़ाना इस मॉडल के उद्देश्य के विरुद्ध है।',
+          'In a forty-minute period, 5 minutes to engage, 12 to explore, 10 to explain, 8 to elaborate and 5 to evaluate is a good start. Remember that cutting exploration to lengthen explanation defeats the purpose of the model.',
+        ),
+      },
+    ],
+    tags: ['lesson planning', '5e', 'inquiry'],
+  },
+  {
+    id: 'exit-tickets',
+    title: l('एग्ज़िट टिकट: पाँच मिनट का रचनात्मक आकलन', 'Exit tickets: five-minute formative assessment'),
+    summary: l(
+      'कक्षा के अंतिम पाँच मिनट में यह जानने का तरीका कि आज क्या समझ में आया और क्या नहीं।',
+      'A way to learn, in the last five minutes of class, what was understood today and what was not.',
+    ),
+    category: 'teaching',
+    type: 'guide',
+    grade: 'all',
+    status: 'available',
+    kind: 'written',
+    minutes: 5,
+    sections: [
+      {
+        heading: l('विचार', 'The idea'),
+        text: l(
+          'एग्ज़िट टिकट एक छोटी पर्ची है, जिस पर विद्यार्थी कक्षा छोड़ने से पहले एक या दो प्रश्नों के उत्तर लिखते हैं। इसका उद्देश्य अंक देना नहीं, बल्कि अगले पाठ की योजना बनाना है। यह शिक्षक को बताता है कि कक्षा वास्तव में कहाँ खड़ी है।',
+          'An exit ticket is a small slip on which students answer one or two questions before leaving. Its purpose is not grading but planning the next lesson. It tells the teacher where the class really stands.',
+        ),
+      },
+      {
+        heading: l('कैसे करें', 'How to run it'),
+        items: [
+          l('कक्षा समाप्त होने से पाँच मिनट पहले प्रश्न बोर्ड पर लिखें।', 'Write the question on the board five minutes before the bell.'),
+          l('पर्चियाँ बिना नाम के भी ली जा सकती हैं; ईमानदार उत्तर अधिक मिलेंगे।', 'Slips can be anonymous; you will get more honest answers.'),
+          l('पर्चियों को तीन ढेरों में छाँटें: समझ गए, आंशिक, नहीं समझे।', 'Sort the slips into three piles: understood, partly, not yet.'),
+          l('अगला पाठ उसी ढेर से शुरू करें, जो सबसे बड़ा है।', 'Begin the next lesson from whichever pile is largest.'),
+        ],
+      },
+      {
+        heading: l('अच्छे प्रश्नों के उदाहरण', 'Examples of good prompts'),
+        items: [
+          l('आज की सबसे महत्वपूर्ण बात एक वाक्य में लिखें।', 'Write the most important idea from today in one sentence.'),
+          l('एक ऐसा प्रश्न लिखें, जो अभी भी आपके मन में है।', 'Write one question that is still on your mind.'),
+          l('आज सीखी अवधारणा का घर या बाज़ार से एक उदाहरण दें।', 'Give one example of today’s concept from home or the market.'),
+          l('यदि आप किसी छोटे भाई-बहन को यह समझाते, तो कैसे समझाते?', 'How would you explain this to a younger sibling?'),
+        ],
+      },
+      {
+        heading: l('उत्तरों का उपयोग', 'Using the answers'),
+        text: l(
+          'कुछ उत्तर (बिना नाम के) अगली कक्षा में पढ़कर सुनाएँ और पूछें कि कक्षा उनसे सहमत है या नहीं। इससे विद्यार्थियों को पता चलता है कि उनकी पर्चियाँ पढ़ी जाती हैं और भ्रांतियों पर खुलकर चर्चा हो पाती है।',
+          'Read out a few answers (anonymously) in the next class and ask whether the class agrees. Students learn that their slips are read, and misconceptions can be discussed openly.',
+        ),
+      },
+    ],
+    tags: ['assessment', 'formative', 'reflection'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* ACTIVITY-BASED LEARNING                                             */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'mystery-box',
+    title: l('रहस्य बॉक्स: अनुमान से निष्कर्ष तक', 'The mystery box: from inference to conclusion'),
+    summary: l(
+      'एक बंद डिब्बे के अंदर क्या है? बिना खोले पता लगाने की यह गतिविधि वैज्ञानिक तरीके का सार सिखाती है।',
+      'What is inside a sealed box? Finding out without opening it teaches the essence of the scientific method.',
+    ),
+    category: 'activity',
+    type: 'activity',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 30,
+    sections: [
+      {
+        heading: l('उद्देश्य', 'Purpose'),
+        text: l(
+          'विद्यार्थी समझें कि अवलोकन और अनुमान में क्या अंतर है, और प्रमाण के आधार पर निष्कर्ष कैसे बदले जाते हैं। वैज्ञानिक भी प्रायः ऐसी चीज़ों का अध्ययन करते हैं, जिन्हें वे सीधे देख नहीं सकते, जैसे परमाणु या पृथ्वी का केंद्र।',
+          'Students understand the difference between observation and inference, and how conclusions change with evidence. Scientists, too, often study things they cannot see directly, such as atoms or the centre of the Earth.',
+        ),
+      },
+      {
+        heading: l('सामग्री', 'Materials'),
+        items: [
+          l('5–6 जूते के डिब्बे या टिन, टेप से बंद', '5–6 shoe boxes or tins, sealed with tape'),
+          l('हर डिब्बे में एक अलग वस्तु: कंचा, चम्मच, रबर, सिक्का, कागज़ की गेंद, चाबी', 'A different object in each box: marble, spoon, eraser, coin, paper ball, key'),
+          l('अवलोकन दर्ज करने के लिए कार्यपत्रक', 'A worksheet to record observations'),
+        ],
+      },
+      {
+        heading: l('चरण', 'Steps'),
+        items: [
+          l('समूहों को एक-एक डिब्बा दें। नियम: खोलना मना है।', 'Give each group a box. The rule: no opening.'),
+          l('पाँच मिनट तक हिलाएँ, झुकाएँ, तौलें, सुनें। हर अवलोकन लिखें: "लुढ़कने की आवाज़", "भारी है"।', 'For five minutes, shake, tilt, weigh and listen. Write every observation: "a rolling sound", "feels heavy".'),
+          l('अब अनुमान लिखें: "शायद धातु की गोल वस्तु है।" अवलोकन और अनुमान अलग-अलग स्तंभों में रखें।', 'Now write inferences: "probably a round metal object". Keep observations and inferences in separate columns.'),
+          l('समूह अपने डिब्बे अदल-बदल करें और दूसरे समूह के अनुमान की जाँच करें।', 'Groups swap boxes and test the other group’s inference.'),
+          l('अंत में तय करें कि कक्षा किस निष्कर्ष पर कितनी आश्वस्त है, और क्यों। डिब्बे खोलना वैकल्पिक रखें।', 'Finally decide how confident the class is in each conclusion, and why. Keep opening the boxes optional.'),
+        ],
+      },
+      {
+        heading: l('चर्चा के प्रश्न', 'Discussion questions'),
+        items: [
+          l('कौन सा अवलोकन सबसे उपयोगी था? कौन सा भ्रामक?', 'Which observation was most useful? Which one misled you?'),
+          l('दो समूह एक ही डिब्बे पर अलग निष्कर्ष पर क्यों पहुँचे?', 'Why did two groups reach different conclusions about the same box?'),
+          l('यदि डिब्बा कभी न खोला जाए, तो क्या हम फिर भी कुछ "जान" सकते हैं?', 'If the box is never opened, can we still "know" anything?'),
+        ],
+      },
+    ],
+    tags: ['inference', 'observation', 'scientific method'],
+  },
+  {
+    id: 'circuit-stations',
+    title: l('सर्किट स्टेशन: चार मेज़, चार पहेलियाँ', 'Circuit stations: four tables, four puzzles'),
+    summary: l(
+      'विद्यार्थी छोटे समूहों में घूमते हुए बल्ब जलाने की चार अलग-अलग चुनौतियाँ हल करते हैं।',
+      'Rotating in small groups, students solve four different challenges to light a bulb.',
+    ),
+    category: 'activity',
+    type: 'activity',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 45,
+    sections: [
+      {
+        heading: l('उद्देश्य', 'Purpose'),
+        text: l(
+          'बंद परिपथ, चालक और कुचालक, तथा श्रेणी और समानांतर संयोजन की समझ, व्याख्यान से नहीं, हाथों से। हर स्टेशन पर एक प्रश्न है, जिसका उत्तर समूह को स्वयं खोजना है।',
+          'Understanding closed circuits, conductors and insulators, and series versus parallel connections, through hands rather than lecture. Each station poses a question the group must answer on its own.',
+        ),
+      },
+      {
+        heading: l('सामग्री (प्रति स्टेशन)', 'Materials (per station)'),
+        items: [
+          l('2 सेल (1.5 V) और सेल-होल्डर', '2 cells (1.5 V) with holders'),
+          l('2–3 छोटे बल्ब होल्डर सहित', '2–3 small bulbs with holders'),
+          l('6–8 जोड़ने वाले तार, क्लिप के साथ', '6–8 connecting wires with clips'),
+          l('परीक्षण के लिए वस्तुएँ: सिक्का, पेंसिल का ग्रेफाइट, रबर, कागज़, चाबी, प्लास्टिक', 'Test objects: coin, pencil graphite, eraser, paper, key, plastic'),
+        ],
+      },
+      {
+        heading: l('चार स्टेशन', 'The four stations'),
+        items: [
+          l('स्टेशन 1: केवल एक तार, एक सेल और एक बल्ब से बल्ब जलाएँ। (संभव है!)', 'Station 1: light the bulb with only one wire, one cell and one bulb. (It is possible!)'),
+          l('स्टेशन 2: कौन सी वस्तुएँ परिपथ पूरा करती हैं? पहले अनुमान, फिर परीक्षण।', 'Station 2: which objects complete the circuit? Predict first, then test.'),
+          l('स्टेशन 3: दो बल्ब इस तरह जोड़ें कि एक निकालने पर दूसरा बुझ जाए।', 'Station 3: connect two bulbs so that removing one switches the other off.'),
+          l('स्टेशन 4: दो बल्ब इस तरह जोड़ें कि एक निकालने पर दूसरा जलता रहे।', 'Station 4: connect two bulbs so that removing one keeps the other lit.'),
+        ],
+      },
+      {
+        heading: l('चर्चा', 'Wrap-up discussion'),
+        items: [
+          l('घर की वायरिंग स्टेशन 3 जैसी है या स्टेशन 4 जैसी? कैसे पता?', 'Is home wiring like station 3 or station 4? How can you tell?'),
+          l('पेंसिल का ग्रेफाइट बिजली क्यों ले जाता है, जबकि लकड़ी नहीं?', 'Why does pencil graphite conduct while the wood does not?'),
+          l('"बंद परिपथ" का अर्थ अपने शब्दों में लिखें।', 'Write the meaning of "closed circuit" in your own words.'),
+        ],
+      },
+    ],
+    tags: ['electricity', 'circuits', 'stations'],
+  },
+  {
+    id: 'classification-walk',
+    title: l('वर्गीकरण सैर: विद्यालय परिसर एक प्रयोगशाला', 'The classification walk: the school campus as a laboratory'),
+    summary: l(
+      'विद्यार्थी परिसर में पत्तियाँ, बीज और पत्थर इकट्ठा कर अपनी वर्गीकरण प्रणाली बनाते हैं, और फिर वैज्ञानिक प्रणाली से उसकी तुलना करते हैं।',
+      'Students collect leaves, seeds and stones around the campus, build their own classification system, and then compare it with the scientific one.',
+    ),
+    category: 'activity',
+    type: 'activity',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 40,
+    sections: [
+      {
+        heading: l('उद्देश्य', 'Purpose'),
+        text: l(
+          'वर्गीकरण रटने की सूची नहीं, एक निर्णय-प्रक्रिया है। जब विद्यार्थी स्वयं नियम बनाते हैं, तो वे समझते हैं कि वैज्ञानिकों ने क्यों कुछ लक्षणों को महत्वपूर्ण माना और कुछ को नहीं।',
+          'Classification is a decision process, not a list to memorise. When students make the rules themselves, they understand why scientists treated some features as important and others not.',
+        ),
+      },
+      {
+        heading: l('कैसे करें', 'How to run it'),
+        items: [
+          l('समूहों को 15 मिनट दें: गिरी हुई पत्तियाँ, छोटे पत्थर, बीज, पंख आदि इकट्ठा करें। जीवित जीवों को केवल देखें, पकड़ें नहीं।', 'Give groups 15 minutes to collect fallen leaves, small stones, seeds, feathers and so on. Living creatures are only observed, never caught.'),
+          l('कक्षा में हर समूह अपनी वस्तुओं को कम से कम तीन समूहों में बाँटे और हर समूह का नियम लिखे।', 'Back in class, each group sorts its objects into at least three groups and writes the rule for each.'),
+          l('दूसरा समूह केवल नियम पढ़कर वस्तुओं को छाँटे। क्या वही परिणाम आया?', 'Another group sorts the objects using only the written rules. Did they get the same result?'),
+          l('नियमों में सुधार करें, जब तक कोई भी व्यक्ति उन्हें पढ़कर वही छँटाई कर सके।', 'Refine the rules until anyone reading them would sort the objects the same way.'),
+        ],
+      },
+      {
+        heading: l('अवधारणा तक वापसी', 'Back to the concept'),
+        text: l(
+          'अब पाठ्यपुस्तक की प्रणाली (जैसे पत्तियों का शिराविन्यास या जड़ों के प्रकार) प्रस्तुत करें और पूछें कि वैज्ञानिकों ने रंग या आकार के बजाय इन लक्षणों को क्यों चुना। उत्तर, स्थिरता और विश्वसनीयता, विद्यार्थियों ने अभी-अभी स्वयं अनुभव किया है।',
+          'Now present the textbook system (leaf venation or root types, for example) and ask why scientists chose these features rather than colour or size. The answer, consistency and reliability, is something students have just experienced themselves.',
+        ),
+      },
+      {
+        heading: l('विस्तार', 'Extensions'),
+        items: [
+          l('एक द्विभाजी कुंजी (हाँ/नहीं प्रश्नों की शृंखला) बनाएँ।', 'Build a dichotomous key (a chain of yes/no questions).'),
+          l('ऋतु बदलने पर वही सैर दोहराएँ और अंतर दर्ज करें।', 'Repeat the walk in another season and record the differences.'),
+        ],
+      },
+    ],
+    tags: ['biology', 'classification', 'outdoor'],
+  },
+  {
+    id: 'measurement-relay',
+    title: l('मापन रिले: अनुमान, माप और त्रुटि', 'Measurement relay: estimate, measure, error'),
+    summary: l(
+      'टीमों के बीच एक तेज़ खेल, जिसमें अनुमान लगाना, सही उपकरण चुनना और माप की अनिश्चितता समझना सिखाया जाता है।',
+      'A fast team game that teaches estimating, choosing the right instrument and understanding uncertainty in measurement.',
+    ),
+    category: 'activity',
+    type: 'activity',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 35,
+    sections: [
+      {
+        heading: l('उद्देश्य', 'Purpose'),
+        text: l(
+          'मापन केवल पैमाना पढ़ना नहीं है। विद्यार्थी सीखें कि पहले अनुमान लगाना क्यों उपयोगी है, हर माप में थोड़ी अनिश्चितता क्यों रहती है, और एक ही वस्तु के अलग-अलग माप आने पर क्या करना चाहिए।',
+          'Measuring is more than reading a scale. Students learn why estimating first is useful, why every measurement carries some uncertainty, and what to do when the same object gives different readings.',
+        ),
+      },
+      {
+        heading: l('सामग्री', 'Materials'),
+        items: [
+          l('मीटर स्केल, फीता, 15 cm रूलर, मापक सिलेंडर, रसोई की तराज़ू, स्टॉपवॉच', 'Metre scale, tape measure, 15 cm ruler, measuring cylinder, kitchen balance, stopwatch'),
+          l('मापने के लिए 8–10 स्टेशन: मेज़ की लंबाई, दरवाज़े की ऊँचाई, एक गिलास पानी का आयतन, पाठ्यपुस्तक का द्रव्यमान, 10 कदमों का समय', '8–10 stations to measure: table length, door height, volume of a glass of water, mass of a textbook, time for 10 steps'),
+        ],
+      },
+      {
+        heading: l('नियम', 'Rules'),
+        items: [
+          l('हर स्टेशन पर टीम पहले अनुमान लिखती है, फिर माप।', 'At each station the team writes an estimate first, then the measurement.'),
+          l('अंक सही माप के साथ-साथ अनुमान की निकटता पर भी मिलते हैं।', 'Points are awarded for the measurement and also for how close the estimate was.'),
+          l('हर माप तीन बार लें और तीनों दर्ज करें; औसत अंतिम उत्तर है।', 'Take every measurement three times and record all three; the average is the final answer.'),
+          l('गलत उपकरण चुनने (जैसे दरवाज़े के लिए 15 cm रूलर) पर समय-दंड।', 'Time penalty for choosing an unsuitable instrument (a 15 cm ruler for the door, for instance).'),
+        ],
+      },
+      {
+        heading: l('सीख', 'The takeaway'),
+        text: l(
+          'खेल के बाद बोर्ड पर सभी टीमों के माप लिखें। एक ही मेज़ की लंबाई के लिए अलग-अलग मान क्यों आए? यहीं से "माप की अनिश्चितता", "सार्थक अंक" और "औसत" जैसी बातें स्वाभाविक रूप से निकलती हैं।',
+          'After the game, write every team’s measurements on the board. Why did the same table give different lengths? Ideas such as uncertainty, significant figures and averaging now emerge naturally.',
+        ),
+      },
+    ],
+    tags: ['measurement', 'physics', 'game'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* EXPERIMENT-BASED MATERIAL                                           */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'density-tower-teacher',
+    title: l('घनत्व स्तंभ: शिक्षक संस्करण', 'Density tower: teacher edition'),
+    summary: l(
+      'शहद, पानी और तेल की परतों वाला क्लासिक प्रयोग, कक्षा-चर्चा के संकेतों और सामान्य भ्रांतियों के साथ।',
+      'The classic layered experiment with honey, water and oil, with discussion prompts and common misconceptions.',
+    ),
+    category: 'experiment',
+    type: 'activity',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 25,
+    sections: [
+      {
+        heading: l('तैयारी', 'Preparation'),
+        items: [
+          l('एक लंबा पारदर्शी गिलास या जार', 'A tall transparent glass or jar'),
+          l('शहद, पानी (रंग मिलाया हुआ), खाद्य तेल, और यदि संभव हो तो डिशवॉश लिक्विड', 'Honey, water (coloured), cooking oil and, if possible, dishwashing liquid'),
+          l('डालने के लिए छोटी वस्तुएँ: अंगूर, प्लास्टिक का ढक्कन, सिक्का, कॉर्क', 'Small objects to drop: a grape, a plastic cap, a coin, a cork'),
+        ],
+      },
+      {
+        heading: l('प्रदर्शन के चरण', 'Demonstration steps'),
+        items: [
+          l('विद्यार्थियों से पहले पूछें: डालने का क्रम क्या होना चाहिए, और परतें बनेंगी भी या नहीं?', 'Ask students first: what order should the liquids be poured in, and will layers even form?'),
+          l('सबसे गाढ़ा द्रव पहले डालें; बाकी को चम्मच की पीठ से धीरे-धीरे दीवार के सहारे डालें।', 'Pour the thickest liquid first; add the others slowly over the back of a spoon, down the side.'),
+          l('हर वस्तु डालने से पहले अनुमान लिखवाएँ: वह किस परत पर रुकेगी?', 'Before dropping each object, have students predict which layer it will stop at.'),
+          l('अंत में जार हिलाएँ और पूछें: क्या परतें वापस बनेंगी? (कुछ मिनट बाद देखें।)', 'Finally shake the jar and ask: will the layers come back? (Check after a few minutes.)'),
+        ],
+      },
+      {
+        heading: l('चर्चा के संकेत', 'Discussion prompts'),
+        items: [
+          l('"भारी" और "घना" में क्या अंतर है? तेल का बड़ा डिब्बा भारी है, फिर भी तेल पानी पर तैरता है।', 'What is the difference between "heavy" and "dense"? A big tin of oil is heavy, yet oil floats on water.'),
+          l('अंगूर तेल में डूबा पर शहद पर तैरा; इससे अंगूर के घनत्व के बारे में क्या पता चलता है?', 'The grape sank through the oil but floated on honey; what does that tell us about its density?'),
+          l('जहाज़ लोहे का होकर भी क्यों तैरता है? (संकेत: आकार और औसत घनत्व।)', 'Why does an iron ship float? (Hint: shape and average density.)'),
+        ],
+      },
+      {
+        heading: l('सामान्य भ्रांतियाँ', 'Common misconceptions'),
+        text: l(
+          'कई विद्यार्थी मानते हैं कि भारी वस्तुएँ डूबती हैं और हल्की तैरती हैं। घनत्व स्तंभ इस धारणा को सीधे चुनौती देता है, क्योंकि एक ही वस्तु एक परत में डूबती और दूसरी पर तैरती है। "द्रव्यमान प्रति आयतन" की भाषा तभी लाएँ, जब विद्यार्थी स्वयं "कितना सामान कितनी जगह में" जैसी बात कहने लगें।',
+          'Many students believe heavy things sink and light things float. The density tower challenges this directly, because the same object sinks through one layer and floats on another. Introduce the language of "mass per volume" only after students themselves start saying things like "how much stuff in how much space".',
+        ),
+      },
+    ],
+    tags: ['density', 'chemistry', 'demonstration'],
+  },
+  {
+    id: 'candle-jar-inquiry',
+    title: l('मोमबत्ती और जार: एक पुरानी व्याख्या की जाँच', 'Candle and jar: testing an old explanation'),
+    summary: l(
+      'उलटे जार में पानी क्यों चढ़ता है? पाठ्यपुस्तकों की लोकप्रिय व्याख्या को विद्यार्थी स्वयं परखते हैं।',
+      'Why does water rise inside the inverted jar? Students test the popular textbook explanation for themselves.',
+    ),
+    category: 'experiment',
+    type: 'activity',
+    grade: '9-10',
+    status: 'available',
+    kind: 'written',
+    minutes: 30,
+    sections: [
+      {
+        heading: l('प्रयोग', 'The experiment'),
+        items: [
+          l('तश्तरी में थोड़ा रंगीन पानी, बीच में मोमबत्ती। मोमबत्ती जलाकर उस पर काँच का जार उलटा रख दें।', 'A little coloured water in a plate, a candle in the middle. Light the candle and place a glass jar upside down over it.'),
+          l('लौ बुझने पर पानी जार के अंदर चढ़ जाता है। कितना चढ़ा, निशान लगाएँ।', 'When the flame goes out, water rises inside the jar. Mark how far it rose.'),
+        ],
+      },
+      {
+        heading: l('लोकप्रिय दावा', 'The popular claim'),
+        text: l(
+          'प्रायः कहा जाता है कि लौ ने जार की ऑक्सीजन "खर्च" कर दी, इसलिए पानी उसकी जगह लेने चढ़ा। हवा में लगभग 21% ऑक्सीजन है, तो पानी लगभग पाँचवाँ हिस्सा चढ़ना चाहिए। यह व्याख्या साफ़-सुथरी लगती है, पर क्या यह प्रमाण पर खरी उतरती है?',
+          'It is often said that the flame "used up" the oxygen in the jar, so water rose to take its place. Air is about 21% oxygen, so the water should rise roughly a fifth of the way. The explanation sounds neat, but does it survive the evidence?',
+        ),
+      },
+      {
+        heading: l('परखने के लिए प्रयोग बदलें', 'Vary the experiment to test it'),
+        items: [
+          l('एक के बजाय तीन मोमबत्तियाँ जलाएँ। यदि दावा सही है, तो पानी उतना ही चढ़ना चाहिए (ऑक्सीजन उतनी ही है)। क्या ऐसा होता है?', 'Use three candles instead of one. If the claim is right, the water should rise the same amount (the oxygen is the same). Does it?'),
+          l('ध्यान से देखें: पानी कब चढ़ता है, लौ जलते समय या बुझने के बाद?', 'Watch closely: when does the water rise, while the flame burns or after it goes out?'),
+          l('जार रखते ही शुरुआत में बुलबुले बाहर निकलते दिखें, तो वह क्या बताता है?', 'If bubbles escape from under the rim right after placing the jar, what does that tell you?'),
+        ],
+      },
+      {
+        heading: l('प्रमाण क्या कहता है', 'What the evidence says'),
+        text: l(
+          'अधिक मोमबत्तियों से पानी अधिक चढ़ता है, और अधिकतर चढ़ाव लौ बुझने के बाद होता है। इसका मुख्य कारण है कि लौ ने जार की हवा को गर्म करके फैलाया था (इसीलिए शुरू में बुलबुले निकले); बुझने के बाद हवा ठंडी होकर सिकुड़ी और पानी ऊपर खिंचा। ऑक्सीजन की खपत और बनी हुई कार्बन डाइऑक्साइड का पानी में घुलना भी थोड़ा योगदान देता है, पर "पाँचवाँ हिस्सा" वाली सरल कहानी पूरी नहीं है। यही वैज्ञानिक दृष्टिकोण है: सुंदर व्याख्या भी प्रमाण के सामने झुकती है।',
+          'More candles make the water rise more, and most of the rise happens after the flame dies. The main cause is that the flame heated and expanded the air in the jar (hence the early bubbles); after it went out the air cooled, contracted and drew the water up. Oxygen consumption and the dissolving of the carbon dioxide produced also contribute a little, but the simple "one fifth" story is incomplete. That is scientific temper: even a beautiful explanation bows to evidence.',
+        ),
+      },
+      {
+        heading: l('सुरक्षा', 'Safety'),
+        items: [
+          l('जार गर्म हो सकता है; कपड़े या दस्ताने से पकड़ें।', 'The jar can get hot; handle it with a cloth or gloves.'),
+          l('बाल और दुपट्टे लौ से दूर रखें; प्रयोग शिक्षक की उपस्थिति में ही हो।', 'Keep hair and scarves away from the flame; do the experiment only with a teacher present.'),
+        ],
+      },
+    ],
+    tags: ['combustion', 'air pressure', 'misconception', 'inquiry'],
+  },
+  {
+    id: 'germination-variables',
+    title: l('अंकुरण के चर: एक सप्ताह की जाँच', 'Variables in germination: a one-week investigation'),
+    summary: l(
+      'चने के बीजों से "नियंत्रित प्रयोग" की अवधारणा: एक समय में केवल एक चीज़ बदलें।',
+      'Using chickpea seeds to teach the controlled experiment: change only one thing at a time.',
+    ),
+    category: 'experiment',
+    type: 'activity',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 40,
+    sections: [
+      {
+        heading: l('उद्देश्य', 'Purpose'),
+        text: l(
+          'विद्यार्थी स्वतंत्र चर, आश्रित चर और नियंत्रित चर को नाम रटकर नहीं, एक वास्तविक जाँच में पहचानें। साथ ही एक सप्ताह तक नियमित अवलोकन और डेटा-तालिका रखने का अभ्यास हो।',
+          'Students identify independent, dependent and controlled variables in a real investigation rather than by memorising names. They also practise regular observation and keeping a data table for a week.',
+        ),
+      },
+      {
+        heading: l('सेटअप (पहला दिन, 40 मिनट)', 'Setup (day one, 40 minutes)'),
+        items: [
+          l('हर समूह को 4 कप, रुई और 20 चने के बीज दें (हर कप में 5)।', 'Give each group 4 cups, cotton and 20 chickpea seeds (5 per cup).'),
+          l('कप A: रुई गीली, खिड़की के पास। यह "नियंत्रण" है।', 'Cup A: damp cotton, near the window. This is the control.'),
+          l('कप B: सब कुछ A जैसा, पर रुई सूखी।', 'Cup B: everything like A, but dry cotton.'),
+          l('कप C: सब कुछ A जैसा, पर अलमारी के अंदर अँधेरे में।', 'Cup C: everything like A, but inside a dark cupboard.'),
+          l('कप D: सब कुछ A जैसा, पर फ्रिज में (ठंडा)।', 'Cup D: everything like A, but in the refrigerator (cold).'),
+        ],
+      },
+      {
+        heading: l('चर पहचानना', 'Naming the variables'),
+        items: [
+          l('हर कप में हमने क्या बदला? (स्वतंत्र चर: पानी, प्रकाश, तापमान)', 'What did we change in each cup? (Independent variable: water, light, temperature)'),
+          l('हम क्या मापेंगे? (आश्रित चर: कितने बीज अंकुरित हुए, अंकुर की लंबाई)', 'What will we measure? (Dependent variable: how many seeds sprouted, length of the shoot)'),
+          l('क्या समान रखा? (बीजों की संख्या, कप का प्रकार, रुई की मात्रा)', 'What did we keep the same? (Number of seeds, type of cup, amount of cotton)'),
+        ],
+      },
+      {
+        heading: l('डेटा तालिका', 'The data table'),
+        text: l(
+          'हर दिन एक ही समय पर अवलोकन दर्ज करें: अंकुरित बीजों की संख्या, सबसे लंबे अंकुर की लंबाई (mm में) और रंग। एक सप्ताह बाद हर कप का ग्राफ़ बनाएँ। अँधेरे वाले कप के पीले, लंबे अंकुर विशेष चर्चा के योग्य हैं।',
+          'Record observations at the same time every day: number of sprouted seeds, length of the longest shoot (in mm) and colour. After a week, graph each cup. The pale, elongated shoots from the dark cup deserve special discussion.',
+        ),
+      },
+      {
+        heading: l('चर्चा', 'Discussion'),
+        items: [
+          l('कप C में बीज अंकुरित तो हुए, पर अंकुर पीले क्यों रहे? अंकुरण और वृद्धि में क्या अंतर है?', 'Seeds in cup C did sprout, so why did the shoots stay pale? What is the difference between germination and growth?'),
+          l('यदि कप B में भी एक-दो बीज फूल गए, तो क्या प्रयोग गलत हुआ? (नमी हवा में भी होती है।)', 'If a seed or two swelled in cup B as well, did the experiment fail? (Air contains moisture too.)'),
+          l('किसान इस प्रयोग से क्या सीख सकता है?', 'What could a farmer learn from this experiment?'),
+        ],
+      },
+    ],
+    tags: ['biology', 'variables', 'controlled experiment'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* PROJECT IDEAS                                                       */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'mentoring-exhibition-project',
+    title: l('प्रदर्शनी प्रोजेक्ट का मार्गदर्शन: प्रश्न से प्रस्तुति तक', 'Mentoring an exhibition project: from question to presentation'),
+    summary: l(
+      'विज्ञान प्रदर्शनी के लिए विद्यार्थियों के प्रोजेक्ट को एक जाँच-योग्य प्रश्न से लेकर प्रभावी प्रस्तुति तक ले जाने की मार्गदर्शिका।',
+      'A guide to taking student projects from a testable question to an effective presentation for a science exhibition.',
+    ),
+    category: 'project',
+    type: 'guide',
+    grade: '9-10',
+    status: 'available',
+    kind: 'written',
+    sections: [
+      {
+        heading: l('सबसे पहले प्रश्न', 'The question comes first'),
+        text: l(
+          'अच्छा प्रोजेक्ट किसी "मॉडल" से नहीं, एक प्रश्न से शुरू होता है, जिसका उत्तर विद्यार्थी अभी नहीं जानते और जिसे वे उपलब्ध साधनों से परख सकते हैं। "ज्वालामुखी कैसे फटता है" प्रदर्शन है; "किस मिट्टी में पानी सबसे देर तक रुकता है" जाँच है। विद्यार्थी को प्रश्न स्वयं चुनने दें, आप केवल उसे जाँच-योग्य बनाने में मदद करें।',
+          'A good project starts not with a "model" but with a question the students do not yet know the answer to and can test with available means. "How a volcano erupts" is a display; "which soil holds water longest" is an investigation. Let students choose the question themselves; you only help make it testable.',
+        ),
+      },
+      {
+        heading: l('छह सप्ताह की समय-रेखा', 'A six-week timeline'),
+        items: [
+          l('सप्ताह 1: प्रश्न चुनना, पृष्ठभूमि पढ़ना, परिकल्पना लिखना।', 'Week 1: choose the question, read the background, write the hypothesis.'),
+          l('सप्ताह 2: विधि तय करना; चर, नियंत्रण और सुरक्षा की जाँच।', 'Week 2: decide the method; check variables, controls and safety.'),
+          l('सप्ताह 3–4: डेटा एकत्र करना, कम से कम तीन बार दोहराना।', 'Weeks 3–4: collect data, repeating at least three times.'),
+          l('सप्ताह 5: तालिका, ग्राफ़ और निष्कर्ष; "क्या गलत हो सकता था" अनुभाग।', 'Week 5: tables, graphs and conclusion; a "what could have gone wrong" section.'),
+          l('सप्ताह 6: पोस्टर और दो मिनट की मौखिक प्रस्तुति का अभ्यास।', 'Week 6: poster and practice of a two-minute oral presentation.'),
+        ],
+      },
+      {
+        heading: l('शिक्षक की भूमिका', 'The mentor’s role'),
+        items: [
+          l('उत्तर नहीं, प्रश्न दें: "आप यह कैसे मापेंगे?", "यदि परिणाम उल्टा आए तो?"', 'Offer questions, not answers: "How will you measure that?", "What if the result is the opposite?"'),
+          l('असफल प्रयोग को प्रोजेक्ट का हिस्सा बनने दें; ईमानदार "नकारात्मक परिणाम" भी विज्ञान है।', 'Let a failed trial become part of the project; an honest negative result is science too.'),
+          l('डेटा को "सुंदर" बनाने के दबाव से बचाएँ; जो मिला, वही दिखाया जाए।', 'Protect students from the pressure to make data "look nice"; show what was found.'),
+          l('अभिभावकों की मदद सामग्री तक सीमित रहे, निष्कर्ष तक नहीं।', 'Parental help should stop at materials, not reach conclusions.'),
+        ],
+      },
+      {
+        heading: l('प्रस्तुति की तैयारी', 'Preparing the presentation'),
+        items: [
+          l('पोस्टर का क्रम: प्रश्न → विधि → परिणाम → निष्कर्ष → आगे के प्रश्न।', 'Poster order: question → method → results → conclusion → further questions.'),
+          l('एक ग्राफ़ दस वाक्यों से बेहतर; अक्ष और इकाइयाँ अवश्य लिखें।', 'One graph beats ten sentences; always label axes and units.'),
+          l('निर्णायकों के संभावित प्रश्नों का अभ्यास: "सबसे बड़ी त्रुटि का स्रोत क्या था?"', 'Rehearse likely judges’ questions: "What was the biggest source of error?"'),
+        ],
+      },
+    ],
+    tags: ['projects', 'exhibition', 'mentoring'],
+  },
+  {
+    id: 'project-rubric',
+    title: l('प्रोजेक्ट मूल्यांकन रूब्रिक', 'A rubric for assessing science projects'),
+    summary: l(
+      'छह मानदंडों वाला पारदर्शी रूब्रिक, जो सजावट के बजाय वैज्ञानिक प्रक्रिया को अंक देता है।',
+      'A transparent six-criterion rubric that rewards scientific process rather than decoration.',
+    ),
+    category: 'project',
+    type: 'guide',
+    grade: 'all',
+    status: 'available',
+    kind: 'written',
+    sections: [
+      {
+        heading: l('सिद्धांत', 'Principle'),
+        text: l(
+          'जो चीज़ मापी जाती है, वही बढ़ती है। यदि रूब्रिक चमकदार चार्ट को अंक देगा, तो विद्यार्थी चार्ट पर समय लगाएँगे; यदि वह प्रश्न की गुणवत्ता और प्रमाण की ईमानदारी को अंक देगा, तो वही बढ़ेगी। रूब्रिक प्रोजेक्ट शुरू होने से पहले विद्यार्थियों को दे दें।',
+          'What gets measured grows. If the rubric rewards shiny charts, students will spend time on charts; if it rewards the quality of the question and the honesty of the evidence, those will grow. Share the rubric with students before the project begins.',
+        ),
+      },
+      {
+        heading: l('छह मानदंड (कुल 100 अंक)', 'Six criteria (100 points)'),
+        items: [
+          l('प्रश्न और परिकल्पना (20): स्पष्ट, जाँच-योग्य, विद्यार्थी का अपना।', 'Question and hypothesis (20): clear, testable, the student’s own.'),
+          l('विधि (20): चर पहचाने गए, नियंत्रण है, दोहराव है, सुरक्षा का ध्यान।', 'Method (20): variables identified, a control present, repetition, attention to safety.'),
+          l('डेटा और विश्लेषण (20): ईमानदार रिकॉर्ड, उचित तालिका/ग्राफ़, इकाइयाँ।', 'Data and analysis (20): honest records, suitable tables/graphs, units.'),
+          l('निष्कर्ष (15): प्रमाण पर आधारित, सीमाओं की स्वीकारोक्ति, आगे के प्रश्न।', 'Conclusion (15): grounded in evidence, acknowledges limits, raises next questions.'),
+          l('संप्रेषण (15): पोस्टर की स्पष्टता, मौखिक व्याख्या, प्रश्नों के उत्तर।', 'Communication (15): clarity of poster, oral explanation, handling of questions.'),
+          l('मौलिकता और प्रयास (10): विचार की ताज़गी, कठिनाइयों से निपटना।', 'Originality and effort (10): freshness of idea, handling of difficulties.'),
+        ],
+      },
+      {
+        heading: l('चार स्तर', 'Four levels'),
+        items: [
+          l('उत्कृष्ट: मानदंड पूरी तरह और स्वतंत्र रूप से पूरा।', 'Excellent: criterion fully and independently met.'),
+          l('अच्छा: अधिकतर पूरा, छोटी कमियाँ।', 'Good: largely met, minor gaps.'),
+          l('विकासशील: आंशिक, मार्गदर्शन की आवश्यकता दिखती है।', 'Developing: partly met, visible need for guidance.'),
+          l('प्रारंभिक: मानदंड का प्रयास आरंभ हुआ है।', 'Beginning: an attempt at the criterion has started.'),
+        ],
+      },
+      {
+        heading: l('फ़ीडबैक कैसे दें', 'Giving feedback'),
+        text: l(
+          'अंकों के साथ हर विद्यार्थी को दो वाक्य लिखकर दें: एक, जो उसने सबसे अच्छा किया; और एक, जो अगली बार करने से प्रोजेक्ट एक स्तर ऊपर उठ जाएगा। "नकारात्मक परिणाम" वाले ईमानदार प्रोजेक्ट को सार्वजनिक रूप से सराहें, ताकि कक्षा समझे कि यहाँ सच बोलना सुरक्षित है।',
+          'Along with the score, give every student two written sentences: one thing they did best, and one thing that would lift the project a level next time. Publicly appreciate an honest project with a negative result, so the class learns that telling the truth is safe here.',
+        ),
+      },
+    ],
+    tags: ['assessment', 'rubric', 'projects'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* CLASSROOM DEMONSTRATIONS                                            */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'can-crush-air-pressure',
+    title: l('वायुदाब का प्रदर्शन: पिचकता हुआ डिब्बा', 'Demonstrating air pressure: the collapsing can'),
+    summary: l(
+      'थोड़े से पानी वाले गर्म डिब्बे को ठंडे पानी में उलटते ही वह ज़ोर से पिचक जाता है। हवा का दबाव अचानक दिखाई देने लगता है।',
+      'A hot can with a little water, flipped into cold water, crumples with a bang. Air pressure suddenly becomes visible.',
+    ),
+    category: 'demo',
+    type: 'demo',
+    grade: '9-10',
+    status: 'available',
+    kind: 'written',
+    minutes: 15,
+    sections: [
+      {
+        heading: l('सामग्री', 'Materials'),
+        items: [
+          l('खाली एल्युमिनियम कोल्ड-ड्रिंक का डिब्बा', 'An empty aluminium soft-drink can'),
+          l('चिमटा या लंबी संडसी, गर्मी-रोधी दस्ताने', 'Tongs, heat-resistant gloves'),
+          l('स्पिरिट लैंप या बर्नर, तिपाई', 'A spirit lamp or burner, tripod'),
+          l('ठंडे पानी (बर्फ़ सहित) से भरा चौड़ा बर्तन', 'A wide bowl of cold water with ice'),
+        ],
+      },
+      {
+        heading: l('चरण', 'Steps'),
+        items: [
+          l('डिब्बे में लगभग दो चम्मच पानी डालें।', 'Put about two spoonfuls of water in the can.'),
+          l('डिब्बे को गर्म करें, जब तक मुँह से भाप साफ़ निकलने न लगे (लगभग एक मिनट)।', 'Heat the can until steam clearly escapes from the opening (about a minute).'),
+          l('विद्यार्थियों से अनुमान लिखवाएँ: ठंडे पानी में उलटने पर क्या होगा?', 'Have students write a prediction: what will happen when it is flipped into cold water?'),
+          l('चिमटे से डिब्बा उठाकर एक झटके में मुँह के बल ठंडे पानी में उलट दें।', 'Lift the can with tongs and in one quick motion flip it, mouth down, into the cold water.'),
+        ],
+      },
+      {
+        heading: l('सुरक्षा', 'Safety'),
+        items: [
+          l('यह प्रदर्शन केवल शिक्षक करें; विद्यार्थी कम से कम दो मीटर दूर रहें।', 'Only the teacher performs this; students stay at least two metres away.'),
+          l('डिब्बा और भाप दोनों जलाते हैं; दस्ताने और चिमटा अनिवार्य।', 'Both the can and the steam burn; gloves and tongs are mandatory.'),
+          l('डिब्बे को पूरी तरह खाली न उबालें; पानी खत्म होने पर गर्म करना रोक दें।', 'Do not boil the can dry; stop heating if the water runs out.'),
+        ],
+      },
+      {
+        heading: l('व्याख्या', 'Explanation'),
+        text: l(
+          'गर्म करने पर भाप ने डिब्बे की अधिकतर हवा को बाहर धकेल दिया। ठंडे पानी में भाप तुरंत संघनित होकर बहुत कम आयतन का पानी बन गई, जिससे अंदर का दबाव अचानक गिर गया। बाहर का वायुमंडलीय दबाव, जो हर समय हर दिशा से लगभग 1 किलोग्राम-बल प्रति वर्ग सेंटीमीटर के बराबर है, अब अंदर से संतुलित नहीं रहा और डिब्बे को कुचल दिया। पानी मुँह को सील कर देता है, इसलिए हवा अंदर वापस नहीं जा पाती।',
+          'Heating made steam push most of the air out of the can. In cold water the steam condenses almost instantly into a tiny volume of water, so the pressure inside drops suddenly. The atmospheric pressure outside, roughly 1 kilogram-force per square centimetre from every direction all the time, is no longer balanced from within and crushes the can. The water seals the mouth, so air cannot rush back in.',
+        ),
+      },
+      {
+        heading: l('पूछने के प्रश्न', 'Questions to ask'),
+        items: [
+          l('यदि डिब्बे को सीधा (मुँह ऊपर) ठंडे पानी में रखें, तो क्या वह पिचकेगा?', 'If the can is placed upright (mouth up) in cold water, will it collapse?'),
+          l('हमारा शरीर इसी दबाव में क्यों नहीं पिचकता?', 'Why do our bodies not get crushed under the same pressure?'),
+          l('रेलगाड़ी के टैंकर को भाप से साफ़ करके बंद कर देना क्यों खतरनाक है?', 'Why is it dangerous to steam-clean a rail tanker and then seal it?'),
+        ],
+      },
+    ],
+    tags: ['air pressure', 'physics', 'demonstration', 'safety'],
+  },
+  {
+    id: 'marble-newton-cradle',
+    title: l('रूलर पर कंचे: न्यूटन का पालना', 'Marbles on a ruler: a Newton’s cradle'),
+    summary: l(
+      'दो रूलरों की पटरी पर रखे कंचों से संवेग के स्थानांतरण का प्रदर्शन, जो महँगे न्यूटन के पालने के बिना भी उतना ही प्रभावशाली है।',
+      'Marbles on a track made of two rulers show momentum transfer just as impressively as an expensive Newton’s cradle.',
+    ),
+    category: 'demo',
+    type: 'demo',
+    grade: '9-10',
+    status: 'available',
+    kind: 'written',
+    minutes: 15,
+    sections: [
+      {
+        heading: l('सामग्री', 'Materials'),
+        items: [
+          l('दो समान रूलर या लकड़ी की पट्टियाँ, किताबों के बीच समानांतर पटरी बनाने के लिए', 'Two identical rulers or wooden strips, set up as parallel rails between books'),
+          l('6–8 एक जैसे काँच के कंचे', '6–8 identical glass marbles'),
+          l('एक बड़ा और एक छोटा कंचा (वैकल्पिक, विस्तार के लिए)', 'One larger and one smaller marble (optional, for extension)'),
+        ],
+      },
+      {
+        heading: l('चरण', 'Steps'),
+        items: [
+          l('पटरी के बीच में पाँच कंचे एक-दूसरे को छूते हुए रखें।', 'Place five marbles touching each other in the middle of the track.'),
+          l('एक कंचा दूर से लुढ़काकर कतार से टकराएँ। अनुमान पहले: दूसरी ओर कितने कंचे निकलेंगे?', 'Roll one marble from a distance into the line. Predict first: how many marbles will leave the other end?'),
+          l('अब दो कंचे एक साथ टकराएँ, फिर तीन। हर बार गिनें।', 'Now roll two marbles together, then three. Count each time.'),
+          l('बड़े कंचे से छोटे कंचों की कतार पर टकराएँ और अंतर देखें।', 'Roll the larger marble into the line of small ones and note the difference.'),
+        ],
+      },
+      {
+        heading: l('क्या देखें', 'What to look for'),
+        items: [
+          l('जितने कंचे टकराते हैं, लगभग उतने ही दूसरी ओर से निकलते हैं।', 'Roughly as many marbles leave the far end as struck the line.'),
+          l('बीच के कंचे लगभग स्थिर रहते हैं; संवेग उनसे होकर "गुज़रता" है।', 'The middle marbles stay almost still; momentum "passes through" them.'),
+          l('कुछ देर बाद गति धीमी पड़ती है: ऊर्जा ध्वनि और घर्षण में जाती है।', 'The motion slows over time: energy goes into sound and friction.'),
+        ],
+      },
+      {
+        heading: l('व्याख्या', 'Explanation'),
+        text: l(
+          'टक्कर में संवेग (द्रव्यमान × वेग) संरक्षित रहता है, और काँच के कंचों की टक्कर लगभग प्रत्यास्थ होने से गतिज ऊर्जा भी लगभग बची रहती है। दोनों नियम एक साथ तभी संतुष्ट होते हैं, जब उतने ही कंचे उतने ही वेग से निकलें। यही कारण है कि एक कंचे की टक्कर से "दो कंचे आधी गति से" नहीं निकलते।',
+          'Momentum (mass × velocity) is conserved in the collision, and because glass marbles collide almost elastically, kinetic energy is nearly conserved too. Both laws are satisfied together only if the same number of marbles leave with the same speed. That is why one incoming marble does not send out "two marbles at half speed".',
+        ),
+      },
+    ],
+    tags: ['momentum', 'collisions', 'physics'],
+  },
+  {
+    id: 'convection-currents-tank',
+    title: l('पानी में संवहन धाराएँ', 'Convection currents in a water tank'),
+    summary: l(
+      'गर्म रंगीन पानी की छोटी शीशी ठंडे पानी में रखते ही रंग ऊपर उठता है; हवाओं और समुद्री धाराओं की कहानी एक टैंक में।',
+      'A small vial of hot coloured water placed in cold water sends colour rising upward; the story of winds and ocean currents in one tank.',
+    ),
+    category: 'demo',
+    type: 'demo',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 20,
+    sections: [
+      {
+        heading: l('सामग्री', 'Materials'),
+        items: [
+          l('पारदर्शी टैंक या बड़ा काँच का बर्तन, कमरे के तापमान के पानी से भरा', 'A transparent tank or large glass bowl filled with room-temperature water'),
+          l('एक छोटी काँच की शीशी (दवा की), गर्म पानी और लाल खाद्य रंग', 'A small glass vial (medicine bottle), hot water and red food colour'),
+          l('बर्फ़ के टुकड़े में जमाया नीला रंग (एक दिन पहले बनाएँ)', 'Blue colour frozen into an ice cube (prepare a day earlier)'),
+        ],
+      },
+      {
+        heading: l('चरण', 'Steps'),
+        items: [
+          l('शीशी में गर्म पानी और लाल रंग भरकर, अँगूठे से मुँह बंद कर उसे टैंक की तली में सीधा रखें; फिर अँगूठा हटाएँ।', 'Fill the vial with hot water and red colour, close the mouth with your thumb, stand it upright at the bottom of the tank, then remove your thumb.'),
+          l('देखें: लाल पानी ऊपर उठता है और सतह पर फैलता है।', 'Watch: the red water rises and spreads along the surface.'),
+          l('अब नीला बर्फ़ का टुकड़ा सतह पर छोड़ें और देखें कि नीला रंग कहाँ जाता है।', 'Now float the blue ice cube on the surface and watch where the blue goes.'),
+          l('कुछ मिनट बाद टैंक में रंगों का चक्र दिखता है: गर्म ऊपर, ठंडा नीचे।', 'After a few minutes a circulation appears: warm up, cold down.'),
+        ],
+      },
+      {
+        heading: l('व्याख्या', 'Explanation'),
+        text: l(
+          'गर्म पानी फैलता है, इसलिए उसका घनत्व कम हो जाता है और वह ऊपर उठता है; ठंडा पानी सघन होकर नीचे बैठता है। इस चक्र को संवहन कहते हैं। यही प्रक्रिया कमरे की हवा, समुद्र की धाराओं, मानसूनी हवाओं और पृथ्वी के भीतर मैग्मा की धीमी गति को चलाती है।',
+          'Warm water expands, so it becomes less dense and rises; cold water becomes denser and sinks. This cycle is convection. The same process drives the air in a room, ocean currents, monsoon winds and the slow movement of magma inside the Earth.',
+        ),
+      },
+      {
+        heading: l('जोड़ें', 'Add on'),
+        items: [
+          l('हीटर या रेडिएटर खिड़की के नीचे क्यों लगाए जाते हैं?', 'Why are heaters or radiators placed below windows?'),
+          l('दिन में हवा समुद्र से ज़मीन की ओर क्यों चलती है?', 'Why does the breeze blow from sea to land during the day?'),
+        ],
+      },
+    ],
+    tags: ['heat', 'convection', 'earth science'],
+  },
+  {
+    id: 'pinhole-camera',
+    title: l('पिनहोल कैमरा: उल्टी दुनिया', 'The pinhole camera: a world turned upside down'),
+    summary: l(
+      'एक डिब्बे, बटर पेपर और एक सुई के छेद से बना कैमरा दिखाता है कि प्रकाश सीधी रेखा में चलता है।',
+      'A camera made from a box, butter paper and a pinhole shows that light travels in straight lines.',
+    ),
+    category: 'demo',
+    type: 'demo',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 25,
+    sections: [
+      {
+        heading: l('सामग्री', 'Materials'),
+        items: [
+          l('जूते का डिब्बा या लंबा गत्ते का डिब्बा', 'A shoe box or long cardboard box'),
+          l('बटर पेपर या ट्रेसिंग पेपर, काला कागज़', 'Butter paper or tracing paper, black paper'),
+          l('सुई, टेप, कैंची', 'A pin, tape, scissors'),
+          l('एक मोमबत्ती या चमकीला बल्ब (प्रकाश-स्रोत)', 'A candle or bright bulb (light source)'),
+        ],
+      },
+      {
+        heading: l('बनाने के चरण', 'Building steps'),
+        items: [
+          l('डिब्बे के एक सिरे के बीच में सुई से छोटा सा छेद करें।', 'Make a tiny pinhole at the centre of one end of the box.'),
+          l('दूसरे सिरे को काटकर उस पर बटर पेपर का पर्दा लगाएँ।', 'Cut out the opposite end and fix a butter-paper screen over it.'),
+          l('डिब्बे के अंदर काला कागज़ लगाएँ, ताकि परावर्तन कम हो।', 'Line the inside with black paper to reduce reflections.'),
+          l('कमरा अँधेरा करके छेद को जलती मोमबत्ती की ओर करें और पर्दे को देखें।', 'Darken the room, point the pinhole at a lit candle and look at the screen.'),
+        ],
+      },
+      {
+        heading: l('क्या देखें', 'What to observe'),
+        items: [
+          l('पर्दे पर मोमबत्ती की उल्टी छवि बनती है।', 'An inverted image of the candle forms on the screen.'),
+          l('मोमबत्ती को पास लाने पर छवि बड़ी और दूर ले जाने पर छोटी होती है।', 'Moving the candle closer makes the image larger; moving it away makes it smaller.'),
+          l('छेद बड़ा करने पर छवि चमकीली पर धुँधली हो जाती है।', 'Enlarging the hole makes the image brighter but blurrier.'),
+        ],
+      },
+      {
+        heading: l('व्याख्या', 'Explanation'),
+        text: l(
+          'मोमबत्ती के हर बिंदु से प्रकाश हर दिशा में जाता है, पर छेद से केवल एक पतला किरण-पुंज गुज़रता है। ऊपर से चली किरण नीचे पहुँचती है और नीचे से चली ऊपर, इसलिए छवि उल्टी बनती है। छवि इसीलिए बन पाती है, क्योंकि प्रकाश सीधी रेखा में चलता है। हमारी आँख भी इसी सिद्धांत पर रेटिना पर उल्टी छवि बनाती है, जिसे मस्तिष्क सीधा कर देता है।',
+          'Light leaves every point of the candle in all directions, but only a thin bundle of rays passes through the hole. Rays from the top land at the bottom and vice versa, so the image is inverted. The image forms at all only because light travels in straight lines. Our eye works on the same principle, forming an inverted image on the retina that the brain turns upright.',
+        ),
+      },
+      {
+        heading: l('प्रश्न', 'Questions'),
+        items: [
+          l('यदि दो छेद बनाएँ, तो कितनी छवियाँ बनेंगी?', 'If you make two pinholes, how many images will form?'),
+          l('पेड़ की छाया में धूप के गोल धब्बे क्यों दिखते हैं?', 'Why do we see round patches of sunlight under a tree?'),
+        ],
+      },
+    ],
+    tags: ['light', 'optics', 'physics'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* QUIZ MATERIAL                                                       */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'quiz-set-everyday-science',
+    title: l('प्रश्नोत्तरी सेट 1: रोज़मर्रा का विज्ञान', 'Quiz set 1: everyday science'),
+    summary: l(
+      'दस प्रश्न, जिनके उत्तर रसोई, मौसम और शरीर में छिपे हैं। कक्षा 6–8 के लिए तुरंत उपयोग योग्य।',
+      'Ten questions whose answers hide in the kitchen, the weather and the body. Ready for classes 6–8.',
+    ),
+    category: 'quiz',
+    type: 'quiz',
+    grade: '6-8',
+    status: 'available',
+    kind: 'written',
+    minutes: 20,
+    sections: [
+      {
+        heading: l('निर्देश', 'Instructions'),
+        text: l(
+          'टीमों में खेलें। हर सही उत्तर पर 2 अंक, और यदि टीम कारण भी सही बताए, तो 1 अतिरिक्त अंक। उत्तर बताने से पहले कक्षा से पूछें कि वे कैसे जाँचेंगे कि उत्तर सही है।',
+          'Play in teams. Two points for a correct answer, plus one bonus point if the team can also give the reason. Before revealing an answer, ask the class how they would check that it is correct.',
+        ),
+      },
+      {
+        heading: l('प्रश्न और उत्तर', 'Questions and answers'),
+        items: [
+          l('प्र: समुद्र तल पर शुद्ध पानी किस तापमान पर उबलता है? उ: 100 °C', 'Q: At what temperature does pure water boil at sea level? A: 100 °C'),
+          l('प्र: शरीर में रक्त को पूरे शरीर में कौन पंप करता है? उ: हृदय', 'Q: Which organ pumps blood around the body? A: The heart'),
+          l('प्र: नींबू खट्टा क्यों लगता है? उ: उसमें साइट्रिक अम्ल होता है', 'Q: Why does a lemon taste sour? A: It contains citric acid'),
+          l('प्र: इंद्रधनुष में परंपरागत रूप से कितने रंग गिने जाते हैं? उ: सात', 'Q: How many colours are traditionally counted in a rainbow? A: Seven'),
+          l('प्र: लोहे पर जंग लगने के लिए किन दो चीज़ों की ज़रूरत होती है? उ: ऑक्सीजन (हवा) और नमी (पानी)', 'Q: Which two things are needed for iron to rust? A: Oxygen (air) and moisture (water)'),
+          l('प्र: पौधे अपना भोजन किस प्रक्रिया से बनाते हैं? उ: प्रकाश-संश्लेषण', 'Q: By which process do plants make their food? A: Photosynthesis'),
+          l('प्र: ध्वनि सबसे तेज़ किसमें चलती है: हवा, पानी या लोहे में? उ: लोहे में (ठोस)', 'Q: In which does sound travel fastest: air, water or iron? A: Iron (a solid)'),
+          l('प्र: बर्फ़ पानी पर क्यों तैरती है? उ: बर्फ़ का घनत्व पानी से कम है', 'Q: Why does ice float on water? A: Ice is less dense than water'),
+          l('प्र: दूध से दही बनाने में किसकी भूमिका है? उ: जीवाणुओं (लैक्टोबैसिलस) की', 'Q: What turns milk into curd? A: Bacteria (Lactobacillus)'),
+          l('प्र: प्रेशर कुकर में खाना जल्दी क्यों पकता है? उ: अधिक दबाव से पानी का क्वथनांक बढ़ जाता है', 'Q: Why does food cook faster in a pressure cooker? A: Higher pressure raises the boiling point of water'),
+        ],
+      },
+      {
+        heading: l('विस्तार', 'Extension'),
+        text: l(
+          'हर टीम से एक नया प्रश्न बनवाएँ, जिसका उत्तर वे प्रयोग से जाँच सकें। सबसे अच्छे प्रश्न अगली प्रश्नोत्तरी में शामिल करें।',
+          'Ask each team to write one new question whose answer they could test by experiment. Include the best ones in the next quiz.',
+        ),
+      },
+    ],
+    tags: ['quiz', 'everyday science', 'middle school'],
+  },
+  {
+    id: 'quiz-set-earth-space',
+    title: l('प्रश्नोत्तरी सेट 2: पृथ्वी और अंतरिक्ष', 'Quiz set 2: Earth and space'),
+    summary: l(
+      'सौरमंडल, वायुमंडल और पृथ्वी की गति पर दस प्रश्न, कक्षा 9–10 के लिए।',
+      'Ten questions on the solar system, the atmosphere and the motion of the Earth, for classes 9–10.',
+    ),
+    category: 'quiz',
+    type: 'quiz',
+    grade: '9-10',
+    status: 'available',
+    kind: 'written',
+    minutes: 20,
+    sections: [
+      {
+        heading: l('निर्देश', 'Instructions'),
+        text: l(
+          'व्यक्तिगत या टीम में। उत्तर के बाद "यह हमें कैसे पता चला?" पर एक मिनट की चर्चा रखें; अंतरिक्ष विज्ञान में हर तथ्य के पीछे एक माप है।',
+          'Individually or in teams. After each answer, spend a minute on "how do we know this?"; in space science every fact rests on a measurement.',
+        ),
+      },
+      {
+        heading: l('प्रश्न और उत्तर', 'Questions and answers'),
+        items: [
+          l('प्र: सौरमंडल का सबसे बड़ा ग्रह कौन सा है? उ: बृहस्पति', 'Q: Which is the largest planet in the solar system? A: Jupiter'),
+          l('प्र: पृथ्वी को सूर्य की एक परिक्रमा में लगभग कितना समय लगता है? उ: लगभग 365.25 दिन', 'Q: About how long does the Earth take to orbit the Sun once? A: About 365.25 days'),
+          l('प्र: पृथ्वी पर ज्वार-भाटा मुख्यतः किसके गुरुत्वाकर्षण से आता है? उ: चंद्रमा के (और कुछ हद तक सूर्य के)', 'Q: Whose gravity mainly causes tides on Earth? A: The Moon’s (and, to a lesser extent, the Sun’s)'),
+          l('प्र: सूर्य का प्रकाश पृथ्वी तक पहुँचने में लगभग कितना समय लेता है? उ: लगभग 8 मिनट 20 सेकंड', 'Q: About how long does sunlight take to reach the Earth? A: About 8 minutes 20 seconds'),
+          l('प्र: भारत का पहला उपग्रह कौन सा था? उ: आर्यभट (1975)', 'Q: What was India’s first satellite? A: Aryabhata (1975)'),
+          l('प्र: पृथ्वी की किस परत पर हम रहते हैं? उ: भूपर्पटी (क्रस्ट)', 'Q: On which layer of the Earth do we live? A: The crust'),
+          l('प्र: ऋतुएँ किस कारण बदलती हैं? उ: पृथ्वी के अक्ष के झुकाव (लगभग 23.5°) के कारण', 'Q: What causes the seasons? A: The tilt of the Earth’s axis (about 23.5°)'),
+          l('प्र: वायुमंडल में सबसे अधिक मात्रा में कौन सी गैस है? उ: नाइट्रोजन (लगभग 78%)', 'Q: Which gas is most abundant in the atmosphere? A: Nitrogen (about 78%)'),
+          l('प्र: सूर्य के सबसे निकट का ग्रह कौन सा है? उ: बुध', 'Q: Which planet is closest to the Sun? A: Mercury'),
+          l('प्र: ओज़ोन परत हमें किससे बचाती है? उ: सूर्य की हानिकारक पराबैंगनी (UV) किरणों से', 'Q: What does the ozone layer protect us from? A: The Sun’s harmful ultraviolet (UV) rays'),
+        ],
+      },
+      {
+        heading: l('विस्तार', 'Extension'),
+        text: l(
+          'विद्यार्थियों से पूछें कि इनमें से कौन सा तथ्य वे स्वयं किसी अवलोकन से जाँच सकते हैं (जैसे दिन-रात की लंबाई का बदलना) और कौन सा केवल उपकरणों से।',
+          'Ask students which of these facts they could check with their own observations (such as changing day length) and which need instruments.',
+        ),
+      },
+    ],
+    tags: ['quiz', 'space', 'earth science'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* TEACHER TRAINING                                                    */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'teacher-self-study-plan',
+    title: l('शिक्षक स्व-अध्ययन योजना: छह सप्ताह', 'A six-week self-study plan for science teachers'),
+    summary: l(
+      'व्यस्त शिक्षकों के लिए सप्ताह में दो घंटे की योजना, जो गतिविधि-आधारित शिक्षण को अपनी कक्षा में धीरे-धीरे लाती है।',
+      'A two-hours-a-week plan for busy teachers that gradually brings activity-based teaching into their own classroom.',
+    ),
+    category: 'training',
+    type: 'training',
+    grade: 'all',
+    status: 'available',
+    kind: 'written',
+    sections: [
+      {
+        heading: l('योजना का ढाँचा', 'How the plan works'),
+        text: l(
+          'हर सप्ताह एक विचार पढ़ें, उसे एक कक्षा में आज़माएँ और दस मिनट लिखें कि क्या हुआ। लक्ष्य पूर्णता नहीं, नियमितता है। इस पुस्तकालय के संसाधन हर सप्ताह के साथ जोड़े गए हैं।',
+          'Each week, read one idea, try it in one class, and spend ten minutes writing down what happened. The goal is regularity, not perfection. Resources from this library are paired with each week.',
+        ),
+      },
+      {
+        heading: l('सप्ताह-दर-सप्ताह', 'Week by week'),
+        items: [
+          l('सप्ताह 1: प्रश्न पूछने की संस्कृति। एक पाठ प्रश्न से शुरू करें और पाँच सेकंड की प्रतीक्षा का अभ्यास करें।', 'Week 1: a culture of questioning. Start one lesson with a question and practise the five-second wait.'),
+          l('सप्ताह 2: अनुमान-अवलोकन-व्याख्या। किसी भी प्रदर्शन से पहले अनुमान लिखवाएँ।', 'Week 2: predict–observe–explain. Have students write a prediction before any demonstration.'),
+          l('सप्ताह 3: एक गतिविधि स्टेशन। रहस्य बॉक्स या सर्किट स्टेशन में से एक चलाएँ।', 'Week 3: one activity station. Run either the mystery box or the circuit stations.'),
+          l('सप्ताह 4: एग्ज़िट टिकट। एक सप्ताह तक हर कक्षा के अंत में पर्चियाँ लें।', 'Week 4: exit tickets. Collect slips at the end of every class for one week.'),
+          l('सप्ताह 5: 5E पाठ। एक पूरा पाठ 5E ढाँचे में योजना बनाकर पढ़ाएँ।', 'Week 5: a 5E lesson. Plan and teach one complete lesson in the 5E structure.'),
+          l('सप्ताह 6: विज्ञान डायरी शुरू करें और अपने छह सप्ताह के नोट्स पढ़कर अगला लक्ष्य तय करें।', 'Week 6: start science journals, reread your six weeks of notes and set the next goal.'),
+        ],
+      },
+      {
+        heading: l('प्रतिबिंब के प्रश्न', 'Reflection prompts'),
+        items: [
+          l('इस सप्ताह किस क्षण विद्यार्थी सबसे अधिक व्यस्त दिखे?', 'At what moment this week did students seem most engaged?'),
+          l('क्या ऐसा कुछ हुआ, जिसकी मुझे उम्मीद नहीं थी?', 'Did anything happen that I did not expect?'),
+          l('अगली बार मैं एक चीज़ क्या बदलूँगा/बदलूँगी?', 'What one thing will I change next time?'),
+        ],
+      },
+      {
+        heading: l('साथी समूह', 'A peer group'),
+        text: l(
+          'यदि संभव हो तो दो-तीन सहकर्मियों के साथ यह योजना साथ चलाएँ और सप्ताह में एक बार पंद्रह मिनट अनुभव साझा करें। दूसरों को बताना सीखने को पक्का करता है, और कठिन सप्ताह में साथ होने से योजना छूटती नहीं।',
+          'If possible, follow the plan with two or three colleagues and share experiences for fifteen minutes once a week. Explaining to others consolidates learning, and company keeps the plan alive in a hard week.',
+        ),
+      },
+    ],
+    tags: ['professional development', 'self-study', 'reflection'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* INNOVATIVE TEACHING PRACTICES                                       */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'predict-observe-explain',
+    title: l('अनुमान–अवलोकन–व्याख्या (POE)', 'Predict–Observe–Explain (POE)'),
+    summary: l(
+      'कोई भी प्रदर्शन तीन शब्दों से दोगुना प्रभावी हो जाता है: पहले अनुमान, फिर अवलोकन, फिर व्याख्या।',
+      'Any demonstration becomes twice as effective with three words: predict first, then observe, then explain.',
+    ),
+    category: 'innovative',
+    type: 'guide',
+    grade: 'all',
+    status: 'available',
+    kind: 'written',
+    minutes: 20,
+    sections: [
+      {
+        heading: l('विधि', 'The method'),
+        text: l(
+          'POE में विद्यार्थी किसी घटना को देखने से पहले लिखित रूप में अनुमान लगाते हैं और कारण बताते हैं। फिर वे ध्यान से देखते हैं, और अंत में अपने अनुमान और अवलोकन के बीच के अंतर की व्याख्या करते हैं। यह अंतर ही सीखने का क्षण है।',
+          'In POE, students write a prediction and its reason before watching an event. Then they observe carefully, and finally explain the gap between their prediction and what they saw. That gap is the learning moment.',
+        ),
+      },
+      {
+        heading: l('चरण', 'Steps'),
+        items: [
+          l('घटना का वर्णन करें, पर दिखाएँ नहीं। "मैं इस गुब्बारे को मोमबत्ती के ऊपर रखूँगा/रखूँगी; इसमें पानी भरा है।"', 'Describe the event without showing it. "I will hold this balloon over a candle; it has water in it."'),
+          l('हर विद्यार्थी अनुमान और कारण लिखे (एक मिनट, बिना बातचीत)।', 'Every student writes a prediction and a reason (one minute, no talking).'),
+          l('कक्षा के अनुमानों का हाथ उठाकर सर्वेक्षण करें और बोर्ड पर गिनती लिखें।', 'Poll the class by show of hands and write the counts on the board.'),
+          l('अब घटना दिखाएँ। विद्यार्थी केवल अवलोकन लिखें, व्याख्या नहीं।', 'Now show the event. Students write only observations, not explanations.'),
+          l('जोड़ियों में चर्चा: "मेरा अनुमान गलत/सही क्यों था?" फिर पूरी कक्षा की व्याख्या।', 'Pairs discuss: "Why was my prediction wrong/right?" Then a whole-class explanation.'),
+        ],
+      },
+      {
+        heading: l('POE के लिए अच्छी घटनाएँ', 'Good events for POE'),
+        items: [
+          l('पानी भरा गुब्बारा लौ पर नहीं फटता।', 'A water-filled balloon does not burst over a flame.'),
+          l('बर्फ़ से लबालब भरा गिलास पिघलने पर छलकता नहीं।', 'A glass full of ice does not overflow when the ice melts.'),
+          l('दो कागज़ों के बीच फूँकने पर वे पास आते हैं, दूर नहीं जाते।', 'Blowing between two sheets of paper pulls them together, not apart.'),
+          l('भारी और हल्की गेंद लगभग एक साथ गिरती हैं।', 'A heavy and a light ball land almost together.'),
+        ],
+      },
+      {
+        heading: l('यह क्यों काम करता है', 'Why it works'),
+        text: l(
+          'लिखा हुआ अनुमान विद्यार्थी को घटना में "निवेशित" कर देता है; अब वह दर्शक नहीं, दाँव लगाने वाला है। गलत अनुमान शर्म नहीं, जिज्ञासा पैदा करता है, क्योंकि आधी कक्षा उसके साथ गलत थी। और सबसे बड़ी बात: भ्रांतियाँ सतह पर आ जाती हैं, जहाँ उन पर काम किया जा सकता है।',
+          'A written prediction makes the student invested; they are no longer a spectator but someone with a stake. A wrong prediction produces curiosity rather than shame, because half the class was wrong with them. Most importantly, misconceptions surface where they can be worked on.',
+        ),
+      },
+    ],
+    tags: ['poe', 'misconceptions', 'engagement'],
+  },
+  {
+    id: 'science-journals',
+    title: l('विज्ञान डायरी: सोचने का लिखित रिकॉर्ड', 'Science journals: a written record of thinking'),
+    summary: l(
+      'हर विद्यार्थी की एक कॉपी, जिसमें प्रश्न, अनुमान, चित्र और "आज मैंने अपना मन क्यों बदला" जैसी बातें दर्ज होती हैं।',
+      'One notebook per student for questions, predictions, drawings and notes like "why I changed my mind today".',
+    ),
+    category: 'innovative',
+    type: 'guide',
+    grade: 'all',
+    status: 'available',
+    kind: 'written',
+    sections: [
+      {
+        heading: l('विचार', 'The idea'),
+        text: l(
+          'विज्ञान डायरी पाठ्यपुस्तक के नोट्स की कॉपी नहीं है। यह वैज्ञानिक की नोटबुक जैसी है: अधूरी, व्यक्तिगत और ईमानदार। इसमें काटना-पीटना स्वागत योग्य है, क्योंकि काटा हुआ अनुमान दिखाता है कि सोच बदली।',
+          'A science journal is not a copy of textbook notes. It is like a scientist’s notebook: unfinished, personal and honest. Crossing out is welcome, because a crossed-out prediction shows that thinking changed.',
+        ),
+      },
+      {
+        heading: l('क्या लिखें', 'What goes in'),
+        items: [
+          l('आज का प्रश्न और मेरा पहला अनुमान', 'Today’s question and my first guess'),
+          l('अवलोकन: चित्र, माप, तालिकाएँ (कलात्मक होना ज़रूरी नहीं)', 'Observations: drawings, measurements, tables (no artistry required)'),
+          l('"मुझे आश्चर्य हुआ कि…" से शुरू होने वाला एक वाक्य', 'One sentence starting "I was surprised that…"'),
+          l('घर या मोहल्ले में दिखी कोई वैज्ञानिक चीज़', 'Something scientific noticed at home or in the neighbourhood'),
+          l('ऐसे प्रश्न, जिनका उत्तर अभी नहीं मिला', 'Questions that remain unanswered for now'),
+        ],
+      },
+      {
+        heading: l('मूल्यांकन', 'Assessing journals'),
+        text: l(
+          'डायरी को सही-गलत के लिए न जाँचें; उसे सोच की गहराई, नियमितता और ईमानदारी के लिए देखें। महीने में एक बार हर डायरी में एक प्रश्न या टिप्पणी लिखें, जैसे "यह अनुमान दिलचस्प है, आपने इसे कैसे परखा?" यह संवाद विद्यार्थी को बताता है कि उसकी सोच पढ़ी जा रही है।',
+          'Do not mark journals for right and wrong; look at them for depth of thinking, regularity and honesty. Once a month write one question or comment in each journal, such as "Interesting prediction; how did you test it?" This dialogue tells the student their thinking is being read.',
+        ),
+      },
+      {
+        heading: l('शुरुआत के लिए संकेत', 'Prompts to get started'),
+        items: [
+          l('"आज की कक्षा में सबसे अजीब बात…"', '"The strangest thing in today’s class was…"'),
+          l('"अगर मैं यह प्रयोग दोबारा करूँ, तो…"', '"If I did this experiment again, I would…"'),
+          l('"मैं अभी भी नहीं समझ पाया/पाई कि…"', '"I still do not understand why…"'),
+        ],
+      },
+    ],
+    tags: ['journals', 'reflection', 'writing'],
+  },
+  {
+    id: 'jigsaw-peer-teaching',
+    title: l('जिगसॉ: जब विद्यार्थी शिक्षक बनते हैं', 'Jigsaw: when students become the teachers'),
+    summary: l(
+      'एक विषय को चार हिस्सों में बाँटें; हर विद्यार्थी एक हिस्से का विशेषज्ञ बनकर अपने समूह को पढ़ाता है।',
+      'Split a topic into four parts; each student becomes the expert on one part and teaches it to their home group.',
+    ),
+    category: 'innovative',
+    type: 'activity',
+    grade: '9-10',
+    status: 'available',
+    kind: 'written',
+    minutes: 45,
+    sections: [
+      {
+        heading: l('विधि', 'The method'),
+        text: l(
+          'जिगसॉ में हर विद्यार्थी के पास पहेली का एक टुकड़ा होता है, और पूरी तस्वीर तभी बनती है, जब सब अपना टुकड़ा साझा करें। इससे हर विद्यार्थी की ज़िम्मेदारी बनती है और "पढ़ाकर सीखना" स्वाभाविक रूप से होता है।',
+          'In a jigsaw, every student holds one piece of the puzzle, and the full picture appears only when everyone shares their piece. Each student becomes accountable, and learning by teaching happens naturally.',
+        ),
+      },
+      {
+        heading: l('चरण', 'Steps'),
+        items: [
+          l('विषय को चार उप-विषयों में बाँटें और चार-चार के "घर समूह" बनाएँ; हर सदस्य को एक उप-विषय दें।', 'Divide the topic into four sub-topics and form home groups of four; give each member one sub-topic.'),
+          l('"विशेषज्ञ समूह": एक ही उप-विषय वाले विद्यार्थी साथ बैठकर 12 मिनट सामग्री पढ़ें और समझाने की योजना बनाएँ।', 'Expert groups: students with the same sub-topic sit together for 12 minutes to read the material and plan how to explain it.'),
+          l('घर समूह में वापस: हर विशेषज्ञ 4 मिनट में अपना हिस्सा पढ़ाए; बाकी प्रश्न पूछें और नोट्स बनाएँ।', 'Back in home groups: each expert teaches their part in 4 minutes; the others ask questions and take notes.'),
+          l('अंत में पूरे विषय पर 5 प्रश्नों की छोटी जाँच, व्यक्तिगत रूप से।', 'Finish with a short five-question check on the whole topic, taken individually.'),
+        ],
+      },
+      {
+        heading: l('उदाहरण विषय', 'Example topics'),
+        items: [
+          l('पोषक तत्व: कार्बोहाइड्रेट, प्रोटीन, वसा, विटामिन-खनिज', 'Nutrients: carbohydrates, proteins, fats, vitamins and minerals'),
+          l('ऊर्जा के स्रोत: सौर, पवन, जल, जीवाश्म ईंधन', 'Energy sources: solar, wind, hydro, fossil fuels'),
+          l('पाचन तंत्र के चार चरण', 'Four stages of the digestive system'),
+          l('चार प्रकार के पारितंत्र', 'Four kinds of ecosystems'),
+        ],
+      },
+      {
+        heading: l('सावधानियाँ', 'Things to watch'),
+        items: [
+          l('सामग्री हर उप-विषय के लिए लगभग समान लंबाई और कठिनाई की हो।', 'Keep the material for each sub-topic of similar length and difficulty.'),
+          l('विशेषज्ञ समूह में एक "व्याख्या-योजना" पत्रक दें, ताकि कमज़ोर विद्यार्थी भी आत्मविश्वास से पढ़ा सकें।', 'Give expert groups an explanation-plan sheet so that weaker students can teach with confidence.'),
+          l('समय का कड़ाई से पालन करें; टाइमर दिखाई देता रहे।', 'Keep strict time; keep the timer visible.'),
+        ],
+      },
+    ],
+    tags: ['cooperative learning', 'peer teaching', 'jigsaw'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* VERIFIED EXTERNAL LINKS (checked 2026-11-02)                        */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'phet-simulations',
+    title: l('PhET इंटरैक्टिव सिमुलेशन', 'PhET interactive simulations'),
+    summary: l(
+      'भौतिकी, रसायन, जीव विज्ञान और गणित के सैकड़ों निःशुल्क सिमुलेशन, जो ब्राउज़र में चलते हैं; प्रोजेक्टर पर प्रदर्शन या विद्यार्थियों के स्वयं अन्वेषण के लिए।',
+      'Hundreds of free browser-based simulations in physics, chemistry, biology and maths, for projector demonstrations or students’ own exploration.',
+    ),
+    category: 'teaching',
+    type: 'link',
+    grade: 'all',
+    status: 'available',
+    kind: 'link',
+    url: 'https://phet.colorado.edu/',
+    source: 'PhET, University of Colorado Boulder',
+    tags: ['simulations', 'physics', 'chemistry'],
+  },
+  {
+    id: 'phet-hindi',
+    title: l('PhET सिमुलेशन हिन्दी में', 'PhET simulations in Hindi'),
+    summary: l(
+      'PhET के अनेक सिमुलेशन हिन्दी इंटरफ़ेस के साथ उपलब्ध हैं, जिससे विद्यार्थी भाषा की बाधा के बिना प्रयोग कर सकते हैं।',
+      'Many PhET simulations are available with a Hindi interface, so students can experiment without a language barrier.',
+    ),
+    category: 'experiment',
+    type: 'link',
+    grade: 'all',
+    status: 'available',
+    kind: 'link',
+    url: 'https://phet.colorado.edu/hi/',
+    source: 'PhET, University of Colorado Boulder',
+    tags: ['simulations', 'hindi'],
+  },
+  {
+    id: 'ncert-textbooks',
+    title: l('NCERT पाठ्यपुस्तकें (ऑनलाइन)', 'NCERT textbooks online'),
+    summary: l(
+      'कक्षा 1 से 12 तक की सभी NCERT पाठ्यपुस्तकें PDF में, हिन्दी और अंग्रेज़ी दोनों माध्यमों में; गतिविधियों और अध्याय-अंत के प्रश्नों के लिए संदर्भ।',
+      'All NCERT textbooks for classes 1 to 12 as PDFs in Hindi and English medium; a reference for activities and chapter-end questions.',
+    ),
+    category: 'teaching',
+    type: 'link',
+    grade: 'all',
+    status: 'available',
+    kind: 'link',
+    url: 'https://ncert.nic.in/textbook.php',
+    source: 'NCERT',
+    tags: ['textbooks', 'curriculum'],
+  },
+  {
+    id: 'diksha-platform',
+    title: l('DIKSHA: शिक्षकों का राष्ट्रीय डिजिटल मंच', 'DIKSHA: the national digital platform for teachers'),
+    summary: l(
+      'पाठ्यपुस्तकों के QR कोड से जुड़ी ई-सामग्री, शिक्षक प्रशिक्षण पाठ्यक्रम और राज्यवार संसाधन एक जगह।',
+      'E-content linked to textbook QR codes, teacher training courses and state-wise resources in one place.',
+    ),
+    category: 'training',
+    type: 'link',
+    grade: 'all',
+    status: 'available',
+    kind: 'link',
+    url: 'https://diksha.gov.in/',
+    source: 'DIKSHA, Ministry of Education',
+    tags: ['training', 'e-content'],
+  },
+  {
+    id: 'virtual-labs',
+    title: l('वर्चुअल लैब्स', 'Virtual Labs'),
+    summary: l(
+      'IIT और सहयोगी संस्थानों द्वारा विकसित आभासी प्रयोगशालाएँ, जहाँ विद्यार्थी ऐसे प्रयोग सिमुलेट कर सकते हैं, जिनके उपकरण विद्यालय में उपलब्ध न हों।',
+      'Virtual laboratories developed by IITs and partner institutions, where students can simulate experiments for which the school lacks equipment.',
+    ),
+    category: 'experiment',
+    type: 'link',
+    grade: '11-12',
+    status: 'available',
+    kind: 'link',
+    url: 'https://www.vlab.co.in/',
+    source: 'Virtual Labs, Ministry of Education',
+    tags: ['virtual lab', 'senior secondary'],
+  },
+  {
+    id: 'nasa-learning-resources',
+    title: l('NASA शिक्षण संसाधन', 'NASA learning resources'),
+    summary: l(
+      'अंतरिक्ष, पृथ्वी विज्ञान और इंजीनियरिंग पर गतिविधियाँ, पाठ-योजनाएँ और चित्र; कक्षा-स्तर के अनुसार छाँटे जा सकते हैं।',
+      'Activities, lesson plans and imagery on space, Earth science and engineering, filterable by grade level.',
+    ),
+    category: 'innovative',
+    type: 'link',
+    grade: 'all',
+    status: 'available',
+    kind: 'link',
+    url: 'https://www.nasa.gov/learning-resources/',
+    source: 'NASA',
+    tags: ['space', 'lesson plans'],
+  },
+  {
+    id: 'esa-education',
+    title: l('ESA शिक्षा: अंतरिक्ष से कक्षा तक', 'ESA Education: from space to the classroom'),
+    summary: l(
+      'यूरोपीय अंतरिक्ष एजेंसी की कक्षा-संसाधन शृंखला, जिसमें उपग्रह, रॉकेट और ग्रहों पर आधारित प्रोजेक्ट विचार मिलते हैं।',
+      'The European Space Agency’s classroom resource series with project ideas built around satellites, rockets and planets.',
+    ),
+    category: 'project',
+    type: 'link',
+    grade: '6-8',
+    status: 'available',
+    kind: 'link',
+    url: 'https://www.esa.int/Education',
+    source: 'European Space Agency',
+    tags: ['space', 'projects'],
+  },
+  {
+    id: 'exploratorium-snacks',
+    title: l('एक्सप्लोरेटोरियम साइंस स्नैक्स', 'Exploratorium Science Snacks'),
+    summary: l(
+      'सस्ती, आसानी से मिलने वाली सामग्री से बनने वाले सैकड़ों छोटे प्रयोग और प्रदर्शन, हर एक के साथ "क्या हो रहा है" की व्याख्या।',
+      'Hundreds of small experiments and demonstrations made from cheap, easily found materials, each with a "what is going on" explanation.',
+    ),
+    category: 'experiment',
+    type: 'link',
+    grade: 'all',
+    status: 'available',
+    kind: 'link',
+    url: 'https://www.exploratorium.edu/snacks',
+    source: 'Exploratorium, San Francisco',
+    tags: ['hands-on', 'low-cost'],
+  },
+  {
+    id: 'inspire-awards-manak',
+    title: l('INSPIRE अवार्ड्स – MANAK', 'INSPIRE Awards – MANAK'),
+    summary: l(
+      'कक्षा 6 से 10 के विद्यार्थियों के मौलिक विचारों और नवाचारों के लिए भारत सरकार की योजना; नामांकन की प्रक्रिया और पिछले विचारों की झलक यहाँ मिलती है।',
+      'The Government of India scheme for original ideas and innovations from students of classes 6 to 10; find the nomination process and examples of past ideas here.',
+    ),
+    category: 'project',
+    type: 'link',
+    grade: '6-8',
+    status: 'available',
+    kind: 'link',
+    url: 'https://www.inspireawards-dst.gov.in/',
+    source: 'Department of Science & Technology, Government of India',
+    tags: ['innovation', 'competition'],
+  },
+  {
+    id: 'ncsm-science-museums',
+    title: l('राष्ट्रीय विज्ञान संग्रहालय परिषद (NCSM)', 'National Council of Science Museums (NCSM)'),
+    summary: l(
+      'देश भर के विज्ञान केंद्रों और संग्रहालयों का नेटवर्क; शैक्षिक भ्रमण, मोबाइल विज्ञान प्रदर्शनियों और गतिविधियों की जानकारी।',
+      'The network of science centres and museums across India; information on educational visits, mobile science exhibitions and activities.',
+    ),
+    category: 'innovative',
+    type: 'link',
+    grade: 'all',
+    status: 'available',
+    kind: 'link',
+    url: 'https://ncsm.gov.in/',
+    source: 'NCSM, Ministry of Culture',
+    tags: ['museums', 'field trips'],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /* COMING SOON: organisation uploads (no file linked yet)              */
+  /* ------------------------------------------------------------------ */
+  {
+    id: 'workshop-presentation-kit',
+    title: l('विज्ञान सारथी कार्यशाला प्रस्तुति किट', 'Vigyan Sarathi workshop presentation kit'),
+    summary: l(
+      'कार्यशालाओं में उपयोग होने वाला स्लाइड-सेट, जिसे संस्था शीघ्र ही यहाँ अपलोड करेगी।',
+      'The slide set used in workshops, which the organisation will upload here soon.',
+    ),
+    category: 'ppt',
+    type: 'slides',
+    grade: 'all',
+    status: 'coming-soon',
+    kind: 'written',
+    tags: ['slides', 'workshop'],
+  },
+  {
+    id: 'temper-classroom-presentation',
+    title: l('वैज्ञानिक दृष्टिकोण: कक्षा प्रस्तुति', 'Scientific temper: a classroom presentation'),
+    summary: l(
+      'प्रश्न से निष्कर्ष तक की प्रक्रिया पर कक्षा के लिए प्रस्तुति। संस्था द्वारा शीघ्र अपलोड की जाएगी।',
+      'A classroom presentation on the journey from question to conclusion. To be uploaded by the organisation soon.',
+    ),
+    category: 'ppt',
+    type: 'slides',
+    grade: '6-8',
+    status: 'coming-soon',
+    kind: 'written',
+    tags: ['slides', 'scientific temper'],
+  },
+  {
+    id: 'light-and-vision-slides',
+    title: l('प्रकाश और दृष्टि: स्लाइड सेट', 'Light and vision: slide set'),
+    summary: l(
+      'प्रकाश के परावर्तन, अपवर्तन और मानव नेत्र पर चित्रमय स्लाइडें। संस्था द्वारा शीघ्र अपलोड की जाएँगी।',
+      'Illustrated slides on reflection, refraction and the human eye. To be uploaded by the organisation soon.',
+    ),
+    category: 'ppt',
+    type: 'slides',
+    grade: '9-10',
+    status: 'coming-soon',
+    kind: 'written',
+    tags: ['slides', 'light'],
+  },
+]

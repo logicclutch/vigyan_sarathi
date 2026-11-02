@@ -1,0 +1,155 @@
+import type { Career } from '../types'
+
+/** Careers in science: general routes in India, no invented cut-offs, fees or salaries. */
+export const careers: Career[] = [
+  {
+    id: 'research-scientist',
+    title: { hi: 'शोध वैज्ञानिक', en: 'Research scientist' },
+    summary: {
+      hi: 'प्रयोगशाला या क्षेत्र में नए प्रश्न पूछना, प्रयोग करना और ऐसे उत्तर खोजना जो पहले किसी को पता नहीं थे; विश्वविद्यालयों, CSIR, DRDO, DAE जैसे संस्थानों और उद्योग की शोध इकाइयों में।',
+      en: 'Asking new questions in a laboratory or in the field, running experiments and finding answers nobody knew before; in universities, institutions such as CSIR, DRDO and DAE, and industrial research units.',
+    },
+    path: {
+      hi: 'विज्ञान विषयों के साथ 12वीं, फिर B.Sc. या B.Tech., फिर M.Sc. और अंत में Ph.D.; शोध संस्थानों में प्रवेश के लिए प्रायः JAM, GATE या CSIR-NET जैसी परीक्षाएँ होती हैं।',
+      en: 'Class 12 with science, then a B.Sc. or B.Tech., an M.Sc. and finally a Ph.D.; entry to research institutes usually involves examinations such as JAM, GATE or CSIR-NET.',
+    },
+    subjects: { hi: 'भौतिकी, रसायन, जीव विज्ञान या गणित, अपने रुचि-क्षेत्र के अनुसार', en: 'Physics, chemistry, biology or mathematics, depending on your field of interest' },
+    icon: 'flask',
+    tags: ['research', 'phd', 'laboratory'],
+  },
+  {
+    id: 'doctor',
+    title: { hi: 'डॉक्टर', en: 'Doctor' },
+    summary: {
+      hi: 'रोगों की पहचान और उपचार, रोगियों की देखभाल और समाज के स्वास्थ्य की रक्षा; अस्पतालों, क्लीनिकों, शोध और सार्वजनिक स्वास्थ्य में।',
+      en: 'Diagnosing and treating illness, caring for patients and protecting public health; in hospitals, clinics, research and public health.',
+    },
+    path: {
+      hi: 'भौतिकी, रसायन और जीव विज्ञान के साथ 12वीं, फिर NEET-UG के माध्यम से MBBS (इंटर्नशिप सहित साढ़े पाँच वर्ष), उसके बाद विशेषज्ञता के लिए MD या MS; दंत चिकित्सा (BDS) और आयुष पाठ्यक्रम भी विकल्प हैं।',
+      en: 'Class 12 with physics, chemistry and biology, then MBBS through NEET-UG (five and a half years including internship), followed by an MD or MS for specialisation; dentistry (BDS) and AYUSH courses are other options.',
+    },
+    subjects: { hi: 'जीव विज्ञान, रसायन, भौतिकी', en: 'Biology, chemistry, physics' },
+    icon: 'stethoscope',
+    tags: ['medicine', 'health', 'neet'],
+  },
+  {
+    id: 'engineer',
+    title: { hi: 'इंजीनियर', en: 'Engineer' },
+    summary: {
+      hi: 'विज्ञान और गणित से काम की चीज़ें बनाना: पुल, मशीनें, चिप, सॉफ़्टवेयर, जल व्यवस्था; सिविल, मैकेनिकल, इलेक्ट्रिकल, कंप्यूटर, रासायनिक जैसी कई शाखाएँ।',
+      en: 'Using science and mathematics to build things that work: bridges, machines, chips, software, water systems; branches such as civil, mechanical, electrical, computer and chemical.',
+    },
+    path: {
+      hi: 'भौतिकी, रसायन और गणित के साथ 12वीं, फिर JEE या राज्य परीक्षाओं से B.Tech./B.E. (4 वर्ष); या 10वीं के बाद पॉलिटेक्निक डिप्लोमा (3 वर्ष) और फिर डिग्री में लेटरल प्रवेश।',
+      en: 'Class 12 with physics, chemistry and mathematics, then a B.Tech./B.E. (4 years) through JEE or state examinations; or a polytechnic diploma (3 years) after class 10 followed by lateral entry to a degree.',
+    },
+    subjects: { hi: 'गणित, भौतिकी, और कंप्यूटर की समझ', en: 'Mathematics, physics and a feel for computers' },
+    icon: 'wrench',
+    tags: ['engineering', 'design', 'technology'],
+  },
+  {
+    id: 'data-scientist',
+    title: { hi: 'डेटा वैज्ञानिक', en: 'Data scientist' },
+    summary: {
+      hi: 'बड़े आँकड़ों में छिपे पैटर्न खोजना, सांख्यिकी और प्रोग्रामिंग से भविष्य का अनुमान लगाना; स्वास्थ्य, कृषि, मौसम, बैंकिंग, खेल, हर क्षेत्र में माँग।',
+      en: 'Finding patterns hidden in large data sets and making predictions with statistics and programming; in demand in health, agriculture, weather, banking, sport and more.',
+    },
+    path: {
+      hi: 'गणित के साथ 12वीं, फिर गणित, सांख्यिकी, कंप्यूटर विज्ञान या किसी भी विज्ञान में स्नातक; साथ में प्रोग्रामिंग (जैसे Python) और सांख्यिकी का अभ्यास, और चाहें तो M.Sc./M.Tech.।',
+      en: 'Class 12 with mathematics, then a degree in mathematics, statistics, computer science or any science; alongside, practice in programming (such as Python) and statistics, and optionally an M.Sc./M.Tech.',
+    },
+    subjects: { hi: 'गणित, सांख्यिकी, कंप्यूटर विज्ञान', en: 'Mathematics, statistics, computer science' },
+    icon: 'database',
+    tags: ['data', 'statistics', 'programming'],
+  },
+  {
+    id: 'environmental-scientist',
+    title: { hi: 'पर्यावरण वैज्ञानिक', en: 'Environmental scientist' },
+    summary: {
+      hi: 'हवा, पानी और मिट्टी की गुणवत्ता का अध्ययन, प्रदूषण के समाधान, जलवायु और जैव विविधता पर शोध; प्रदूषण नियंत्रण बोर्ड, शोध संस्थानों, परामर्श फर्मों और संस्थाओं में।',
+      en: 'Studying the quality of air, water and soil, finding solutions to pollution, researching climate and biodiversity; with pollution control boards, research institutes, consultancies and organisations.',
+    },
+    path: {
+      hi: 'विज्ञान के साथ 12वीं, फिर पर्यावरण विज्ञान, जीव विज्ञान, रसायन या भूगोल में B.Sc., फिर M.Sc.; शोध के लिए Ph.D.।',
+      en: 'Class 12 with science, then a B.Sc. in environmental science, biology, chemistry or geography, followed by an M.Sc.; a Ph.D. for research.',
+    },
+    subjects: { hi: 'जीव विज्ञान, रसायन, भूगोल', en: 'Biology, chemistry, geography' },
+    icon: 'leaf',
+    tags: ['environment', 'climate', 'ecology'],
+  },
+  {
+    id: 'space-scientist',
+    title: { hi: 'अंतरिक्ष वैज्ञानिक', en: 'Space scientist' },
+    summary: {
+      hi: 'रॉकेट, उपग्रह और अंतरिक्ष मिशन बनाना या ब्रह्मांड का अध्ययन करना; ISRO और उसके केंद्रों, खगोल शोध संस्थानों और अंतरिक्ष कंपनियों में।',
+      en: 'Building rockets, satellites and space missions, or studying the universe; at ISRO and its centres, astronomy research institutes and space companies.',
+    },
+    path: {
+      hi: 'भौतिकी और गणित के साथ 12वीं, फिर एयरोस्पेस, इलेक्ट्रॉनिक्स या मैकेनिकल इंजीनियरिंग अथवा भौतिकी में डिग्री; तिरुवनंतपुरम का भारतीय अंतरिक्ष विज्ञान एवं प्रौद्योगिकी संस्थान (IIST) एक सीधा रास्ता है, और ISRO समय-समय पर भर्ती परीक्षाएँ भी करता है। खगोल विज्ञान के लिए भौतिकी में M.Sc. और Ph.D.।',
+      en: 'Class 12 with physics and mathematics, then a degree in aerospace, electronics or mechanical engineering or in physics; the Indian Institute of Space Science and Technology (IIST) in Thiruvananthapuram is a direct route, and ISRO also holds recruitment examinations. For astronomy, an M.Sc. and Ph.D. in physics.',
+    },
+    subjects: { hi: 'भौतिकी, गणित', en: 'Physics, mathematics' },
+    icon: 'rocket',
+    tags: ['space', 'isro', 'astronomy'],
+  },
+  {
+    id: 'science-teacher',
+    title: { hi: 'विज्ञान शिक्षक', en: 'Science teacher' },
+    summary: {
+      hi: 'अगली पीढ़ी में जिज्ञासा जगाना, प्रयोगों से सिखाना और विद्यार्थियों को प्रश्न पूछने का साहस देना; विद्यालयों, महाविद्यालयों और शिक्षा संस्थानों में।',
+      en: 'Igniting curiosity in the next generation, teaching through experiments and giving students the courage to ask questions; in schools, colleges and education institutions.',
+    },
+    path: {
+      hi: 'विज्ञान में B.Sc. और फिर B.Ed. (या 4 वर्षीय एकीकृत कार्यक्रम); विद्यालयों में नियुक्ति के लिए TET/CTET जैसी पात्रता परीक्षाएँ। महाविद्यालय में पढ़ाने के लिए M.Sc. के साथ NET या Ph.D.।',
+      en: 'A B.Sc. in science followed by a B.Ed. (or a 4-year integrated programme); eligibility tests such as TET/CTET for school appointments. For college teaching, an M.Sc. with NET or a Ph.D.',
+    },
+    subjects: { hi: 'अपना विज्ञान विषय, साथ में भाषा और संवाद का कौशल', en: 'Your science subject, plus language and communication skills' },
+    icon: 'graduationCap',
+    tags: ['teaching', 'education', 'school'],
+  },
+  {
+    id: 'science-communicator',
+    title: { hi: 'विज्ञान संचारक / पत्रकार', en: 'Science communicator / journalist' },
+    summary: {
+      hi: 'कठिन विज्ञान को आम लोगों की भाषा में कहानी, लेख, वीडियो या प्रदर्शनी के रूप में पहुँचाना; समाचार माध्यमों, विज्ञान संग्रहालयों, प्रकाशकों और डिजिटल मंचों पर।',
+      en: 'Turning difficult science into stories, articles, videos or exhibitions in everyday language; in news media, science museums, publishing and digital platforms.',
+    },
+    path: {
+      hi: 'किसी भी विज्ञान में स्नातक, साथ में पत्रकारिता या जनसंचार का पाठ्यक्रम; लेखन, वीडियो और सोशल मीडिया का अभ्यास बहुत काम आता है।',
+      en: 'A degree in any science together with a course in journalism or mass communication; practice in writing, video and social media helps a great deal.',
+    },
+    subjects: { hi: 'विज्ञान विषय, भाषा, सामाजिक विज्ञान', en: 'Science subjects, languages, social science' },
+    icon: 'mic',
+    tags: ['communication', 'media', 'writing'],
+  },
+  {
+    id: 'agricultural-scientist',
+    title: { hi: 'कृषि वैज्ञानिक', en: 'Agricultural scientist' },
+    summary: {
+      hi: 'बेहतर बीज, मिट्टी और जल प्रबंधन, कीट नियंत्रण और टिकाऊ खेती पर शोध ताकि किसानों की उपज और आय बढ़े; ICAR संस्थानों, कृषि विश्वविद्यालयों, कृषि विज्ञान केंद्रों और कंपनियों में।',
+      en: 'Research on better seeds, soil and water management, pest control and sustainable farming to raise farmers’ yields and incomes; at ICAR institutes, agricultural universities, Krishi Vigyan Kendras and companies.',
+    },
+    path: {
+      hi: 'विज्ञान या कृषि के साथ 12वीं, फिर ICAR-AIEEA या राज्य परीक्षाओं से B.Sc. (कृषि), फिर M.Sc. और शोध के लिए Ph.D.।',
+      en: 'Class 12 with science or agriculture, then a B.Sc. (Agriculture) through ICAR-AIEEA or state examinations, followed by an M.Sc. and a Ph.D. for research.',
+    },
+    subjects: { hi: 'जीव विज्ञान, रसायन, गणित', en: 'Biology, chemistry, mathematics' },
+    icon: 'sprout',
+    tags: ['agriculture', 'farming', 'plants'],
+  },
+  {
+    id: 'biotechnologist',
+    title: { hi: 'जैव प्रौद्योगिकीविद्', en: 'Biotechnologist' },
+    summary: {
+      hi: 'जीवित कोशिकाओं और अणुओं से दवाएँ, टीके, बेहतर फ़सलें और नए पदार्थ बनाना; दवा और टीका कंपनियों, खाद्य उद्योग और जैव प्रौद्योगिकी शोध संस्थानों में।',
+      en: 'Using living cells and molecules to make medicines, vaccines, better crops and new materials; in pharmaceutical and vaccine companies, the food industry and biotechnology research institutes.',
+    },
+    path: {
+      hi: 'जीव विज्ञान या गणित के साथ 12वीं, फिर जैव प्रौद्योगिकी में B.Sc. या B.Tech., फिर M.Sc./M.Tech. और शोध के लिए Ph.D.।',
+      en: 'Class 12 with biology or mathematics, then a B.Sc. or B.Tech. in biotechnology, followed by an M.Sc./M.Tech. and a Ph.D. for research.',
+    },
+    subjects: { hi: 'जीव विज्ञान, रसायन, गणित', en: 'Biology, chemistry, mathematics' },
+    icon: 'dna',
+    tags: ['biotechnology', 'medicine', 'genetics'],
+  },
+]

@@ -1,0 +1,102 @@
+import type { IconName } from '@/lib/icons'
+import type { L, ResourceCategory, Tint } from '../types'
+
+export interface TeacherCategory {
+  key: ResourceCategory
+  icon: IconName
+  tint: Tint
+  blurb: L
+}
+
+export const teacherCategories: TeacherCategory[] = [
+  {
+    key: 'teaching',
+    icon: 'bookOpen',
+    tint: 'electric',
+    blurb: {
+      hi: 'पाठ-योजना, प्रश्न पूछने की संस्कृति और आकलन के व्यावहारिक तरीके।',
+      en: 'Practical approaches to lesson planning, questioning and assessment.',
+    },
+  },
+  {
+    key: 'activity',
+    icon: 'puzzle',
+    tint: 'amber',
+    blurb: {
+      hi: 'ऐसी गतिविधियाँ, जिनमें विद्यार्थी करके सीखते हैं और स्वयं निष्कर्ष निकालते हैं।',
+      en: 'Activities where students learn by doing and reach their own conclusions.',
+    },
+  },
+  {
+    key: 'experiment',
+    icon: 'flask',
+    tint: 'cyan',
+    blurb: {
+      hi: 'कक्षा के लिए तैयार प्रयोग, चर्चा के संकेतों और सामान्य भ्रांतियों के साथ।',
+      en: 'Classroom-ready experiments with discussion prompts and common misconceptions.',
+    },
+  },
+  {
+    key: 'project',
+    icon: 'lightbulb',
+    tint: 'orange',
+    blurb: {
+      hi: 'प्रदर्शनी और जाँच-आधारित प्रोजेक्ट के लिए मार्गदर्शन और मूल्यांकन उपकरण।',
+      en: 'Guidance and assessment tools for exhibition and inquiry projects.',
+    },
+  },
+  {
+    key: 'demo',
+    icon: 'presentation',
+    tint: 'violet',
+    blurb: {
+      hi: 'कम सामग्री में प्रभावशाली प्रदर्शन, जो अवधारणा को यादगार बनाते हैं।',
+      en: 'Low-cost demonstrations that make a concept memorable.',
+    },
+  },
+  {
+    key: 'quiz',
+    icon: 'brain',
+    tint: 'mint',
+    blurb: {
+      hi: 'तैयार प्रश्न-सेट, जिन्हें कक्षा में तुरंत उपयोग किया जा सकता है।',
+      en: 'Ready-made question sets you can use in class straight away.',
+    },
+  },
+  {
+    key: 'ppt',
+    icon: 'layers',
+    tint: 'navy',
+    blurb: {
+      hi: 'विज्ञान सारथी के स्लाइड-सेट और प्रस्तुति किट, जो क्रमशः जोड़े जा रहे हैं।',
+      en: 'Vigyan Sarathi slide sets and presentation kits, being added over time.',
+    },
+  },
+  {
+    key: 'training',
+    icon: 'graduationCap',
+    tint: 'teal',
+    blurb: {
+      hi: 'शिक्षकों के अपने सीखने के लिए योजनाएँ और विश्वसनीय मंच।',
+      en: 'Plans and trusted platforms for teachers’ own professional learning.',
+    },
+  },
+  {
+    key: 'innovative',
+    icon: 'sparkles',
+    tint: 'rose',
+    blurb: {
+      hi: 'सिद्ध शिक्षण विधियाँ, जो कक्षा को अधिक सक्रिय और विचारशील बनाती हैं।',
+      en: 'Proven teaching methods that make classrooms more active and thoughtful.',
+    },
+  },
+]
+
+/** Official Teachers Corner intro and the promise that follows it. */
+export const teachersIntro = {
+  quote: {
+    hi: 'एक अच्छा विज्ञान शिक्षक केवल उत्तर नहीं देता। वह विद्यार्थियों के मन में सही प्रश्न पैदा करता है।',
+    en: 'A good science teacher does not only give answers. They plant the right questions in students’ minds.',
+  },
+  provides: { hi: 'विज्ञान सारथी शिक्षकों के लिए उपलब्ध कराएगा—', en: 'Vigyan Sarathi will make available for teachers—' },
+}

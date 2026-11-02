@@ -1,0 +1,182 @@
+import type { ModelIdea } from '../types'
+
+/** Model-making ideas that teach a concept, not just decorate a table. */
+export const modelIdeas: ModelIdea[] = [
+  {
+    id: 'solar-system-scale',
+    title: { hi: 'सौरमंडल का सही पैमाने का मॉडल', en: 'Solar system to scale' },
+    summary: {
+      hi: 'ज़्यादातर मॉडल ग्रहों के आकार तो दिखाते हैं, पर दूरियाँ नहीं। यह मॉडल मैदान में असली अनुपात दिखाता है।',
+      en: 'Most models show planet sizes but not distances. This one lays out the true proportions across a playground.',
+    },
+    topic: 'space',
+    grade: '6-8',
+    howTo: [
+      { hi: 'सूर्य के लिए 20 सेमी की गेंद चुनें। इस पैमाने पर 1 मीटर ≈ 70 लाख किलोमीटर है।', en: 'Pick a 20 cm ball for the Sun. On this scale 1 metre ≈ 7 million kilometres.' },
+      { hi: 'पृथ्वी के लिए सिर्फ़ 2 मिमी का मनका और बृहस्पति के लिए 2 सेमी की गोली लें।', en: 'Use a 2 mm bead for Earth and a 2 cm marble for Jupiter.' },
+      { hi: 'सूर्य से दूरियाँ नापें: बुध 8 मी, शुक्र 16 मी, पृथ्वी 22 मी, मंगल 33 मी।', en: 'Measure distances from the Sun: Mercury 8 m, Venus 16 m, Earth 22 m, Mars 33 m.' },
+      { hi: 'बृहस्पति 112 मी, शनि 206 मी, अरुण 412 मी और वरुण लगभग 650 मी दूर रखें।', en: 'Place Jupiter at 112 m, Saturn at 206 m, Uranus at 412 m and Neptune about 650 m away.' },
+      { hi: 'हर ग्रह के पास नाम और दूरी का कार्ड लगाएँ और पूरे मॉडल पर चलकर देखें।', en: 'Put a card with the name and distance at each planet, then walk the whole model.' },
+    ],
+    concept: {
+      hi: 'अंतरिक्ष में ज़्यादातर जगह खाली है। जब दूरियाँ सही अनुपात में होती हैं, तब समझ आता है कि प्रकाश को भी सूर्य से पृथ्वी तक 8 मिनट क्यों लगते हैं।',
+      en: 'Space is mostly empty. Only when distances are to scale does it make sense that even light takes about 8 minutes to travel from the Sun to Earth.',
+    },
+    tags: ['planets', 'scale', 'distance'],
+  },
+  {
+    id: 'dna-double-helix',
+    title: { hi: 'मनकों से DNA की दोहरी कुंडली', en: 'DNA double helix with beads' },
+    summary: {
+      hi: 'चार रंगों के मनकों और पाइप-क्लीनर से DNA की सीढ़ी बनाएँ और उसे मरोड़कर कुंडली दें।',
+      en: 'Build the DNA ladder from four colours of beads and pipe cleaners, then twist it into a helix.',
+    },
+    topic: 'biology',
+    grade: '9-10',
+    howTo: [
+      { hi: 'चार रंग तय करें: A, T, G और C के लिए एक-एक।', en: 'Choose four colours, one each for A, T, G and C.' },
+      { hi: 'दो लंबे पाइप-क्लीनर सीढ़ी के दो किनारे (शर्करा-फ़ॉस्फ़ेट रीढ़) होंगे।', en: 'Two long pipe cleaners form the sides of the ladder (the sugar–phosphate backbones).' },
+      { hi: 'हर डंडे पर दो मनके लगाएँ, पर नियम से: A का जोड़ा हमेशा T से, G का हमेशा C से।', en: 'Put two beads on each rung, but follow the rule: A always pairs with T, G always with C.' },
+      { hi: '10–12 डंडे लगाने के बाद सीढ़ी को धीरे-धीरे एक ही दिशा में मरोड़ें।', en: 'After 10–12 rungs, gently twist the ladder in one direction.' },
+      { hi: 'एक कार्ड पर अपने मॉडल का "क्रम" लिखें, जैसे ATGCCGTA…', en: 'Write the “sequence” of your model on a card, such as ATGCCGTA…' },
+    ],
+    concept: {
+      hi: 'DNA में जानकारी चार अक्षरों के क्रम में लिखी होती है, और क्षार-युग्मन का नियम ही कोशिका को DNA की सही प्रति बनाने देता है। असली DNA में लगभग हर 10 जोड़ों पर एक पूरा चक्कर होता है।',
+      en: 'DNA stores information as a sequence of four letters, and the pairing rule is what lets a cell copy it accurately. In real DNA the helix makes one full turn roughly every 10 base pairs.',
+    },
+    tags: ['dna', 'genetics', 'cells'],
+  },
+  {
+    id: 'lung-model-balloons',
+    title: { hi: 'गुब्बारों से फेफड़ों का मॉडल', en: 'Lung model with balloons' },
+    summary: {
+      hi: 'एक बोतल, दो गुब्बारे और एक रबर की झिल्ली दिखाती है कि डायाफ़्राम साँस कैसे खींचता है।',
+      en: 'A bottle, two balloons and a rubber sheet show how the diaphragm draws breath in.',
+    },
+    topic: 'body',
+    grade: '6-8',
+    howTo: [
+      { hi: 'एक प्लास्टिक बोतल का तल काट दें।', en: 'Cut the bottom off a plastic bottle.' },
+      { hi: 'एक Y-आकार की स्ट्रॉ के दोनों सिरों पर छोटे गुब्बारे बाँधें; ये फेफड़े हैं।', en: 'Tie small balloons to both arms of a Y-shaped straw; these are the lungs.' },
+      { hi: 'स्ट्रॉ को बोतल के मुँह से अंदर डालें और मुँह को क्ले से हवा-बंद करें।', en: 'Pass the straw through the bottle mouth and seal the mouth airtight with clay.' },
+      { hi: 'बोतल के खुले तल पर एक बड़े गुब्बारे की कटी झिल्ली तानकर बाँधें; यह डायाफ़्राम है।', en: 'Stretch a sheet cut from a large balloon over the open bottom; this is the diaphragm.' },
+      { hi: 'झिल्ली को नीचे खींचें: गुब्बारे फूलते हैं। छोड़ें: वे पिचक जाते हैं।', en: 'Pull the sheet down: the balloons inflate. Release it: they deflate.' },
+    ],
+    concept: {
+      hi: 'फेफड़े खुद हवा नहीं खींचते। डायाफ़्राम के नीचे जाने से छाती का आयतन बढ़ता है, दबाव घटता है और बाहर की हवा अंदर दौड़ आती है।',
+      en: 'Lungs do not pull air in by themselves. When the diaphragm moves down, the chest volume grows, the pressure drops and outside air rushes in.',
+    },
+    tags: ['breathing', 'lungs', 'pressure'],
+  },
+  {
+    id: 'volcano-cross-section',
+    title: { hi: 'ज्वालामुखी का अनुप्रस्थ काट', en: 'Volcano cross-section' },
+    summary: {
+      hi: 'सिर्फ़ फुफकारने वाला ज्वालामुखी नहीं, बल्कि अंदर की संरचना दिखाने वाला कटा हुआ मॉडल।',
+      en: 'Not just a fizzing volcano, but a cut-away model that reveals what lies inside.',
+    },
+    topic: 'earth',
+    grade: '6-8',
+    howTo: [
+      { hi: 'गत्ते पर क्ले से आधा शंकु बनाएँ, जैसे ज्वालामुखी को बीच से काटा गया हो।', en: 'Build half a cone of clay on cardboard, as if the volcano were sliced through the middle.' },
+      { hi: 'कटी सतह पर लाल क्ले से मैग्मा कक्ष और ऊपर तक जाती मुख्य नली बनाएँ।', en: 'On the cut face, shape the magma chamber and the main vent in red clay.' },
+      { hi: 'ढलानों पर लावा और राख की बारी-बारी परतें अलग रंगों से दिखाएँ।', en: 'Show alternating layers of lava and ash on the slopes in different colours.' },
+      { hi: 'शिखर पर क्रेटर और एक ओर छोटी सहायक नली जोड़ें।', en: 'Add the crater at the summit and a small side vent.' },
+      { hi: 'टूथपिक पर लेबल लगाएँ: मैग्मा कक्ष, नली, क्रेटर, लावा, राख।', en: 'Label with toothpick flags: magma chamber, vent, crater, lava, ash.' },
+    ],
+    concept: {
+      hi: 'ज्वालामुखी पृथ्वी के भीतर की गर्मी का रास्ता है। ज़्यादातर ज्वालामुखी वहीं होते हैं जहाँ पृथ्वी की प्लेटें मिलती या अलग होती हैं। बेकिंग सोडा और सिरके का झाग एक रासायनिक अभिक्रिया है, असली विस्फोट का कारण नहीं।',
+      en: 'A volcano is a path for heat from inside the Earth. Most volcanoes sit where tectonic plates meet or pull apart. The baking-soda-and-vinegar foam is a chemical reaction, not what causes a real eruption.',
+    },
+    tags: ['volcano', 'geology', 'plates'],
+  },
+  {
+    id: 'water-cycle-bag',
+    title: { hi: 'थैली में जल चक्र', en: 'Water cycle in a bag' },
+    summary: {
+      hi: 'एक ज़िप वाली थैली, थोड़ा पानी और धूप वाली खिड़की: तीन दिन में बादल, बारिश और वाष्पीकरण आपकी आँखों के सामने।',
+      en: 'A zip bag, a little water and a sunny window: evaporation, clouds and rain in front of your eyes within three days.',
+    },
+    topic: 'earth',
+    grade: '6-8',
+    howTo: [
+      { hi: 'थैली पर मार्कर से नीचे समुद्र, ऊपर बादल और एक कोने में सूरज बनाएँ।', en: 'Draw the sea at the bottom, clouds at the top and a sun in one corner of the bag.' },
+      { hi: 'थैली में थोड़ा पानी डालें और एक बूँद नीला रंग मिलाएँ।', en: 'Pour in a little water with a drop of blue colour.' },
+      { hi: 'थैली बंद करके धूप वाली खिड़की पर टेप से चिपकाएँ।', en: 'Seal the bag and tape it to a sunny window.' },
+      { hi: 'कुछ घंटों में ऊपरी हिस्से में बूँदें जमेंगी और फिर नीचे टपकेंगी।', en: 'Within hours, droplets collect at the top and then trickle back down.' },
+      { hi: 'सुबह, दोपहर और शाम को देखकर बदलाव नोट करें।', en: 'Observe in the morning, afternoon and evening and note the changes.' },
+    ],
+    concept: {
+      hi: 'सूर्य की गर्मी से पानी वाष्प बनकर उठता है, ठंडी सतह पर बूँदों में बदलता है और भारी होकर गिरता है। पृथ्वी का पानी इसी चक्र में बार-बार घूमता है; नया पानी नहीं बनता।',
+      en: 'Heat from the Sun turns water into vapour, which condenses on a cooler surface and falls when the drops grow heavy. Earth’s water keeps moving through this cycle; no new water is created.',
+    },
+    tags: ['water cycle', 'evaporation', 'weather'],
+  },
+  {
+    id: 'electric-circuit-board',
+    title: { hi: 'विद्युत परिपथ बोर्ड', en: 'Electric circuit board' },
+    summary: {
+      hi: 'एक गत्ते पर बल्ब, स्विच और बैटरी लगाकर श्रेणी और समांतर परिपथ का अंतर खुद देखें।',
+      en: 'Mount bulbs, switches and a battery on a board and see the difference between series and parallel circuits yourself.',
+    },
+    topic: 'physics',
+    grade: '6-8',
+    howTo: [
+      { hi: 'मोटे गत्ते पर बैटरी होल्डर, दो–तीन बल्ब या LED और तार लगाएँ।', en: 'Fix a battery holder, two or three bulbs or LEDs and wires on thick cardboard.' },
+      { hi: 'पेपर क्लिप और ड्राइंग पिन से स्विच बनाएँ।', en: 'Make switches from paper clips and drawing pins.' },
+      { hi: 'पहले बल्बों को एक लाइन में (श्रेणी) जोड़ें और चमक देखें।', en: 'First connect the bulbs one after another (series) and observe the brightness.' },
+      { hi: 'फिर हर बल्ब को सीधे बैटरी से (समांतर) जोड़ें और फिर से देखें।', en: 'Then connect each bulb directly across the battery (parallel) and observe again.' },
+      { hi: 'एक बल्ब निकालकर देखें कि दोनों परिपथों में क्या होता है।', en: 'Remove one bulb and see what happens in each circuit.' },
+      { hi: 'दोनों परिपथों के चित्र मानक संकेतों से बनाएँ।', en: 'Draw both circuits using standard symbols.' },
+    ],
+    concept: {
+      hi: 'धारा केवल बंद रास्ते में बहती है। श्रेणी में एक बल्ब निकलते ही रास्ता टूट जाता है, जबकि समांतर में हर बल्ब का अपना रास्ता होता है, इसीलिए घरों की वायरिंग समांतर होती है।',
+      en: 'Current flows only around a closed path. In series, removing one bulb breaks the path, while in parallel each bulb has its own path, which is why homes are wired in parallel.',
+    },
+    tags: ['circuits', 'electricity', 'series parallel'],
+  },
+  {
+    id: 'eclipse-model-torch',
+    title: { hi: 'टॉर्च से ग्रहण का मॉडल', en: 'Eclipse model with a torch' },
+    summary: {
+      hi: 'एक टॉर्च, एक बड़ी गेंद और एक छोटी गेंद से सूर्य ग्रहण और चंद्र ग्रहण दोनों दिखाएँ।',
+      en: 'Show both a solar and a lunar eclipse with one torch, a big ball and a small ball.',
+    },
+    topic: 'space',
+    grade: '6-8',
+    howTo: [
+      { hi: 'बड़ी गेंद (पृथ्वी) और छोटी गेंद (चंद्रमा) को छड़ियों पर लगाएँ।', en: 'Mount a big ball (Earth) and a small ball (Moon) on sticks.' },
+      { hi: 'कमरे में अँधेरा करें और टॉर्च (सूर्य) को एक मेज़ पर टिकाएँ।', en: 'Darken the room and rest the torch (Sun) on a table.' },
+      { hi: 'चंद्रमा को सूर्य और पृथ्वी के बीच लाएँ: पृथ्वी पर छोटी छाया पड़ेगी। यह सूर्य ग्रहण है।', en: 'Bring the Moon between Sun and Earth: a small shadow falls on Earth. This is a solar eclipse.' },
+      { hi: 'अब चंद्रमा को पृथ्वी के पीछे ले जाएँ: वह पृथ्वी की छाया में डूबेगा। यह चंद्र ग्रहण है।', en: 'Now move the Moon behind the Earth: it sinks into Earth’s shadow. This is a lunar eclipse.' },
+      { hi: 'चंद्रमा की कक्षा को थोड़ा तिरछा घुमाएँ और देखें कि छाया अक्सर चूक क्यों जाती है।', en: 'Tilt the Moon’s orbit slightly and see why the shadow usually misses.' },
+    ],
+    concept: {
+      hi: 'ग्रहण केवल छायाओं का खेल है। चंद्रमा की कक्षा पृथ्वी की कक्षा से लगभग 5° झुकी है, इसलिए हर अमावस्या या पूर्णिमा को ग्रहण नहीं होता।',
+      en: 'An eclipse is simply a play of shadows. The Moon’s orbit is tilted about 5° to Earth’s, so an eclipse does not happen at every new or full moon.',
+    },
+    tags: ['eclipse', 'moon', 'shadows'],
+  },
+  {
+    id: 'plant-cell-model',
+    title: { hi: 'पादप कोशिका का मॉडल', en: 'Plant cell model' },
+    summary: {
+      hi: 'डिब्बे, जेली और रसोई की चीज़ों से कोशिका के अंग बनाएँ और हर अंग का काम बताएँ।',
+      en: 'Build the organelles from a box, jelly and kitchen items, and explain what each one does.',
+    },
+    topic: 'biology',
+    grade: '6-8',
+    howTo: [
+      { hi: 'एक आयताकार पारदर्शी डिब्बा लें; उसकी दीवार ही कोशिका भित्ति है।', en: 'Take a rectangular clear box; its walls are the cell wall.' },
+      { hi: 'अंदर पतली पन्नी या क्लिंग फ़िल्म बिछाएँ: यह कोशिका झिल्ली है।', en: 'Line the inside with cling film: this is the cell membrane.' },
+      { hi: 'हल्के रंग की जेली भरें; यह कोशिका द्रव्य है।', en: 'Fill it with lightly coloured jelly; this is the cytoplasm.' },
+      { hi: 'पानी भरा गुब्बारा बड़ी रिक्तिका, एक गोल फल केंद्रक, हरी फलियाँ हरितलवक और किशमिश माइटोकॉन्ड्रिया बनें।', en: 'A water balloon becomes the large vacuole, a round fruit the nucleus, green beans the chloroplasts and raisins the mitochondria.' },
+      { hi: 'हर अंग पर झंडी लगाकर उसका काम एक पंक्ति में लिखें।', en: 'Flag each organelle and write its job in one line.' },
+    ],
+    concept: {
+      hi: 'कोशिका एक छोटी फ़ैक्टरी है जिसमें हर अंग की एक भूमिका है। पादप कोशिका में भित्ति, हरितलवक और बड़ी रिक्तिका होती है, जो जंतु कोशिका में नहीं होती।',
+      en: 'A cell is a tiny factory in which every organelle has a role. A plant cell has a cell wall, chloroplasts and a large vacuole, which an animal cell lacks.',
+    },
+    tags: ['cell', 'biology', 'organelles'],
+  },
+]

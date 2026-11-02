@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Student Activities placeholder 3">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1630"/><stop offset="1" stop-color="#10224a"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#2563eb" stop-opacity=".5"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="rgba(34,211,238,0.08)" stroke-width="1"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#grid)"/>
+<rect width="1600" height="900" fill="url(#glow)"/>
+<g transform="translate(800 432.0) scale(2.160)">
+    <g fill="none" stroke="#9be9f7" stroke-width="4" stroke-linecap="round">
+      <circle cx="-74" cy="6" r="18"/><path d="M-112 76a38 38 0 0 1 76 0"/>
+      <circle cx="0" cy="-10" r="20"/><path d="M-42 66a42 42 0 0 1 84 0"/>
+      <circle cx="76" cy="8" r="18"/><path d="M38 78a38 38 0 0 1 76 0"/>
+    </g>
+    <g fill="none" stroke="#fbbf24" stroke-width="4" stroke-linejoin="round">
+      <path d="M-116 -78h56a8 8 0 0 1 8 8v22a8 8 0 0 1 -8 8h-28l-14 12v-12h-14a8 8 0 0 1 -8 -8v-22a8 8 0 0 1 8 -8z"/>
+      <path d="M58 -86h56a8 8 0 0 1 8 8v22a8 8 0 0 1 -8 8h-14v12l-14 -12h-28a8 8 0 0 1 -8 -8v-22a8 8 0 0 1 8 -8z"/>
+    </g>
+    <g fill="#fbbf24"><circle cx="-96" cy="-59" r="3"/><circle cx="-84" cy="-59" r="3"/><circle cx="-72" cy="-59" r="3"/></g>
+    <path d="M72 -67h30" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/></g>
+<g font-family="system-ui, sans-serif" font-weight="600">
+<text x="43" y="857" font-size="23" letter-spacing="4.1" fill="rgba(255,255,255,0.78)">STUDENT ACTIVITIES</text>
+<text x="1557" y="865.64" font-size="108" text-anchor="end" fill="rgba(255,255,255,0.08)">03</text>
+<rect x="1399" y="43" width="158" height="40" rx="20" fill="rgba(251,191,36,0.14)" stroke="rgba(251,191,36,0.6)" stroke-width="2"/>
+<text x="1478" y="69.4" font-size="18" letter-spacing="2.7" text-anchor="middle" fill="#fbbf24">PLACEHOLDER</text>
+</g>
+</svg>

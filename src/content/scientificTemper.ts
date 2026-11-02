@@ -1,0 +1,207 @@
+import type { Claim, L, TemperStep } from './types'
+import type { IconName } from '@/lib/icons'
+
+export const temperQuote = {
+  hi: 'दावे को स्वीकार करने से पहले प्रमाण खोजें।',
+  en: 'Seek evidence before accepting a claim.',
+} satisfies L
+
+/** Official heading and definition supplied by the organisation. */
+export const temperHeading = { hi: 'वैज्ञानिक दृष्टिकोण — हमारी प्राथमिकता', en: 'Scientific temper: our priority' } satisfies L
+
+export const temperDefinition = {
+  lead: { hi: 'वैज्ञानिक दृष्टिकोण का अर्थ केवल विज्ञान की जानकारी होना नहीं है।', en: 'Scientific temper does not simply mean knowing science.' } satisfies L,
+  body: {
+    hi: 'यह एक ऐसी मानसिकता है जिसमें व्यक्ति “मैंने सुना है” से आगे बढ़कर पूछता है— “क्या यह सत्य है?” और फिर पूछता है— “इसका प्रमाण क्या है?”',
+    en: 'It is a mindset in which a person moves beyond “I have heard that…” to ask “Is it true?” and then asks “What is the evidence?”',
+  } satisfies L,
+  stages: [
+    { hi: '“मैंने सुना है”', en: '“I have heard that…”' },
+    { hi: '“क्या यह सत्य है?”', en: '“Is it true?”' },
+    { hi: '“इसका प्रमाण क्या है?”', en: '“What is the evidence?”' },
+  ] satisfies L[],
+}
+
+export const temperIntro = {
+  hi: 'नीचे की छह कड़ियाँ उसी प्रक्रिया की हैं जिससे एक साधारण प्रश्न भरोसेमंद निष्कर्ष तक पहुँचता है। किसी भी कड़ी पर जाएँ और देखें।',
+  en: 'The six links below are the process by which an ordinary question reaches a trustworthy conclusion. Step through them.',
+} satisfies L
+
+export const exampleQuestion = {
+  hi: 'खिड़की के पास रखा पौधा बाहर की ओर क्यों झुक जाता है?',
+  en: 'Why does a plant kept near a window lean towards the outside?',
+} satisfies L
+
+export const temperSteps: TemperStep[] = [
+  {
+    key: 'question',
+    label: { hi: 'प्रश्न पूछें', en: 'Ask a question' },
+    english: 'Question',
+    icon: 'question',
+    tint: 'amber',
+    summary: { hi: 'हर खोज एक ईमानदार "क्यों" से शुरू होती है।', en: 'Every discovery begins with an honest “why”.' },
+    detail: {
+      hi: 'अच्छा प्रश्न स्पष्ट, छोटा और परखने योग्य होता है। "पौधे अच्छे क्यों हैं?" प्रश्न नहीं है; "यह पौधा खिड़की की ओर क्यों झुका?" प्रश्न है।',
+      en: 'A good question is clear, small and testable. “Why are plants nice?” is not one; “Why did this plant lean towards the window?” is.',
+    },
+    example: {
+      hi: 'मेज़ पर रखा तुलसी का पौधा कुछ दिनों में खिड़की की ओर झुक गया। क्यों?',
+      en: 'A basil plant on the table has leaned towards the window within a few days. Why?',
+    },
+    prompt: { hi: 'अपने आसपास की कोई एक चीज़ चुनें और उस पर एक परखने योग्य प्रश्न लिखें।', en: 'Pick one thing around you and write a testable question about it.' },
+  },
+  {
+    key: 'think',
+    label: { hi: 'सोचें', en: 'Think' },
+    english: 'Think',
+    icon: 'brain',
+    tint: 'violet',
+    summary: { hi: 'जो पहले से पता है, उसे इकट्ठा करें; अनुमानों को अलग रखें।', en: 'Gather what is already known; keep guesses separate.' },
+    detail: {
+      hi: 'सोचने का अर्थ है अवलोकन को ध्यान से देखना और संभावित कारणों की सूची बनाना, बिना किसी एक पर अटके। यहाँ "मुझे लगता है" और "मैंने देखा" में फ़र्क करना सीखते हैं।',
+      en: 'Thinking means looking closely at the observation and listing possible causes without clinging to one. Here we learn the difference between “I feel” and “I saw”.',
+    },
+    example: {
+      hi: 'संभावित कारण: रोशनी, हवा, गमले का झुकाव, पानी देने की दिशा। कौन-सा सबसे संभावित है?',
+      en: 'Possible causes: light, wind, a tilted pot, the direction of watering. Which is most likely?',
+    },
+    prompt: { hi: 'अपने प्रश्न के कम से कम तीन संभावित कारण लिखें।', en: 'List at least three possible causes for your question.' },
+  },
+  {
+    key: 'hypothesis',
+    label: { hi: 'परिकल्पना बनाएँ', en: 'Form a hypothesis' },
+    english: 'Hypothesis',
+    icon: 'lightbulb',
+    tint: 'cyan',
+    summary: { hi: 'एक ऐसा अनुमान, जो गलत भी साबित हो सकता हो।', en: 'A guess that could be proven wrong.' },
+    detail: {
+      hi: 'परिकल्पना "अगर… तो…" के रूप में लिखी जाती है। उसका गुण यह है कि वह परखी जा सके और गलत निकल सके। जो दावा किसी भी हाल में गलत नहीं हो सकता, वह विज्ञान नहीं है।',
+      en: 'A hypothesis is written as “if… then…”. Its virtue is that it can be tested and can fail. A claim that can never be wrong is not science.',
+    },
+    example: {
+      hi: 'अगर पौधा रोशनी की ओर बढ़ता है, तो गमला घुमाने पर वह कुछ दिनों में फिर खिड़की की ओर झुक जाएगा।',
+      en: 'If the plant grows towards light, then after turning the pot it will lean towards the window again within a few days.',
+    },
+    prompt: { hi: 'अपने सबसे संभावित कारण को "अगर… तो…" वाक्य में बदलें।', en: 'Turn your most likely cause into an “if… then…” sentence.' },
+  },
+  {
+    key: 'experiment',
+    label: { hi: 'प्रयोग करें', en: 'Experiment' },
+    english: 'Experiment',
+    icon: 'flask',
+    tint: 'electric',
+    summary: { hi: 'एक समय में एक ही चीज़ बदलें और बाकी स्थिर रखें।', en: 'Change one thing at a time and keep the rest the same.' },
+    detail: {
+      hi: 'अच्छे प्रयोग में एक "नियंत्रण" होता है, जिससे तुलना की जा सके, और केवल एक चर बदला जाता है। माप और समय पहले से तय करें, ताकि परिणाम मन के अनुसार न मोड़े जा सकें।',
+      en: 'A good experiment has a control to compare against and changes only one variable. Decide the measurements and timing beforehand, so results cannot be bent to wishes.',
+    },
+    example: {
+      hi: 'दो एक जैसे पौधे: एक खिड़की के पास, दूसरा वैसी ही जगह पर पर एक डिब्बे से ढका, जिसमें केवल बाईं ओर छेद है। हर दिन झुकाव की दिशा और कोण दर्ज करें।',
+      en: 'Two similar plants: one by the window, the other in the same spot but covered by a box with a hole only on the left. Record the direction and angle of lean every day.',
+    },
+    prompt: { hi: 'अपने प्रयोग में क्या बदलेगा, क्या स्थिर रहेगा और आप क्या मापेंगे?', en: 'In your experiment, what changes, what stays fixed and what will you measure?' },
+  },
+  {
+    key: 'evidence',
+    label: { hi: 'प्रमाण खोजें', en: 'Seek evidence' },
+    english: 'Evidence',
+    icon: 'scale',
+    tint: 'mint',
+    summary: { hi: 'जो मापा गया, वही गिना जाएगा; जो चाहा गया, वह नहीं।', en: 'What was measured counts; what was wished for does not.' },
+    detail: {
+      hi: 'प्रमाण ईमानदार अवलोकन है: तालिका, तस्वीरें, माप। अप्रत्याशित परिणाम छिपाए नहीं जाते, दर्ज किए जाते हैं। प्रमाण जितना दोहराने योग्य होगा, उतना मज़बूत होगा।',
+      en: 'Evidence is honest observation: tables, photographs, measurements. Unexpected results are recorded, not hidden. The more repeatable the evidence, the stronger it is.',
+    },
+    example: {
+      hi: 'पाँच दिनों में ढके पौधे का तना छेद की ओर लगभग 30° झुक गया; खुला पौधा खिड़की की ओर। दोनों एक ही दिशा में: रोशनी की ओर।',
+      en: 'In five days the covered plant’s stem leaned about 30° towards the hole; the open plant towards the window. Both in the same direction: towards light.',
+    },
+    prompt: { hi: 'आप अपने प्रमाण को कैसे दर्ज करेंगे, ताकि कोई और उसे जाँच सके?', en: 'How will you record your evidence so someone else can check it?' },
+  },
+  {
+    key: 'conclusion',
+    label: { hi: 'निष्कर्ष निकालें', en: 'Draw a conclusion' },
+    english: 'Conclusion',
+    icon: 'circleCheck',
+    tint: 'orange',
+    summary: { hi: 'प्रमाण जितना कहे, उतना ही कहें, और अगला प्रश्न पूछें।', en: 'Say only as much as the evidence allows, and ask the next question.' },
+    detail: {
+      hi: 'निष्कर्ष परिकल्पना की पुष्टि, खंडन या संशोधन करता है। वह अंतिम सत्य नहीं, अब तक का सबसे अच्छा उत्तर है, जो नए प्रमाण से बदल सकता है। यही विज्ञान की विनम्रता और ताक़त है।',
+      en: 'A conclusion confirms, rejects or refines the hypothesis. It is not final truth but the best answer so far, open to change with new evidence. That is both the humility and the strength of science.',
+    },
+    example: {
+      hi: 'निष्कर्ष: पौधा रोशनी की ओर बढ़ता है (प्रकाशानुवर्तन)। अगला प्रश्न: क्या रोशनी का रंग इस झुकाव को बदलता है?',
+      en: 'Conclusion: the plant grows towards light (phototropism). Next question: does the colour of the light change the lean?',
+    },
+    prompt: { hi: 'अपने निष्कर्ष के साथ एक नया प्रश्न लिखें।', en: 'Write one new question alongside your conclusion.' },
+  },
+]
+
+/** Official: “वैज्ञानिक दृष्टिकोण हमें सिखाता है—”. Icons are interface choices. */
+export const temperTeachingsLabel = { hi: 'वैज्ञानिक दृष्टिकोण हमें सिखाता है', en: 'Scientific temper teaches us' } satisfies L
+
+export const temperTeachings: { text: L; icon: IconName }[] = [
+  { text: temperQuote, icon: 'scale' },
+  {
+    text: { hi: 'परंपरा का सम्मान करें, लेकिन उसे तर्क की कसौटी पर भी परखें।', en: 'Respect tradition, but test it on the touchstone of reason too.' },
+    icon: 'landmark',
+  },
+  {
+    text: { hi: 'प्रश्न पूछना अवज्ञा नहीं, ज्ञान की शुरुआत है।', en: 'Asking questions is not defiance; it is the beginning of knowledge.' },
+    icon: 'question',
+  },
+]
+
+/** Mini-interaction: is this statement evidence, or just a claim? */
+export const claims: Claim[] = [
+  {
+    statement: { hi: 'यह दवा हर बीमारी ठीक कर देती है, मेरे पड़ोसी ने बताया।', en: 'This medicine cures every illness, my neighbour told me.' },
+    kind: 'claim',
+    why: { hi: '"हर बीमारी" जैसा निरपेक्ष दावा और स्रोत केवल सुनी-सुनाई बात।', en: 'An absolute claim (“every illness”) with hearsay as the only source.' },
+  },
+  {
+    statement: { hi: 'इस दवा का 2,000 लोगों पर नियंत्रित परीक्षण हुआ और परिणाम प्रकाशित हैं।', en: 'This medicine was tested in a controlled trial on 2,000 people and the results are published.' },
+    kind: 'evidence',
+    why: { hi: 'नियंत्रित परीक्षण, बड़ी संख्या और सार्वजनिक परिणाम, जिन्हें जाँचा जा सकता है।', en: 'A controlled trial, a large sample and public results that can be checked.' },
+  },
+  {
+    statement: { hi: 'यह वीडियो दस लाख बार देखा गया है, इसलिए सच ही होगा।', en: 'This video has a million views, so it must be true.' },
+    kind: 'claim',
+    why: { hi: 'लोकप्रियता सच्चाई का प्रमाण नहीं है।', en: 'Popularity is not proof of truth.' },
+  },
+  {
+    statement: { hi: 'तीन अलग-अलग प्रयोगशालाओं ने एक जैसी विधि से यही परिणाम पाया।', en: 'Three different laboratories got the same result with the same method.' },
+    kind: 'evidence',
+    why: { hi: 'स्वतंत्र दोहराव प्रमाण को मज़बूत बनाता है।', en: 'Independent replication strengthens evidence.' },
+  },
+  {
+    statement: { hi: 'सबको पता है कि ऐसा ही होता है।', en: 'Everyone knows that is how it works.' },
+    kind: 'claim',
+    why: { hi: '"सबको पता है" कोई अवलोकन नहीं, एक धारणा है।', en: '“Everyone knows” is an assumption, not an observation.' },
+  },
+  {
+    statement: { hi: 'समुद्र तल पर पानी 100°C पर उबला, यह मैंने थर्मामीटर से मापा।', en: 'At sea level the water boiled at 100°C; I measured it with a thermometer.' },
+    kind: 'evidence',
+    why: { hi: 'उपकरण से किया गया माप, जिसे कोई भी दोहरा सकता है।', en: 'An instrument measurement that anyone can repeat.' },
+  },
+  {
+    statement: { hi: 'प्राचीन काल से ऐसा माना जाता रहा है, तो सही ही होगा।', en: 'It has been believed since ancient times, so it must be right.' },
+    kind: 'claim',
+    why: { hi: 'पुरानापन सच्चाई की गारंटी नहीं; कई पुरानी मान्यताएँ गलत साबित हुई हैं।', en: 'Age does not guarantee truth; many old beliefs have been proven wrong.' },
+  },
+  {
+    statement: { hi: 'पौधे की ऊँचाई हर दिन एक ही समय पर मापकर तालिका में दर्ज की गई।', en: 'The plant’s height was measured at the same time every day and recorded in a table.' },
+    kind: 'evidence',
+    why: { hi: 'नियमित, दर्ज किया गया और तुलना योग्य माप।', en: 'Regular, recorded and comparable measurement.' },
+  },
+  {
+    statement: { hi: 'मुझे पक्का लगता है कि यह तरीका काम करेगा।', en: 'I strongly feel this method will work.' },
+    kind: 'claim',
+    why: { hi: 'भावना चाहे कितनी ही प्रबल हो, वह माप नहीं है।', en: 'A feeling, however strong, is not a measurement.' },
+  },
+  {
+    statement: { hi: 'नियंत्रण समूह की तुलना में प्रायोगिक समूह में स्पष्ट अंतर दर्ज हुआ।', en: 'A clear difference was recorded between the experimental group and the control group.' },
+    kind: 'evidence',
+    why: { hi: 'नियंत्रण समूह से तुलना यह दिखाती है कि अंतर बदले गए चर के कारण है।', en: 'Comparison with a control shows the difference comes from the variable that was changed.' },
+  },
+]

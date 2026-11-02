@@ -1,0 +1,25 @@
+export const ROUTES = [
+  '/',
+  '/about',
+  '/vision-mission',
+  '/objectives',
+  '/scientific-temper',
+  '/activities',
+  '/activities/science-workshops',
+  '/students',
+  '/students/facts',
+  '/students/experiments',
+  '/students/quiz',
+  '/students/projects',
+  '/students/models',
+  '/students/scientists',
+  '/students/questions',
+  '/students/news',
+  '/students/careers',
+  '/students/myths',
+  '/teachers',
+  '/gallery',
+  '/contact',
+] as const
+
+export const NOT_FOUND_TITLE = 'पृष्ठ नहीं मिला'

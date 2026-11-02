@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: 'Noto Sans Devanagari Variable'; src: url('../public/fonts/noto-sans-devanagari-devanagari-wght-normal.woff2') format('woff2-variations'); font-weight: 100 900; }
+  @font-face { font-family: 'Noto Sans Devanagari Variable'; src: url('../public/fonts/noto-sans-devanagari-latin-wght-normal.woff2') format('woff2-variations'); font-weight: 100 900; unicode-range: U+0000-00FF; }
+  @font-face { font-family: 'Inter Variable'; src: url('../public/fonts/inter-latin-wght-normal.woff2') format('woff2-variations'); font-weight: 100 900; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; }
+  body { font-family: 'Noto Sans Devanagari Variable', 'Inter Variable', sans-serif; background: radial-gradient(900px 500px at 85% 20%, rgba(37,99,235,.45), transparent 60%), linear-gradient(160deg, #0a1630 0%, #050b1a 100%); color: #fff; position: relative; overflow: hidden; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(34,211,238,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.07) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(180deg, #000 40%, transparent); }
+  .wrap { position: absolute; inset: 0; padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 18px; }
+  .brand .name { font-weight: 700; font-size: 30px; }
+  .brand .latin { font-family: 'Inter Variable'; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: rgba(165,243,252,.85); margin-top: 4px; }
+  h1 { font-size: 72px; line-height: 1.22; font-weight: 700; max-width: 760px; letter-spacing: 0; }
+  .sub { font-family: 'Inter Variable'; font-size: 28px; color: #a5f3fc; font-weight: 500; margin-top: 18px; }
+  .tag { font-size: 20px; color: rgba(255,255,255,.65); max-width: 720px; }
+  .panel { position: absolute; right: 64px; top: 50%; transform: translateY(-50%); width: 420px; height: 420px; border-radius: 40px; background: #fdefd0; display: grid; place-items: center; padding: 28px; box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); }
+  .panel img { width: 100%; height: auto; display: block; }
+  h1 { max-width: 620px; font-size: 64px; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="panel"><img src="../public/logo.svg" alt="" /></div>
+  <div class="wrap">
+    <div class="brand">
+      <img src="../public/logo-mark-dark.svg" alt="" style="height:64px;width:auto" />
+      <div><div class="name">विज्ञान सारथी</div><div class="latin">Vigyan Sarathi</div></div>
+    </div>
+    <div>
+      <h1>जिज्ञासा से खोज तक,<br/>विज्ञान के साथ।</h1>
+      <p class="sub">Igniting Curiosity. Inspiring Scientific Thinking.</p>
+    </div>
+    <p class="tag">जिज्ञासा से प्रश्न तक, प्रश्न से प्रयोग तक और प्रयोग से वैज्ञानिक दृष्टिकोण तक।</p>
+  </div>
+</body>
+</html>

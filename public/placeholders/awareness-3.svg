@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-label="Awareness Programmes placeholder 3">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1630"/><stop offset="1" stop-color="#10224a"/></linearGradient>
+<radialGradient id="glow" cx="50%" cy="46%" r="52%"><stop offset="0" stop-color="#2563eb" stop-opacity=".5"/><stop offset="1" stop-color="#2563eb" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="rgba(34,211,238,0.08)" stroke-width="1"/></pattern>
+</defs>
+<rect width="1000" height="1000" fill="url(#bg)"/>
+<rect width="1000" height="1000" fill="url(#grid)"/>
+<rect width="1000" height="1000" fill="url(#glow)"/>
+<g transform="translate(500 480.0) scale(2.400)">
+    <g fill="none" stroke="#9be9f7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="-44" cy="4" r="56"/>
+      <ellipse cx="-44" cy="4" rx="24" ry="56"/>
+      <path d="M-100 4h112M-92 -26h96M-92 34h96" opacity=".7"/>
+    </g>
+    <g fill="none" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M40 72C40 -2 82 -48 116 -64C120 10 92 56 40 72Z"/>
+      <path d="M44 68Q78 18 110 -56"/>
+    </g></g>
+<g font-family="system-ui, sans-serif" font-weight="600">
+<text x="48" y="952" font-size="26" letter-spacing="4.7" fill="rgba(255,255,255,0.78)">AWARENESS PROGRAMMES</text>
+<text x="952" y="961.6" font-size="120" text-anchor="end" fill="rgba(255,255,255,0.08)">03</text>
+<rect x="776" y="48" width="176" height="44" rx="22" fill="rgba(251,191,36,0.14)" stroke="rgba(251,191,36,0.6)" stroke-width="2"/>
+<text x="864" y="77.04" font-size="20" letter-spacing="3.0" text-anchor="middle" fill="#fbbf24">PLACEHOLDER</text>
+</g>
+</svg>
