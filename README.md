@@ -79,6 +79,10 @@ docker compose up -d --build
 
 Update later with `git pull && docker compose up -d --build`.
 
+Production: https://vigyansarithi.com runs this way on the organisation's Hostinger VPS (checkout at `/root/vigyan-sarathi`,
+Traefik network `n8n_default`, entrypoint `websecure`, certresolver `mytlschallenge`). To ship a change: push to `main`,
+then on the server `cd /root/vigyan-sarathi && git pull && docker compose up -d --build`.
+
 
 ### Hostinger (shared / cloud hosting)
 
