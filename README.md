@@ -65,6 +65,21 @@ Copy `.env.example` to `.env`:
 
 ## Deployment
 
+### Docker + Traefik (VPS)
+
+`Dockerfile` builds the site in a Node stage and serves `dist/` with nginx (`docker/nginx.conf`: route fallback,
+compression, long caching for hashed assets). `docker-compose.yml` attaches the container to an existing Traefik network
+with TLS via your certresolver. On the server:
+
+```bash
+git clone https://github.com/logicclutch/vigyan_sarathi.git vigyan-sarathi && cd vigyan-sarathi
+cp .env.example .env   # set SITE_DOMAIN and the Traefik network / entrypoint / certresolver names
+docker compose up -d --build
+```
+
+Update later with `git pull && docker compose up -d --build`.
+
+
 ### Hostinger (shared / cloud hosting)
 
 `npm run deploy:hostinger` builds the site and force-pushes the contents of `dist/` to the `hostinger` branch of the

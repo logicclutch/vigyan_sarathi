@@ -1,0 +1,38 @@
+# Vigyan Sarathi behind an existing Traefik reverse proxy.
+# Copy .env.example to .env and set SITE_DOMAIN plus your Traefik names, then: docker compose up -d --build
+services:
+  vigyan-sarathi:
+    build:
+      context: .
+      args:
+        VITE_SITE_URL: https://${SITE_DOMAIN}
+    image: vigyan-sarathi:latest
+    container_name: vigyan-sarathi
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=${TRAEFIK_NETWORK:-traefik}
+      # HTTPS router
+      - traefik.http.routers.vigyan.rule=Host(`${SITE_DOMAIN}`) || Host(`www.${SITE_DOMAIN}`)
+      - traefik.http.routers.vigyan.entrypoints=${TRAEFIK_ENTRYPOINT:-websecure}
+      - traefik.http.routers.vigyan.tls=true
+      - traefik.http.routers.vigyan.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}
+      - traefik.http.routers.vigyan.middlewares=vigyan-www
+      - traefik.http.services.vigyan.loadbalancer.server.port=80
+      # www → apex redirect
+      - traefik.http.middlewares.vigyan-www.redirectregex.regex=^https://www\.(.*)
+      - traefik.http.middlewares.vigyan-www.redirectregex.replacement=https://$${1}
+      - traefik.http.middlewares.vigyan-www.redirectregex.permanent=true
+      # HTTP → HTTPS (harmless if Traefik already redirects globally)
+      - traefik.http.routers.vigyan-http.rule=Host(`${SITE_DOMAIN}`) || Host(`www.${SITE_DOMAIN}`)
+      - traefik.http.routers.vigyan-http.entrypoints=${TRAEFIK_HTTP_ENTRYPOINT:-web}
+      - traefik.http.routers.vigyan-http.middlewares=vigyan-https
+      - traefik.http.middlewares.vigyan-https.redirectscheme.scheme=https
+      - traefik.http.middlewares.vigyan-https.redirectscheme.permanent=true
+
+networks:
+  traefik:
+    external: true
+    name: ${TRAEFIK_NETWORK:-traefik}
