@@ -36,5 +36,5 @@ const urls = routes
   .join('\n')
 
 writeFileSync(join(root, 'public/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`)
-writeFileSync(join(root, 'public/robots.txt'), `User-agent: *\nAllow: /\n${base ? `\nSitemap: ${base}/sitemap.xml\n` : ''}`)
+writeFileSync(join(root, 'public/robots.txt'), `User-agent: *\nDisallow: /admin\nDisallow: /api/\nAllow: /\n${base ? `\nSitemap: ${base}/sitemap.xml\n` : ''}`)
 console.log(`sitemap: ${routes.length} routes${base ? ` under ${base}` : ' (VITE_SITE_URL not set: relative locs)'}`)
