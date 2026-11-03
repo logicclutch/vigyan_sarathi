@@ -9,3 +9,6 @@ blob-report
 .env
 .env.local
 *.log
+.data
+.releases
+.screenshots

@@ -1,7 +1,8 @@
 import type { Experiment } from '../types'
+import { withOverride } from '../overrides'
 
 /** Safe, home-friendly experiments. Each starts with a prediction and ends with the science. */
-export const experiments: Experiment[] = [
+const experimentsDefaults: Experiment[] = [
   {
     id: 'density-tower',
     title: { hi: 'घनत्व की मीनार', en: 'Density tower' },
@@ -371,3 +372,5 @@ export const experiments: Experiment[] = [
     tags: ['plants', 'growth', 'tropism'],
   },
 ]
+export { experimentsDefaults }
+export const experiments: Experiment[] = withOverride('students.experiments', experimentsDefaults)

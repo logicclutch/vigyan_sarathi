@@ -1,5 +1,6 @@
 import type { L } from './types'
 import type { IconName } from '@/lib/icons'
+import { withOverride } from './overrides'
 
 export interface AboutSection {
   id: string
@@ -20,7 +21,7 @@ export interface Audience {
  * Official text supplied by Vigyan Sarathi (Hindi). English is a faithful translation.
  * Section headings are phrases drawn from the same text.
  */
-export const aboutSections: AboutSection[] = [
+const aboutSectionsDefaults: AboutSection[] = [
   {
     id: 'what',
     eyebrow: { hi: 'परिचय', en: 'Introduction' },
@@ -92,9 +93,11 @@ export const aboutSections: AboutSection[] = [
     review: false,
   },
 ]
+export { aboutSectionsDefaults }
+export const aboutSections: AboutSection[] = withOverride('about.sections', aboutSectionsDefaults)
 
 /** Official: “विज्ञान केवल विषय नहीं, सोचने का तरीका है” and the learning culture it describes. */
-export const learningCulture = {
+const learningCultureDefaults = {
   eyebrow: { hi: 'सोचने का तरीका', en: 'A way of thinking' } satisfies L,
   title: { hi: 'विज्ञान केवल विषय नहीं, सोचने का तरीका है', en: 'Science is not just a subject; it is a way of thinking' } satisfies L,
   intro: {
@@ -119,11 +122,15 @@ export const learningCulture = {
     en: 'Where questions are alive in a mind, science is alive in that mind too.',
   } satisfies L,
 }
+export { learningCultureDefaults }
+export const learningCulture = withOverride('about.learningCulture', learningCultureDefaults)
 
 /** Interface framing (not organisational text): who the site serves. */
-export const audiences: Audience[] = [
+const audiencesDefaults: Audience[] = [
   { title: { hi: 'विद्यार्थी', en: 'Students' }, body: { hi: 'प्रश्न पूछने और प्रयोग करने की जगह।', en: 'A place to ask and to experiment.' }, icon: 'graduationCap' },
   { title: { hi: 'शिक्षक', en: 'Teachers' }, body: { hi: 'संसाधन, प्रशिक्षण और सहयोगी समुदाय।', en: 'Resources, training and a community of peers.' }, icon: 'bookOpen' },
   { title: { hi: 'अभिभावक', en: 'Parents' }, body: { hi: 'घर पर जिज्ञासा को सहारा देने के तरीके।', en: 'Ways to support curiosity at home.' }, icon: 'heart' },
   { title: { hi: 'समाज', en: 'Society' }, body: { hi: 'प्रमाण-आधारित संवाद और वैज्ञानिक जागरूकता।', en: 'Evidence-based conversation and scientific awareness.' }, icon: 'users' },
 ]
+export { audiencesDefaults }
+export const audiences: Audience[] = withOverride('about.audiences', audiencesDefaults)

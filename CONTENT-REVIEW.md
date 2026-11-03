@@ -70,7 +70,14 @@ organisation has the original vector artwork, it can replace `public/logo-mark.s
 | Contact form backend | Set `VITE_CONTACT_ENDPOINT` (e.g. a Formspree endpoint); until then the form opens a prefilled mail or offers copyable text | `.env` |
 | Public site URL (canonical links, OG image, sitemap) | Set `VITE_SITE_URL` before `npm run build` | `.env` |
 
-## 5. Quick commands
+## 5. Editing without code
+
+Everything in this document can now be changed from the admin panel at `/admin` (see README → "Admin panel"):
+each item below maps to a section there (for example the ten objectives are the **Objectives** section, the About
+paragraphs are **About → About narrative sections**). Edits are saved as overrides of the files listed here; the files
+themselves remain the built-in defaults and `review: true` flags stay in them until the code is updated.
+
+## 6. Quick commands
 
 - `npm run dev` – see the review badges while editing content.
 - `npm run typecheck` – every bilingual object must have both `hi` and `en`.

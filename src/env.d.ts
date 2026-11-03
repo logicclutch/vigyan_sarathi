@@ -8,3 +8,8 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+declare module 'virtual:content-overrides' {
+  const overrides: Record<string, unknown>
+  export default overrides
+}

@@ -1,7 +1,8 @@
 import type { ModelIdea } from '../types'
+import { withOverride } from '../overrides'
 
 /** Model-making ideas that teach a concept, not just decorate a table. */
-export const modelIdeas: ModelIdea[] = [
+const modelIdeasDefaults: ModelIdea[] = [
   {
     id: 'solar-system-scale',
     title: { hi: 'सौरमंडल का सही पैमाने का मॉडल', en: 'Solar system to scale' },
@@ -180,3 +181,5 @@ export const modelIdeas: ModelIdea[] = [
     tags: ['cell', 'biology', 'organelles'],
   },
 ]
+export { modelIdeasDefaults }
+export const modelIdeas: ModelIdea[] = withOverride('students.models', modelIdeasDefaults)

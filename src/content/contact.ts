@@ -1,5 +1,6 @@
 import type { L } from './types'
 import type { IconName } from '@/lib/icons'
+import { withOverride } from './overrides'
 
 export interface JoinWay {
   id: string
@@ -16,7 +17,7 @@ export interface ContactFaq {
   review: boolean
 }
 
-export const joinWays: JoinWay[] = [
+const joinWaysDefaults: JoinWay[] = [
   {
     id: 'volunteer',
     title: { hi: 'स्वयंसेवक बनें', en: 'Volunteer' },
@@ -46,9 +47,11 @@ export const joinWays: JoinWay[] = [
     subject: 'student',
   },
 ]
+export { joinWaysDefaults }
+export const joinWays: JoinWay[] = withOverride('contact.joinWays', joinWaysDefaults)
 
 /** DRAFT (review): general guidance about how to reach us; contains no facts about fees, dates or locations. */
-export const contactFaqs: ContactFaq[] = [
+const contactFaqsDefaults: ContactFaq[] = [
   {
     id: 'how-to-invite',
     q: { hi: 'अपने विद्यालय में कार्यक्रम कैसे आयोजित करवाएँ?', en: 'How can we host a programme at our school?' },
@@ -86,3 +89,5 @@ export const contactFaqs: ContactFaq[] = [
     review: true,
   },
 ]
+export { contactFaqsDefaults }
+export const contactFaqs: ContactFaq[] = withOverride('contact.faqs', contactFaqsDefaults)

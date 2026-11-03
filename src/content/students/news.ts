@@ -1,12 +1,13 @@
 import type { IconName } from '@/lib/icons'
 import type { L, NewsSource } from '../types'
+import { withOverride } from '../overrides'
 
 /**
  * Science News section. We do not fabricate news items: students are pointed to
  * trustworthy sources (all URLs verified reachable) and taught how to read
  * science news critically. Organisation-curated items live in site.newsItems.
  */
-export const newsSources: NewsSource[] = [
+const newsSourcesDefaults: NewsSource[] = [
   {
     id: 'isro',
     name: { hi: 'इसरो (ISRO)', en: 'ISRO' },
@@ -108,6 +109,8 @@ export const newsSources: NewsSource[] = [
     kind: 'india',
   },
 ]
+export { newsSourcesDefaults }
+export const newsSources: NewsSource[] = withOverride('students.newsSources', newsSourcesDefaults)
 
 export interface NewsTip {
   id: string
@@ -117,7 +120,7 @@ export interface NewsTip {
 }
 
 /** How to read science news critically: the scientific temper applied to headlines. */
-export const newsTips: NewsTip[] = [
+const newsTipsDefaults: NewsTip[] = [
   {
     id: 'check-source',
     title: { hi: 'स्रोत देखें', en: 'Check the source' },
@@ -173,3 +176,5 @@ export const newsTips: NewsTip[] = [
     icon: 'calendar',
   },
 ]
+export { newsTipsDefaults }
+export const newsTips: NewsTip[] = withOverride('students.newsTips', newsTipsDefaults)

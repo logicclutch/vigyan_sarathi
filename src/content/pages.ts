@@ -1,6 +1,7 @@
 import type { PageMeta } from './types'
+import { withOverride } from './overrides'
 
-export const pageMeta = {
+const pageMetaDefaults = {
   home: {
     title: { hi: 'विज्ञान सारथी', en: 'Vigyan Sarathi' },
     description: {
@@ -128,3 +129,5 @@ export const pageMeta = {
     },
   },
 } satisfies Record<string, PageMeta>
+export { pageMetaDefaults }
+export const pageMeta = withOverride('pages', pageMetaDefaults)

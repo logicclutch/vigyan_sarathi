@@ -1,7 +1,8 @@
 import type { Difficulty, GradeBand, L, ResourceCategory, ResourceStatus, ResourceType, Topic } from './types'
+import { withOverride } from './overrides'
 
 /** All interface strings. Content for pages lives in the other content files. */
-export const ui = {
+const uiDefaults = {
   a11y: {
     skip: { hi: 'मुख्य सामग्री पर जाएँ', en: 'Skip to main content' },
     mainNav: { hi: 'मुख्य नेविगेशन', en: 'Main navigation' },
@@ -373,3 +374,5 @@ export const ui = {
     'coming-soon': { hi: 'शीघ्र', en: 'Coming soon' },
   } satisfies Record<ResourceStatus, L>,
 }
+export { uiDefaults }
+export const ui = withOverride('ui', uiDefaults)

@@ -1,7 +1,8 @@
-# Vigyan Sarathi behind an existing Traefik reverse proxy.
-# Copy .env.example to .env and set SITE_DOMAIN plus your Traefik names, then: docker compose up -d --build
+# Vigyan Sarathi behind an existing Traefik reverse proxy, with the admin API/publisher.
+# Copy .env.example to .env, set SITE_DOMAIN, the Traefik names, ADMIN_EMAIL, ADMIN_PASSWORD and
+# SESSION_SECRET, then: docker compose up -d --build
 services:
-  vigyan-sarathi:
+  web:
     build:
       context: .
       args:
@@ -9,8 +10,15 @@ services:
     image: vigyan-sarathi:latest
     container_name: vigyan-sarathi
     restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    volumes:
+      - releases:/srv/releases:ro
+      - data:/srv/data:ro
     networks:
       - traefik
+      - internal
     labels:
       - traefik.enable=true
       - traefik.docker.network=${TRAEFIK_NETWORK:-traefik}
@@ -32,7 +40,32 @@ services:
       - traefik.http.middlewares.vigyan-https.redirectscheme.scheme=https
       - traefik.http.middlewares.vigyan-https.redirectscheme.permanent=true
 
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: vigyan-sarathi-api:latest
+    container_name: vigyan-sarathi-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      SITE_DOMAIN: ${SITE_DOMAIN}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      SESSION_SECRET: ${SESSION_SECRET:-}
+      AUTO_PUBLISH_ON_START: "true"
+    volumes:
+      - releases:/srv/releases
+      - data:/srv/data
+    networks:
+      - internal
+
 networks:
   traefik:
     external: true
     name: ${TRAEFIK_NETWORK:-traefik}
+  internal: {}
+
+volumes:
+  releases: {}
+  data: {}

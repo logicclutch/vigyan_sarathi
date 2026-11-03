@@ -1,5 +1,6 @@
 import type { IconName } from '@/lib/icons'
 import type { L, ResourceCategory, Tint } from '../types'
+import { withOverride } from '../overrides'
 
 export interface TeacherCategory {
   key: ResourceCategory
@@ -8,7 +9,7 @@ export interface TeacherCategory {
   blurb: L
 }
 
-export const teacherCategories: TeacherCategory[] = [
+const teacherCategoriesDefaults: TeacherCategory[] = [
   {
     key: 'teaching',
     icon: 'bookOpen',
@@ -91,12 +92,16 @@ export const teacherCategories: TeacherCategory[] = [
     },
   },
 ]
+export { teacherCategoriesDefaults }
+export const teacherCategories: TeacherCategory[] = withOverride('teachers.categories', teacherCategoriesDefaults)
 
 /** Official Teachers Corner intro and the promise that follows it. */
-export const teachersIntro = {
+const teachersIntroDefaults = {
   quote: {
     hi: 'एक अच्छा विज्ञान शिक्षक केवल उत्तर नहीं देता। वह विद्यार्थियों के मन में सही प्रश्न पैदा करता है।',
     en: 'A good science teacher does not only give answers. They plant the right questions in students’ minds.',
   },
   provides: { hi: 'विज्ञान सारथी शिक्षकों के लिए उपलब्ध कराएगा—', en: 'Vigyan Sarathi will make available for teachers—' },
 }
+export { teachersIntroDefaults }
+export const teachersIntro = withOverride('teachers.intro', teachersIntroDefaults)

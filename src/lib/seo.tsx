@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { site } from '@/content/site'
+import { site, siteUrl } from '@/content/site'
 import { LANG_META, type Localized } from '@/i18n/types'
 import { useLanguage } from '@/i18n/useLanguage'
 
@@ -43,7 +43,7 @@ export function Seo({ title, description, path, image = '/og.png', type = 'websi
   const siteName = t(site.name)
 
   useEffect(() => {
-    const base = (site.url || window.location.origin).replace(/\/$/, '')
+    const base = (siteUrl || window.location.origin).replace(/\/$/, '')
     const fullTitle = path === '/' ? `${siteName} | ${site.shortName}` : `${pageTitle} | ${siteName}`
     const url = base ? `${base}${path}` : path
     const img = base ? `${base}${image}` : image

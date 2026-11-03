@@ -24,10 +24,12 @@ const Teachers = lazy(() => import('@/pages/Teachers'))
 const Gallery = lazy(() => import('@/pages/Gallery'))
 const Contact = lazy(() => import('@/pages/Contact'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
+const AdminApp = lazy(() => import('@/admin/AdminApp'))
 
 export function AppRoutes() {
   return (
     <Routes>
+      <Route path="admin/*" element={<AdminApp />} />
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />

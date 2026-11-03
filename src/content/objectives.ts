@@ -1,7 +1,8 @@
 import type { Objective } from './types'
+import { withOverride } from './overrides'
 
 /** The organisation's ten key objectives (प्रमुख उद्देश्य), supplied verbatim in Hindi. Icons are interface choices. */
-export const objectives: Objective[] = [
+const objectivesDefaults: Objective[] = [
   { n: 1, title: { hi: 'विद्यार्थियों में वैज्ञानिक दृष्टिकोण विकसित करना।', en: 'To develop scientific temper among students.' }, icon: 'atom', review: false },
   { n: 2, title: { hi: 'विज्ञान के प्रति जिज्ञासा एवं रुचि उत्पन्न करना।', en: 'To spark curiosity and interest in science.' }, icon: 'sparkles', review: false },
   { n: 3, title: { hi: 'प्रयोगात्मक एवं गतिविधि आधारित विज्ञान शिक्षा को बढ़ावा देना।', en: 'To promote experimental and activity-based science education.' }, icon: 'flask', review: false },
@@ -13,3 +14,5 @@ export const objectives: Objective[] = [
   { n: 9, title: { hi: 'शिक्षकों को नवाचारी विज्ञान शिक्षण के लिए प्रेरित करना।', en: 'To inspire teachers towards innovative science teaching.' }, icon: 'graduationCap', review: false },
   { n: 10, title: { hi: 'विद्यार्थियों में अनुसंधान एवं नवाचार की भावना विकसित करना।', en: 'To foster a spirit of research and innovation among students.' }, icon: 'rocket', review: false },
 ]
+export { objectivesDefaults }
+export const objectives: Objective[] = withOverride('objectives', objectivesDefaults)

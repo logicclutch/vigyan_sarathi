@@ -34,7 +34,9 @@ export default function Contact() {
   const requested = resourceId ? resources.find((r) => r.id === resourceId) : undefined
   const initialMessage = requested ? fmt(t(ui.form.resourceRequest), { title: t(requested.title) }) : ''
   const socials = (Object.entries(site.social) as [SocialKey, string | undefined][]).filter((entry): entry is [SocialKey, string] => Boolean(entry[1]))
-  const hasDetails = Boolean(site.contact.email || site.contact.phone || site.contact.address || site.contact.hours)
+  const address = site.contact.address?.hi ? site.contact.address : undefined
+  const hours = site.contact.hours?.hi ? site.contact.hours : undefined
+  const hasDetails = Boolean(site.contact.email || site.contact.phone || address || hours)
 
   const chooseWay = (nextSubject: string) => {
     const next = new URLSearchParams(params)
@@ -99,16 +101,16 @@ export default function Contact() {
                         </a>
                       </li>
                     )}
-                    {site.contact.address && (
+                    {address && (
                       <li className="flex items-start gap-3">
                         <MapPin aria-hidden="true" className="mt-1 size-4 text-amber-300" />
-                        <span>{t(site.contact.address)}</span>
+                        <span>{t(address)}</span>
                       </li>
                     )}
-                    {site.contact.hours && (
+                    {hours && (
                       <li className="flex items-start gap-3">
                         <Clock aria-hidden="true" className="mt-1 size-4 text-amber-300" />
-                        <span>{t(site.contact.hours)}</span>
+                        <span>{t(hours)}</span>
                       </li>
                     )}
                   </ul>

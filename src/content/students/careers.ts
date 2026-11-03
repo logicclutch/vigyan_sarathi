@@ -1,7 +1,8 @@
 import type { Career } from '../types'
+import { withOverride } from '../overrides'
 
 /** Careers in science: general routes in India, no invented cut-offs, fees or salaries. */
-export const careers: Career[] = [
+const careersDefaults: Career[] = [
   {
     id: 'research-scientist',
     title: { hi: 'शोध वैज्ञानिक', en: 'Research scientist' },
@@ -153,3 +154,5 @@ export const careers: Career[] = [
     tags: ['biotechnology', 'medicine', 'genetics'],
   },
 ]
+export { careersDefaults }
+export const careers: Career[] = withOverride('students.careers', careersDefaults)

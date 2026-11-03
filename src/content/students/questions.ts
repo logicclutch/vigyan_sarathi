@@ -1,7 +1,8 @@
 import type { QA } from '../types'
+import { withOverride } from '../overrides'
 
 /** Questions students actually ask, answered at a class 6–10 level. */
-export const questions: QA[] = [
+const questionsDefaults: QA[] = [
   {
     id: 'why-sky-blue',
     question: { hi: 'आसमान नीला क्यों दिखता है?', en: 'Why does the sky look blue?' },
@@ -143,3 +144,5 @@ export const questions: QA[] = [
     tags: ['time', 'longitude', 'rotation'],
   },
 ]
+export { questionsDefaults }
+export const questions: QA[] = withOverride('students.questions', questionsDefaults)

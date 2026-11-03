@@ -1,6 +1,7 @@
 import type { L } from './types'
+import { withOverride } from './overrides'
 
-export const home = {
+const homeDefaults = {
   hero: {
     kicker: { hi: 'सामाजिक एवं शैक्षिक पहल', en: 'A social and educational initiative' } satisfies L,
     intro: {
@@ -148,3 +149,5 @@ export const home = {
     en: ['Curiosity', 'Question', 'Observation', 'Hypothesis', 'Experiment', 'Evidence', 'Reason', 'Conclusion', 'Discovery', 'Innovation'],
   } as { hi: string[]; en: string[] },
 }
+export { homeDefaults }
+export const home = withOverride('home', homeDefaults)

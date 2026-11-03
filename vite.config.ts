@@ -3,10 +3,11 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { resolveSiteUrl } from './scripts/site-url.mjs'
+import contentOverrides from './scripts/vite-plugin-content-overrides.mjs'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss(), react()],
+  plugins: [tailwindcss(), react(), contentOverrides()],
   define: {
     // Public URL for canonical/OG tags: VITE_SITE_URL, else the hosting platform's production URL.
     'import.meta.env.VITE_SITE_URL': JSON.stringify(resolveSiteUrl()),
@@ -14,7 +15,7 @@ export default defineConfig({
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
-  server: { port: 5173 },
-  preview: { port: 4173 },
+  server: { port: 5173, proxy: { '/api': 'http://localhost:3000', '/uploads': 'http://localhost:3000' } },
+  preview: { port: 4173, proxy: { '/api': 'http://localhost:3000', '/uploads': 'http://localhost:3000' } },
   build: { target: 'es2022' },
 })

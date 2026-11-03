@@ -54,6 +54,43 @@ Items drafted for the organisation's approval carry `review: true`; see `CONTENT
 Facts that were not supplied (contact details, founding year, statistics, events) are optional fields that are
 simply left empty; the UI hides or adapts those sections until they are filled.
 
+### Admin panel (edit content without code)
+
+The values in `src/content/**` are **defaults**. Every exported content object is wrapped with
+`withOverride('key', defaults)` (`src/content/overrides.ts`), and the Vite plugin
+`scripts/vite-plugin-content-overrides.mjs` merges any JSON documents found in `CONTENT_DATA_DIR`
+(default `.data/content`) at build time. The public site therefore stays a fully static build: no database or API
+call happens for visitors.
+
+The admin panel at **`/admin`** (noindex, login required) edits those JSON documents:
+
+- **Sections**: all 40 content modules (site details, page titles, home, about, vision/mission, objectives,
+  scientific temper, activities, contact, students corner, teachers corner, gallery, interface strings) through a
+  form generated from the content structure (Hindi + English side by side, dropdowns for icons/tints/categories,
+  reorderable lists) or as raw JSON. Saving keeps the last 20 versions per section (History → Restore);
+  "Reset to built-in" removes the override.
+- **Media**: image uploads (JPG/PNG/WebP/GIF ≤ 10 MB, type-sniffed) served from `/uploads/`, used by URL in the
+  gallery and elsewhere.
+- **Publish**: rebuilds the site with the saved content and switches the live release atomically (about a minute;
+  the site stays online meanwhile). Saved changes are invisible until published.
+- **Users**: `admin` (content + users) and `editor` (content only) roles; every user can change their own password
+  (minimum 10 characters).
+
+The panel is served by a small API (`api/`, Hono on Node) with scrypt password hashes, an HttpOnly/Secure/SameSite
+session cookie (12 h), a login rate limit and a custom-header CSRF check. Data lives in `DATA_DIR`
+(`content/*.json`, `history/`, `uploads/`, `users.json`) and releases in `RELEASES_DIR`.
+
+Locally:
+
+```bash
+ADMIN_EMAIL=you@example.com ADMIN_PASSWORD='a-long-password' COOKIE_SECURE=false npm run api   # http://localhost:3000
+npm run dev                                                                                   # proxies /api and /uploads
+# then open http://localhost:5173/admin
+```
+
+The first start creates the admin account from `ADMIN_EMAIL` / `ADMIN_PASSWORD` when no users exist yet. The dev
+server reloads automatically when a section is saved (publishing is only needed for the production build).
+
 ## Configuration
 
 Copy `.env.example` to `.env`:
@@ -67,17 +104,27 @@ Copy `.env.example` to `.env`:
 
 ### Docker + Traefik (VPS)
 
-`Dockerfile` builds the site in a Node stage and serves `dist/` with nginx (`docker/nginx.conf`: route fallback,
-compression, long caching for hashed assets). `docker-compose.yml` attaches the container to an existing Traefik network
-with TLS via your certresolver. On the server:
+`docker-compose.yml` runs two containers:
+
+- **web** (`Dockerfile`): builds the site in a Node stage and serves it with nginx (`docker/nginx.conf`: route fallback,
+  compression, long caching for hashed assets, `/api` proxied to the API, `/uploads` served from the shared data volume,
+  `/admin` marked noindex). `docker/entrypoint.sh` serves the latest published release from the `releases` volume and
+  falls back to the build baked into the image.
+- **api** (`Dockerfile.api`): the admin API and publisher. It holds the source tree so "Publish" can rebuild the site
+  with the saved content; the first start publishes once automatically. Data (`data` volume) and releases
+  (`releases` volume) survive rebuilds.
+
+The web container is attached to an existing Traefik network with TLS via your certresolver. On the server:
 
 ```bash
 git clone https://github.com/logicclutch/vigyan_sarathi.git vigyan-sarathi && cd vigyan-sarathi
-cp .env.example .env   # set SITE_DOMAIN and the Traefik network / entrypoint / certresolver names
+cp .env.example .env   # SITE_DOMAIN, Traefik names, ADMIN_EMAIL, ADMIN_PASSWORD, SESSION_SECRET (openssl rand -base64 48)
 docker compose up -d --build
 ```
 
-Update later with `git pull && docker compose up -d --build`.
+Update later with `git pull && docker compose up -d --build` (content saved through the admin panel is kept; the API
+republishes with the new code on start). Back up the two named volumes (`docker volume ls | grep vigyan`) to keep
+content, uploads and users.
 
 Production: https://vigyansarithi.com runs this way on the organisation's Hostinger VPS (checkout at `/root/vigyan-sarathi`,
 Traefik network `n8n_default`, entrypoint `websecure`, certresolver `mytlschallenge`). To ship a change: push to `main`,

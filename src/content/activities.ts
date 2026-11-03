@@ -1,10 +1,11 @@
 import type { Activity } from './types'
+import { withOverride } from './overrides'
 
 /**
  * The nine activity formats. `short` (and `motto`) are the organisation's own words; the longer
  * intro / what happens / outcomes sections are drafted elaborations flagged for review.
  */
-export const activities: Activity[] = [
+const activitiesDefaults: Activity[] = [
   {
     slug: 'science-workshops',
     title: { hi: 'विज्ञान कार्यशालाएँ', en: 'Science Workshops' },
@@ -268,5 +269,7 @@ export const activities: Activity[] = [
     review: true,
   },
 ]
+export { activitiesDefaults }
+export const activities: Activity[] = withOverride('activities', activitiesDefaults)
 
 export const activityMap = Object.fromEntries(activities.map((activity) => [activity.slug, activity])) as Record<string, Activity>

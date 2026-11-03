@@ -1,4 +1,5 @@
 import type { L, NewsItem, SiteEvent, SocialKey, Stat } from './types'
+import { withOverride } from './overrides'
 
 export interface SiteContact {
   email?: string
@@ -16,12 +17,11 @@ export interface SiteContact {
  * empty. The UI hides or adapts any section that depends on a missing value.
  * Fill these in when the information is confirmed.
  */
-export const site = {
+const siteDefaults = {
   name: { hi: 'विज्ञान सारथी', en: 'Vigyan Sarathi' } satisfies L,
   shortName: 'Vigyan Sarathi',
   nameDevanagari: 'विज्ञान सारथी',
   nameLatin: 'Vigyan Sarathi',
-  url: (import.meta.env.VITE_SITE_URL ?? '').replace(/\/$/, ''),
 
   heroHeading: {
     hi: 'जिज्ञासा से खोज तक, विज्ञान के साथ।',
@@ -43,19 +43,24 @@ export const site = {
 
   /* ---- Configurable facts (empty until confirmed) ---- */
   contact: {
-    email: undefined,
-    phone: undefined,
-    address: undefined,
-    mapEmbedUrl: undefined,
-    hours: undefined,
+    email: '',
+    phone: '',
+    address: { hi: '', en: '' },
+    mapEmbedUrl: '',
+    hours: { hi: '', en: '' },
   } as SiteContact,
-  social: {} as Partial<Record<SocialKey, string>>,
-  foundedYear: undefined as number | undefined,
-  registration: undefined as L | undefined,
+  social: { facebook: '', instagram: '', youtube: '', x: '', whatsapp: '' } as Partial<Record<SocialKey, string>>,
+  foundedYear: '' as string,
+  registration: { hi: '', en: '' } as L,
   stats: [] as Stat[],
   events: [] as SiteEvent[],
   newsItems: [] as NewsItem[],
 }
+export { siteDefaults }
+export const site = withOverride('site', siteDefaults)
+
+/** Public URL of the deployment (build-time, not editable). */
+export const siteUrl = (import.meta.env.VITE_SITE_URL ?? '').replace(/\/$/, '')
 
 export const SOCIAL_LABELS: Record<SocialKey, string> = {
   facebook: 'Facebook',

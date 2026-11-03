@@ -1,7 +1,8 @@
 import type { Myth } from '../types'
+import { withOverride } from '../overrides'
 
 /** Common misconceptions, each answered with evidence. */
-export const myths: Myth[] = [
+const mythsDefaults: Myth[] = [
   {
     id: 'ten-percent-brain',
     myth: { hi: 'हम अपने मस्तिष्क का केवल 10 प्रतिशत उपयोग करते हैं।', en: 'We use only 10 percent of our brain.' },
@@ -135,3 +136,5 @@ export const myths: Myth[] = [
     tags: ['gravity', 'galileo', 'myth'],
   },
 ]
+export { mythsDefaults }
+export const myths: Myth[] = withOverride('students.myths', mythsDefaults)

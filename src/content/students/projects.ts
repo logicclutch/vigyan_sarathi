@@ -1,7 +1,8 @@
 import type { Project } from '../types'
+import { withOverride } from '../overrides'
 
 /** Science projects for exhibitions and classrooms. General, verifiable science; no organisational claims. */
-export const projects: Project[] = [
+const projectsDefaults: Project[] = [
   {
     id: 'solar-water-heater',
     title: { hi: 'सौर जल-तापक मॉडल', en: 'Solar water heater model' },
@@ -309,3 +310,5 @@ export const projects: Project[] = [
     featured: true,
   },
 ]
+export { projectsDefaults }
+export const projects: Project[] = withOverride('students.projects', projectsDefaults)

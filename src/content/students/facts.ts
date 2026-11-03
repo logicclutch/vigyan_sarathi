@@ -1,7 +1,8 @@
 import type { Fact } from '../types'
+import { withOverride } from '../overrides'
 
 /** General, verifiable science facts for the Students Corner. */
-export const facts: Fact[] = [
+const factsDefaults: Fact[] = [
   {
     id: 'sunlight-eight-minutes',
     title: { hi: 'सूर्य की रोशनी 8 मिनट पुरानी होती है', en: 'Sunlight is eight minutes old' },
@@ -183,3 +184,5 @@ export const facts: Fact[] = [
     tags: ['ocean', 'oxygen', 'plankton'],
   },
 ]
+export { factsDefaults }
+export const facts: Fact[] = withOverride('students.facts', factsDefaults)

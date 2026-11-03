@@ -1,6 +1,7 @@
 import type { StudentSection, StudentSectionKey } from '../types'
+import { withOverride } from '../overrides'
 
-export const studentSections: StudentSection[] = [
+const studentSectionsDefaults: StudentSection[] = [
   {
     key: 'facts',
     title: { hi: 'रोचक विज्ञान तथ्य', en: 'Interesting Science Facts' },
@@ -82,14 +83,18 @@ export const studentSections: StudentSection[] = [
     tint: 'amber',
   },
 ]
+export { studentSectionsDefaults }
+export const studentSections: StudentSection[] = withOverride('students.sections', studentSectionsDefaults)
 
 /** Official intro and motto for the Students Corner (हमारी सोच). */
-export const studentsIntro = {
+const studentsIntroDefaults = {
   heading: { hi: 'विद्यार्थियों के लिए विज्ञान की दुनिया', en: 'A world of science for students' },
   find: { hi: 'यहाँ विद्यार्थी पाएँगे—', en: 'Here students will find—' },
   thinkingLabel: { hi: 'हमारी सोच', en: 'Our thinking' },
   motto: { hi: 'पढ़ो कम नहीं—समझो अधिक, पूछो अधिक और प्रयोग करो।', en: 'Not less reading: understand more, ask more and experiment.' },
 }
+export { studentsIntroDefaults }
+export const studentsIntro = withOverride('students.intro', studentsIntroDefaults)
 
 export const studentSectionMap = Object.fromEntries(studentSections.map((section) => [section.key, section])) as Record<
   StudentSectionKey,

@@ -1,5 +1,6 @@
 import type { L } from './types'
 import type { IconName } from '@/lib/icons'
+import { withOverride } from './overrides'
 
 export interface Point {
   text: L
@@ -7,7 +8,7 @@ export interface Point {
 }
 
 /** Official text supplied by the organisation (Hindi); English is a faithful translation. Icons are interface choices. */
-export const vision = {
+const visionDefaults = {
   label: { hi: 'हमारी दृष्टि', en: 'Our Vision' } satisfies L,
   statement: {
     hi: 'एक ऐसा समाज जहाँ जिज्ञासा को प्रोत्साहन मिले, प्रश्नों का सम्मान हो और निर्णय तर्क एवं प्रमाण के आधार पर लिए जाएँ।',
@@ -27,8 +28,10 @@ export const vision = {
     { text: { hi: 'नई खोज एवं नवाचार के लिए प्रेरित हों।', en: 'are inspired towards new discovery and innovation.' }, icon: 'rocket' },
   ] satisfies Point[],
 }
+export { visionDefaults }
+export const vision = withOverride('visionMission.vision', visionDefaults)
 
-export const mission = {
+const missionDefaults = {
   label: { hi: 'हमारा मिशन', en: 'Our Mission' } satisfies L,
   statement: {
     hi: 'विज्ञान को विद्यार्थियों और समाज के अधिक निकट लाना तथा वैज्ञानिक दृष्टिकोण को जीवन की संस्कृति का हिस्सा बनाना।',
@@ -44,3 +47,5 @@ export const mission = {
     { text: { hi: 'विज्ञान और समाज के बीच संवाद स्थापित करने का', en: 'build a dialogue between science and society' }, icon: 'message' },
   ] satisfies Point[],
 }
+export { missionDefaults }
+export const mission = withOverride('visionMission.mission', missionDefaults)

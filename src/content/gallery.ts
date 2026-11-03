@@ -1,5 +1,6 @@
 import type { IconName } from '@/lib/icons'
 import type { GalleryCategory, GalleryItem, L } from './types'
+import { withOverride } from './overrides'
 
 export interface GalleryCategoryDef {
   key: GalleryCategory
@@ -7,7 +8,7 @@ export interface GalleryCategoryDef {
   icon: IconName
 }
 
-export const galleryCategories: GalleryCategoryDef[] = [
+const galleryCategoriesDefaults: GalleryCategoryDef[] = [
   { key: 'workshops', label: { hi: 'कार्यशालाएँ', en: 'Workshops' }, icon: 'flask' },
   { key: 'exhibitions', label: { hi: 'विज्ञान प्रदर्शनियाँ', en: 'Science Exhibitions' }, icon: 'presentation' },
   { key: 'students', label: { hi: 'विद्यार्थी गतिविधियाँ', en: 'Student Activities' }, icon: 'users' },
@@ -15,6 +16,8 @@ export const galleryCategories: GalleryCategoryDef[] = [
   { key: 'events', label: { hi: 'कार्यक्रम', en: 'Events' }, icon: 'mic' },
   { key: 'awareness', label: { hi: 'जागरूकता अभियान', en: 'Awareness Programmes' }, icon: 'leaf' },
 ]
+export { galleryCategoriesDefaults }
+export const galleryCategories: GalleryCategoryDef[] = withOverride('gallery.categories', galleryCategoriesDefaults)
 
 /**
  * Placeholder gallery. Every item is a generated SVG (see scripts/make-placeholders.mjs).
@@ -22,7 +25,7 @@ export const galleryCategories: GalleryCategoryDef[] = [
  * write an honest `alt`/`caption`, and set `placeholder: false`.
  * Sizes must stay in sync with the generator script.
  */
-export const galleryItems: GalleryItem[] = [
+const galleryItemsDefaults: GalleryItem[] = [
   {
     id: 'workshops-1',
     category: 'workshops',
@@ -204,3 +207,5 @@ export const galleryItems: GalleryItem[] = [
     caption: { hi: 'समुदाय से संवाद', en: 'With the community' },
   },
 ]
+export { galleryItemsDefaults }
+export const galleryItems: GalleryItem[] = withOverride('gallery.items', galleryItemsDefaults)

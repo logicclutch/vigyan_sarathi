@@ -1,15 +1,20 @@
 import type { Claim, L, TemperStep } from './types'
 import type { IconName } from '@/lib/icons'
+import { withOverride } from './overrides'
 
-export const temperQuote = {
+const temperQuoteDefaults = {
   hi: 'दावे को स्वीकार करने से पहले प्रमाण खोजें।',
   en: 'Seek evidence before accepting a claim.',
 } satisfies L
+export { temperQuoteDefaults }
+export const temperQuote = withOverride('scientificTemper.quote', temperQuoteDefaults)
 
 /** Official heading and definition supplied by the organisation. */
-export const temperHeading = { hi: 'वैज्ञानिक दृष्टिकोण — हमारी प्राथमिकता', en: 'Scientific temper: our priority' } satisfies L
+const temperHeadingDefaults = { hi: 'वैज्ञानिक दृष्टिकोण — हमारी प्राथमिकता', en: 'Scientific temper: our priority' } satisfies L
+export { temperHeadingDefaults }
+export const temperHeading = withOverride('scientificTemper.heading', temperHeadingDefaults)
 
-export const temperDefinition = {
+const temperDefinitionDefaults = {
   lead: { hi: 'वैज्ञानिक दृष्टिकोण का अर्थ केवल विज्ञान की जानकारी होना नहीं है।', en: 'Scientific temper does not simply mean knowing science.' } satisfies L,
   body: {
     hi: 'यह एक ऐसी मानसिकता है जिसमें व्यक्ति “मैंने सुना है” से आगे बढ़कर पूछता है— “क्या यह सत्य है?” और फिर पूछता है— “इसका प्रमाण क्या है?”',
@@ -21,18 +26,24 @@ export const temperDefinition = {
     { hi: '“इसका प्रमाण क्या है?”', en: '“What is the evidence?”' },
   ] satisfies L[],
 }
+export { temperDefinitionDefaults }
+export const temperDefinition = withOverride('scientificTemper.definition', temperDefinitionDefaults)
 
-export const temperIntro = {
+const temperIntroDefaults = {
   hi: 'नीचे की छह कड़ियाँ उसी प्रक्रिया की हैं जिससे एक साधारण प्रश्न भरोसेमंद निष्कर्ष तक पहुँचता है। किसी भी कड़ी पर जाएँ और देखें।',
   en: 'The six links below are the process by which an ordinary question reaches a trustworthy conclusion. Step through them.',
 } satisfies L
+export { temperIntroDefaults }
+export const temperIntro = withOverride('scientificTemper.intro', temperIntroDefaults)
 
-export const exampleQuestion = {
+const exampleQuestionDefaults = {
   hi: 'खिड़की के पास रखा पौधा बाहर की ओर क्यों झुक जाता है?',
   en: 'Why does a plant kept near a window lean towards the outside?',
 } satisfies L
+export { exampleQuestionDefaults }
+export const exampleQuestion = withOverride('scientificTemper.exampleQuestion', exampleQuestionDefaults)
 
-export const temperSteps: TemperStep[] = [
+const temperStepsDefaults: TemperStep[] = [
   {
     key: 'question',
     label: { hi: 'प्रश्न पूछें', en: 'Ask a question' },
@@ -136,11 +147,15 @@ export const temperSteps: TemperStep[] = [
     prompt: { hi: 'अपने निष्कर्ष के साथ एक नया प्रश्न लिखें।', en: 'Write one new question alongside your conclusion.' },
   },
 ]
+export { temperStepsDefaults }
+export const temperSteps: TemperStep[] = withOverride('scientificTemper.steps', temperStepsDefaults)
 
 /** Official: “वैज्ञानिक दृष्टिकोण हमें सिखाता है—”. Icons are interface choices. */
-export const temperTeachingsLabel = { hi: 'वैज्ञानिक दृष्टिकोण हमें सिखाता है', en: 'Scientific temper teaches us' } satisfies L
+const temperTeachingsLabelDefaults = { hi: 'वैज्ञानिक दृष्टिकोण हमें सिखाता है', en: 'Scientific temper teaches us' } satisfies L
+export { temperTeachingsLabelDefaults }
+export const temperTeachingsLabel = withOverride('scientificTemper.teachingsLabel', temperTeachingsLabelDefaults)
 
-export const temperTeachings: { text: L; icon: IconName }[] = [
+const temperTeachingsDefaults: { text: L; icon: IconName }[] = [
   { text: temperQuote, icon: 'scale' },
   {
     text: { hi: 'परंपरा का सम्मान करें, लेकिन उसे तर्क की कसौटी पर भी परखें।', en: 'Respect tradition, but test it on the touchstone of reason too.' },
@@ -151,9 +166,11 @@ export const temperTeachings: { text: L; icon: IconName }[] = [
     icon: 'question',
   },
 ]
+export { temperTeachingsDefaults }
+export const temperTeachings: { text: L; icon: IconName }[] = withOverride('scientificTemper.teachings', temperTeachingsDefaults)
 
 /** Mini-interaction: is this statement evidence, or just a claim? */
-export const claims: Claim[] = [
+const claimsDefaults: Claim[] = [
   {
     statement: { hi: 'यह दवा हर बीमारी ठीक कर देती है, मेरे पड़ोसी ने बताया।', en: 'This medicine cures every illness, my neighbour told me.' },
     kind: 'claim',
@@ -205,3 +222,5 @@ export const claims: Claim[] = [
     why: { hi: 'नियंत्रण समूह से तुलना यह दिखाती है कि अंतर बदले गए चर के कारण है।', en: 'Comparison with a control shows the difference comes from the variable that was changed.' },
   },
 ]
+export { claimsDefaults }
+export const claims: Claim[] = withOverride('scientificTemper.claims', claimsDefaults)

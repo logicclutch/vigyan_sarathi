@@ -37,3 +37,7 @@ dist-ssr
 
 # Temporary deploy checkout
 /.deploy/
+
+# Admin API local data and releases
+/.data/
+/.releases/

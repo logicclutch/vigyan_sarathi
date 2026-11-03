@@ -1,7 +1,8 @@
 import type { QuizSet } from '../types'
+import { withOverride } from '../overrides'
 
 /** Three topic quizzes for classes 6–10. `answer` is the index of the correct option. */
-export const quizSets: QuizSet[] = [
+const quizSetsDefaults: QuizSet[] = [
   {
     id: 'everyday',
     title: { hi: 'रोज़मर्रा का विज्ञान', en: 'Everyday Science' },
@@ -405,3 +406,5 @@ export const quizSets: QuizSet[] = [
     ],
   },
 ]
+export { quizSetsDefaults }
+export const quizSets: QuizSet[] = withOverride('students.quiz', quizSetsDefaults)

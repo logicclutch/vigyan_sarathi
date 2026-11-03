@@ -1,7 +1,8 @@
 import type { Scientist } from '../types'
+import { withOverride } from '../overrides'
 
 /** Inspirational stories of real scientists. Facts only; no invented quotes. */
-export const scientists: Scientist[] = [
+const scientistsDefaults: Scientist[] = [
   {
     id: 'cv-raman',
     name: { hi: 'सी. वी. रमन', en: 'C. V. Raman' },
@@ -173,3 +174,5 @@ export const scientists: Scientist[] = [
     tags: ['chemistry', 'physics', 'nobel'],
   },
 ]
+export { scientistsDefaults }
+export const scientists: Scientist[] = withOverride('students.scientists', scientistsDefaults)

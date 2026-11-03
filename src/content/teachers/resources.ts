@@ -1,4 +1,5 @@
 import type { L, Resource } from '../types'
+import { withOverride } from '../overrides'
 
 const l = (hi: string, en: string): L => ({ hi, en })
 
@@ -8,7 +9,7 @@ const l = (hi: string, en: string): L => ({ hi, en })
  * - kind 'link'     → pre-verified external resource (checked 2026-11-02).
  * - status 'coming-soon' → the organisation will upload this; no file is linked yet.
  */
-export const resources: Resource[] = [
+const resourcesDefaults: Resource[] = [
   /* ------------------------------------------------------------------ */
   /* TEACHING                                                            */
   /* ------------------------------------------------------------------ */
@@ -1351,3 +1352,5 @@ export const resources: Resource[] = [
     tags: ['slides', 'light'],
   },
 ]
+export { resourcesDefaults }
+export const resources: Resource[] = withOverride('teachers.resources', resourcesDefaults)
