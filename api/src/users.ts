@@ -11,7 +11,7 @@ export interface User {
 }
 export type PublicUser = Omit<User, 'passwordHash'>
 
-export const PASSWORD_MIN = 10
+export const PASSWORD_MIN = 8
 
 export function hashPassword(password: string): string {
   const salt = randomBytes(16).toString('hex')
@@ -64,6 +64,18 @@ export function deleteUser(id: string) {
   if (next.length === users.length) throw new Error('not-found')
   if (!next.some((user) => user.role === 'admin')) throw new Error('last-admin')
   saveUsers(next)
+}
+
+export function setEmail(id: string, email: string) {
+  const normalised = email.trim().toLowerCase()
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(normalised)) throw new Error('invalid-email')
+  const users = loadUsers()
+  if (users.some((entry) => entry.email === normalised && entry.id !== id)) throw new Error('exists')
+  const user = users.find((entry) => entry.id === id)
+  if (!user) throw new Error('not-found')
+  user.email = normalised
+  saveUsers(users)
+  return toPublic(user)
 }
 
 export function setPassword(id: string, password: string) {

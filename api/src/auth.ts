@@ -3,7 +3,7 @@ import { deleteCookie, getCookie, setCookie } from 'hono/cookie'
 import { createMiddleware } from 'hono/factory'
 import { sign, verify } from 'hono/jwt'
 import { config, sessionSecret } from './config'
-import { PASSWORD_MIN, findUserByEmail, findUserById, setPassword, toPublic, verifyPassword, type PublicUser, type Role } from './users'
+import { PASSWORD_MIN, findUserByEmail, findUserById, setEmail, setPassword, toPublic, verifyPassword, type PublicUser, type Role } from './users'
 
 export type AppEnv = { Variables: { user: PublicUser } }
 
@@ -94,4 +94,14 @@ export const authRoutes = new Hono<AppEnv>()
     if (String(body.next ?? '').length < PASSWORD_MIN) return c.json({ error: 'weak-password', min: PASSWORD_MIN }, 400)
     setPassword(user.id, String(body.next))
     return c.body(null, 204)
+  })
+  .post('/email', requireAuth, async (c) => {
+    const body = await c.req.json<{ password?: string; email?: string }>().catch(() => ({}) as { password?: string; email?: string })
+    const user = findUserById(c.get('user').id)
+    if (!user || !verifyPassword(String(body.password ?? ''), user.passwordHash)) return c.json({ error: 'invalid-credentials' }, 401)
+    try {
+      return c.json({ user: setEmail(user.id, String(body.email ?? '')) })
+    } catch (error) {
+      return c.json({ error: (error as Error).message }, 400)
+    }
   })

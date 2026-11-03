@@ -74,7 +74,7 @@ The admin panel at **`/admin`** (noindex, login required) edits those JSON docum
 - **Publish**: rebuilds the site with the saved content and switches the live release atomically (about a minute;
   the site stays online meanwhile). Saved changes are invisible until published.
 - **Users**: `admin` (content + users) and `editor` (content only) roles; every user can change their own password
-  (minimum 10 characters).
+  (minimum 8 characters) and login email under Account.
 
 The panel is served by a small API (`api/`, Hono on Node) with scrypt password hashes, an HttpOnly/Secure/SameSite
 session cookie (12 h), a login rate limit and a custom-header CSRF check. Data lives in `DATA_DIR`

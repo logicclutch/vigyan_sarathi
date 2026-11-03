@@ -64,7 +64,7 @@ export default function UsersPage() {
             <input id="new-email" type="email" required autoComplete="off" value={email} onChange={(e) => setEmail(e.target.value)} className={INPUT_CLASS} />
           </Field>
           <Field label={t(A.password)} id="new-password" hint={t(A.passwordRule)}>
-            <input id="new-password" type="password" required minLength={10} autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} className={INPUT_CLASS} />
+            <input id="new-password" type="password" required minLength={8} autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} className={INPUT_CLASS} />
           </Field>
           <Field label={t(A.role)} id="new-role">
             <select id="new-role" value={role} onChange={(e) => setRole(e.target.value as 'admin' | 'editor')} className={INPUT_CLASS}>
